@@ -1,41 +1,44 @@
 body {
   font-family: Verdana, Helvetica, Arial, sans-serif;
-  font-size: 80%;
+  font-size: 95%;
   background-color: white;
   margin: 0;
   padding: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 p, h1, h2, h3, h4, main {
   font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 90%;
+  font-size: 100%;
   color: black;
 }
 
 pp {
   font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 80%;
+  font-size: 95%;
   color: black;
 }
 
 h1 {
-  font-size: 200%;
+  font-size: 180%;
   font-weight: bold;
 }
 
 h2 {
-  font-size: 110%;
+  font-size: 120%;
   font-weight: bold;
 }
 
 h3 {
-  font-size: 100%;
+  font-size: 105%;
   margin-bottom: 0;
 }
 
 a {
   color: #FF6E1E;
   text-decoration: none;
+  font-size: 100%;
 }
 
 a:hover {
@@ -45,19 +48,25 @@ a:hover {
 
 r {
   color: #FF6E1E;
+  font-size: 100%;
 }
 
 /* Row + Column Layout */
 .row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  align-items: flex-start;
   margin-bottom: 15px;
+  gap: 24px;
 }
 
 .column {
-  flex: 1;
-  padding: 10px;
-  min-width: 300px;
+  flex: 0 0 150px;
+  padding: 0;
+  min-width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 /* Profile Picture */
@@ -70,11 +79,11 @@ r {
   margin-left: 40px;
 }
 .profile-pic img {
-  width: 200px;
-  height: 200px;
+  width: 260px;
+  height: 260px;
   object-fit: cover;
   border-radius: 0; /* Remove rounding for profile photo */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: none;
   display: block;
 }
 
@@ -107,6 +116,16 @@ r {
   justify-content: center;
 }
 
+/* Company Description */
+.company-description {
+  flex: 1;
+  padding-left: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 /* Gallery Grid */
 .gallery-grid {
   display: flex;
@@ -116,8 +135,8 @@ r {
   margin-bottom: 30px;
 }
 .gallery-img {
-  width: 180px;
-  height: 180px;
+  width: 240px;
+  height: 240px;
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -144,8 +163,8 @@ r {
 .modal-content {
   margin: auto;
   display: block;
-  max-width: 80vw;
-  max-height: 80vh;
+  max-width: 90vw;
+  max-height: 90vh;
   border-radius: 10px;
 }
 .close {
@@ -165,7 +184,48 @@ r {
   color: #fff;
   text-align: center;
   margin-top: 10px;
-  font-size: 1.1em;
+  font-size: 1.3em;
+}
+
+/* Main content table width and centering */
+table[align="center"] {
+  width: 80vw !important;
+  max-width: 950px;
+  min-width: 350px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  background: none;
+  border: none;
+}
+
+@media (max-width: 1000px) {
+  table[align="center"] {
+    width: 96vw !important;
+    max-width: 98vw;
+  }
+}
+
+@media (max-width: 700px) {
+  table[align="center"] {
+    width: 100vw !important;
+    max-width: 100vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .row {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .column, .company-description {
+    min-width: unset;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-left: 0;
+  }
 }
 
 @media (max-width: 700px) {
