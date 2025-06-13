@@ -240,3 +240,111 @@ table[align="center"] {
     align-self: center;
   }
 }
+
+/* Tetris Section */
+.tetris-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+.tetris-video-block {
+  flex: 1 1 340px;
+  max-width: 480px;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tetris-video-block video {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+}
+.tetris-caption {
+  margin-top: 10px;
+  font-size: 1.1em;
+  text-align: center;
+}
+.tetris-date {
+  color: #888;
+  font-size: 0.95em;
+}
+.tetris-info-block {
+  flex: 1 1 320px;
+  max-width: 420px;
+  min-width: 260px;
+}
+.tetris-info-block ul {
+  font-size: 1.05em;
+  margin-bottom: 18px;
+  padding-left: 18px;
+}
+.tetris-bests {
+  width: 100%;
+  font-size: 1em;
+  border-collapse: collapse;
+}
+.tetris-bests td {
+  padding: 4px 0;
+}
+.tetris-links {
+  text-align: center;
+  margin-top: 24px;
+}
+@media (max-width: 900px) {
+  .tetris-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .tetris-video-block, .tetris-info-block {
+    max-width: 98vw;
+    min-width: 0;
+  }
+}
+
+/* Tetris Preview */
+.tetris-preview {
+  margin-top: 32px;
+  margin-bottom: 32px;
+  padding: 18px 0;
+  border-radius: 10px;
+  background: #fafafa;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.tetris-preview h3 {
+  margin-bottom: 8px;
+}
+.tetris-preview .tetris-preview-flex {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+}
+.tetris-preview video {
+  width: 220px;
+  height: 140px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  background: #222;
+}
+.tetris-preview .tetris-preview-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+@media (max-width: 700px) {
+  .tetris-preview .tetris-preview-flex {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .tetris-preview video {
+    width: 98vw;
+    max-width: 320px;
+    height: auto;
+  }
+}
