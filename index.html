@@ -23,39 +23,11 @@
     .tetris-preview video { filter: grayscale(0.7) contrast(1.1); border: 1px solid #444; background: #222; }
     .tetris-preview video:hover { filter: none; }
     .footer-retro { text-align: center; font-size: 0.95em; color: #888; margin: 40px 0 10px 0; letter-spacing: 1px; }
-
-    /* Boot/Terminal Intro Animation */
-    #boot-overlay {
-      display: none;
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: #000;
-      color: #0f0;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 1.2em;
-      padding: 20px;
-      box-sizing: border-box;
-      z-index: 9999;
-    }
-    #boot-text {
-      opacity: 0;
-      transition: opacity 0.8s;
-    }
-
-    /* Section Typing Animation */
-    .typed-cursor {
-      display: inline-block;
-      width: 10px;
-      height: 1em;
-      background: #ffb347;
-      animation: blink-caret 0.8s step-end infinite;
-    }
-    @keyframes blink-caret {
-      0%, 100% { background: transparent; }
-      50% { background: #ffb347; }
+    .company-logo {
+      width: 100px;
+      height: auto;
+      filter: grayscale(1) brightness(0.8);
+      margin-bottom: 8px;
     }
 
     /* Matrix Rain Easter Egg */
@@ -69,31 +41,25 @@
       pointer-events: none;
       z-index: 9999;
     }
+
+    /* INNOVATIVE RETRO UPGRADES */
   </style>
 </head>
 <body>
-  <!-- ASCII Art Banner and Boot Animation -->
-  <div id="boot-overlay">
-    <pre id="boot-text">
-      ____  ____   __    ___  ____  
-     (  _ \(  _ \ /__\  / __)(  _ \ 
-      ) _ < )   //(__)\( (__  )   / 
-     (____/(__\_)(__)(__\___)(_)\_) 
-
-     SAYID ALSAYID PORTFOLIO
-    </pre>
-  </div>
-
   <div class="nav-min">
     <a href="#about">about</a>
     <a href="#experience">experience</a>
     <a href="#projects">projects</a>
     <a href="#gallery">gallery</a>
-    <a href="#travel">travel</a>
     <a href="#tetris">tetris</a>
     <a href="#resume">resume</a>
     <a href="#contact">contact</a>
     <span class="retro-blink">█</span>
+  </div>
+
+  <!-- RETRO INNOVATION BLAST: Interactive Features -->
+  <div style="margin-bottom: 18px; text-align: right;">
+    <button id="random-fact-btn" style="background:#181818;color:#ffd600;border:1px solid #ffd600;border-radius:4px;padding:4px 14px;font-family:inherit;font-size:1em;cursor:pointer;">random fact</button>
   </div>
 
   <main style="max-width: 600px; margin: 0 auto;">
@@ -102,7 +68,8 @@
     <div style="font-size:1.1em; margin-bottom: 18px;">undergraduate @ unl | mechanical engineering + computer science | intern @ nasa & hudl</div>
     <div style="margin-bottom: 18px;">
       email: <a href="mailto:alsayidoff@gmail.com">alsayidoff@gmail.com</a><br>
-      linkedin: <a href="https://linkedin.com/in/sayidalsayid">/in/sayidalsayid</a>
+      linkedin: <a href="https://linkedin.com/in/sayidalsayid">/in/sayidalsayid</a><br>
+      github: <a href="https://github.com/salsayid">github.com/salsayid</a>
     </div>
     <div class="ascii-divider">-----------------------------</div>
     <a name="about"></a>
@@ -113,12 +80,46 @@
     <div class="ascii-divider">-----------------------------</div>
     <a name="experience"></a>
     <h2>EXPERIENCE</h2>
-    <ul style="list-style: none; padding: 0; margin: 0 0 18px 0;">
-      <li>software qa engineer intern, hudl (2025)</li>
-      <li>aeronautical systems engineer intern, nasa glenn (2024)</li>
-      <li>undergraduate researcher, nebraska nanoscale energy lab (2024)</li>
-      <li>software engineer intern, nebraska transportation center (2023-24)</li>
-    </ul>
+    <div class="experience-list">
+      <div class="experience-item">
+        <img src="images/hudl4.png" alt="Hudl logo" class="company-logo" />
+        <div class="experience-details">
+          <div class="experience-role">software qa engineer intern</div>
+          <div class="experience-company">hudl</div>
+          <div class="experience-year">may 2025 - aug 2025</div>
+          <div class="experience-desc">developed Playwright and API test automation for sideline systems in an agile dev environment</div>
+        </div>
+      </div>
+      <div class="experience-item">
+        <img src="images/nasa4.png" alt="NASA logo" class="company-logo" />
+        <div class="experience-details">
+          <div class="experience-role">aeronautical systems engineer intern</div>
+          <div class="experience-company">nasa</div>
+          <div class="experience-year">aug 2024 - dec 2024</div>
+          <div class="experience-desc">flight systems and propulsion simulations. hardware testing for the flow boiling and condensation experiment (FBCE)</div>
+        </div>
+      </div>
+      <div class="experience-item">
+        <img src="images/unl4.png" alt="NanoLab logo" class="company-logo" />
+        <div class="experience-details">
+          <div class="experience-role">undergraduate researcher</div>
+          <div class="experience-company">nebraska nanoscale energy engineering lab</div>
+          <div class="experience-year">feb 2024 - jul 2024</div>
+          <div class="experience-desc">nanoscale heat transfer and thermionic energy conversion. ran experiments, analyzed results, and contributed to next-gen energy systems.
+
+</div>
+        </div>
+      </div>
+      <div class="experience-item">
+        <img src="images/unl4.png" alt="Nebraska Transportation Center logo" class="company-logo" />
+        <div class="experience-details">
+          <div class="experience-role">software engineer intern</div>
+          <div class="experience-company">nebraska transportation center</div>
+          <div class="experience-year">dec 2023 - jul 2024</div>
+          <div class="experience-desc">built models in python to analyze EV charging networks. improved rural transportation planning.</div>
+        </div>
+      </div>
+    </div>
     <div class="ascii-divider">-----------------------------</div>
     <a name="projects"></a>
     <h2>PROJECTS</h2>
@@ -140,14 +141,6 @@
       <img src="images/artemis.png" alt="artemis" class="gallery-img" />
     </div>
     <div class="ascii-divider">-----------------------------</div>
-    <a name="travel"></a>
-    <h2>TRAVEL</h2>
-    <div style="font-size:1em; margin-bottom: 18px;">see photos from my adventures around the world!</div>
-    <div class="gallery-scroll">
-      <img src="images/outdoor.png" alt="outdoor" class="gallery-img" />
-      <!-- add more travel images as needed -->
-    </div>
-    <div class="ascii-divider">-----------------------------</div>
     <a name="tetris"></a>
     <h2>TETRIS</h2>
     <div class="tetris-preview" style="margin-bottom: 18px;">
@@ -165,11 +158,23 @@
     <h2>RESUME</h2>
     <div style="margin-bottom: 18px;">download my latest resume <a href="docs/Resume.pdf">here</a>.</div>
     <div class="ascii-divider">-----------------------------</div>
-    <a name="contact"></a>
-    <h2>CONTACT</h2>
-    <div style="margin-bottom: 18px;">
-      email: <a href="mailto:alsayidoff@gmail.com">alsayidoff@gmail.com</a><br>
-      linkedin: <a href="https://linkedin.com/in/sayidalsayid">linkedin.com/in/sayidalsayid</a>
+    <a name="social"></a>
+    <h2>SOCIAL</h2>
+
+      <div class="social-app" id="insta-app" style="margin-top: 12px;">
+        <span class="social-label">instagram</span>
+        <a href="https://www.instagram.com/sayidall/" target="_blank">@sayidall</a>
+      </div>
+
+      <div class="social-app" id="x-app" style="margin-top: 12px;">
+        <span class="social-label">x</span>
+        <a href="https://x.com/AlsayidSayid" target="_blank">@AlsayidSayid</a>
+      </div>
+
+      <div class="social-app" id="letterboxd-app" style="margin-top: 12px;">
+        <span class="social-label">letterboxd</span>
+        <a href="https://letterboxd.com/sayidal/" target="_blank">@sayidal</a>
+      </div>
     </div>
     <div class="ascii-divider">-----------------------------</div>
     <div class="footer-retro">sayid alsayid &copy; 2025</div>
@@ -180,55 +185,6 @@
       const scrollers = document.querySelectorAll('.gallery-scroll');
       if (e.key === 'ArrowRight') scrollers.forEach(s => s.scrollBy({left: 120, behavior:'smooth'}));
       if (e.key === 'ArrowLeft') scrollers.forEach(s => s.scrollBy({left: -120, behavior:'smooth'}));
-    });
-  </script>
-
-  <!-- Boot/Terminal Intro Animation -->
-  <script>
-    window.addEventListener('DOMContentLoaded', function() {
-      const overlay = document.getElementById('boot-overlay');
-      const text = document.getElementById('boot-text');
-      overlay.style.display = 'block';
-      text.style.opacity = 1;
-      setTimeout(() => {
-        overlay.style.opacity = 0;
-        setTimeout(() => overlay.style.display = 'none', 800);
-      }, 1800);
-    });
-  </script>
-
-  <!-- Section Typing Animation -->
-  <script>
-    function typeInSection(section) {
-      const el = section;
-      const text = el.innerText;
-      el.innerText = '';
-      let i = 0;
-      function type() {
-        if (i < text.length) {
-          el.innerText += text[i];
-          i++;
-          setTimeout(type, 8 + Math.random()*30);
-        }
-      }
-      type();
-    }
-
-    window.addEventListener('DOMContentLoaded', function() {
-      const sections = document.querySelectorAll('h2, .company-description, ul, .gallery-grid, .tetris-preview, .wip');
-      let revealed = new Set();
-      function revealOnScroll() {
-        sections.forEach((sec, idx) => {
-          if (!revealed.has(sec) && sec.getBoundingClientRect().top < window.innerHeight - 80) {
-            if (sec.tagName === 'H2' || sec.classList.contains('company-description')) {
-              typeInSection(sec);
-            }
-            revealed.add(sec);
-          }
-        });
-      }
-      window.addEventListener('scroll', revealOnScroll);
-      revealOnScroll();
     });
   </script>
 
@@ -312,5 +268,141 @@
     draw();
   });
   </script>
+
+  <!-- RETRO INNOVATION BLAST: Interactive Features -->
+  <script>
+  // Random Fact Overlay
+  document.getElementById('random-fact-btn').addEventListener('click', function() {
+    const facts = [
+      'Honey never spoils. Sealed honey jars found in ancient Egyptian tombs thousands of years old are still safe to eat.',
+      'A day on Venus is longer than a year on Venus. It takes Venus about 243 Earth days to rotate once, but only about 225 Earth days to orbit the Sun.',
+      'Octopuses have three hearts: two pump blood through the gills, and one pumps blood through the rest of the body.',
+      'The shortest war in history lasted just 38-45 minutes! It was fought between the British Empire and the Sultanate of Zanzibar on August 27, 1896.',
+      'Your taste buds have a lifespan of about 10 to 14 days, and new ones are constantly being formed to replace the old ones.',
+      'Bananas are berries, but strawberries aren’t. Botanically speaking, a berry is a fruit produced from the ovary of a single flower with seeds embedded in the flesh.',
+      'Wombat poop is cube-shaped. This unusual shape prevents the poop from rolling away and helps mark the wombat’s territory.',
+      'The Eiffel Tower can be 15 cm taller during the summer due to the expansion of iron in the heat.',
+      'A jiffy is an actual unit of time: 1/100th of a second.',
+      'Scotland’s national animal is the unicorn. It has been a symbol of purity and innocence in Celtic mythology for centuries.'
+    ];
+    const randomFact = facts[Math.floor(Math.random() * facts.length)];
+
+    const overlay = document.createElement('div');
+    overlay.id = 'random-fact-overlay';
+    overlay.style.position = 'fixed';
+    overlay.style.left = 0;
+    overlay.style.top = 0;
+    overlay.style.width = '100vw';
+    overlay.style.height = '100vh';
+    overlay.style.background = 'rgba(0,0,0,0.95)';
+    overlay.style.color = '#ffd600';
+    overlay.style.fontFamily = "'IBM Plex Mono', monospace";
+    overlay.style.fontSize = '1.2em';
+    overlay.style.padding = '20px';
+    overlay.style.boxSizing = 'border-box';
+    overlay.style.zIndex = 10010;
+    overlay.innerHTML = '<div style="margin-bottom: 12px;">random fact (beta)</div><div style="line-height: 1.4;">'+
+      randomFact+
+      '</div>';
+    document.body.appendChild(overlay);
+
+    // Close overlay on click
+    overlay.addEventListener('click', function() {
+      overlay.remove();
+    });
+  });
+  </script>
+
+  <!-- INNOVATIVE RETRO UPGRADES -->
+  <script>
+  // 1. Secret Konami Code: unlocks a retro color theme
+  (function(){
+    const code = [38,38,40,40,37,39,37,39,66,65];
+    let pos = 0;
+    document.addEventListener('keydown', function(e){
+      if (e.keyCode === code[pos]) {
+        pos++;
+        if (pos === code.length) {
+          document.body.classList.toggle('konami');
+          pos = 0;
+        }
+      } else {
+        pos = 0;
+      }
+    });
+  })();
+
+  // 2. Retro screensaver: after 60s idle, bounces your name
+  (function(){
+    let timer, screensaver;
+    function showSaver() {
+      if (!screensaver) {
+        screensaver = document.createElement('div');
+        screensaver.id = 'screensaver';
+        screensaver.style.position = 'fixed';
+        screensaver.style.left = 0;
+        screensaver.style.top = 0;
+        screensaver.style.width = '100vw';
+        screensaver.style.height = '100vh';
+        screensaver.style.background = 'rgba(0,0,0,0.97)';
+        screensaver.style.zIndex = 10010;
+        screensaver.style.display = 'flex';
+        screensaver.style.alignItems = 'center';
+        screensaver.style.justifyContent = 'center';
+        screensaver.innerHTML = '<span style="color:#ffb347;font-size:2.2em;font-family:monospace;">SAYID ALSAYID</span>';
+        document.body.appendChild(screensaver);
+        let x=100, y=100, dx=3, dy=2, el=screensaver.firstChild;
+        function bounce() {
+          x+=dx; y+=dy;
+          if(x<0||x>window.innerWidth-320)dx=-dx;
+          if(y<0||y>window.innerHeight-60)dy=-dy;
+          el.style.position='absolute';
+          el.style.left=x+'px';
+          el.style.top=y+'px';
+          if(screensaver.style.display==='flex')requestAnimationFrame(bounce);
+        }
+        bounce();
+      }
+      screensaver.style.display = 'flex';
+    }
+    function hideSaver() {
+      if (screensaver) screensaver.style.display = 'none';
+    }
+    function resetTimer() {
+      hideSaver();
+      clearTimeout(timer);
+      timer = setTimeout(showSaver, 60000);
+    }
+    ['mousemove','keydown','mousedown','touchstart'].forEach(function(evt){
+      document.addEventListener(evt, resetTimer);
+    });
+    resetTimer();
+  })();
+
+  // 3. Secret: Press 'g' to play a mini Tetris game overlay
+  (function(){
+    let active = false;
+    document.addEventListener('keydown', function(e){
+      if (e.key==='g' && !active) {
+        active = true;
+        const overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.left = 0;
+        overlay.style.top = 0;
+        overlay.style.width = '100vw';
+        overlay.style.height = '100vh';
+        overlay.style.background = 'rgba(0,0,0,0.98)';
+        overlay.style.zIndex = 10020;
+        overlay.innerHTML = '<iframe src="https://jstris.jezevec10.com/embed" style="width:420px;height:600px;border:none;display:block;margin:40px auto 0 auto;background:#111;"></iframe><div style="text-align:center;margin-top:18px;"><button id="close-tetris" style="font-size:1.2em;padding:6px 18px;background:#ffb347;color:#111;border:none;border-radius:6px;cursor:pointer;">close</button></div>';
+        document.body.appendChild(overlay);
+        overlay.querySelector('#close-tetris').onclick = function(){
+          overlay.remove();
+          active = false;
+        };
+      }
+    });
+  })();
+  </script>
+  <script src="script.js"></script>
 </body>
 </html>

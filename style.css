@@ -152,12 +152,12 @@ r {
   box-shadow: none;
   border: 1px solid #444;
   background: #222;
-  filter: grayscale(0.7) contrast(1.1);
+  filter: none !important;
   transition: filter 0.2s;
   cursor: pointer;
 }
 .gallery-img:hover {
-  filter: grayscale(0.2) contrast(1.2);
+  filter: none !important;
 }
 .gallery-caption {
   font-size: 1em;
@@ -305,6 +305,9 @@ table[align="center"] {
   max-width: 420px;
   border-radius: 10px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  filter: none !important;
+  border: 1px solid #444;
+  background: #222;
 }
 .tetris-caption {
   margin-top: 10px;
@@ -377,6 +380,7 @@ table[align="center"] {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   background: #222;
+  filter: none !important;
 }
 .tetris-preview .tetris-preview-info {
   display: flex;
@@ -454,10 +458,337 @@ h2, .company-description, ul, .gallery-grid, .tetris-preview, .wip {
   position: relative;
 }
 
-@media (max-width: 900px) {
-  .header-flex {
+/* Letterboxd/X Tickers */
+.letterboxd-section, .x-section {
+  font-family: inherit;
+  letter-spacing: 1px;
+}
+#lb-ticker, #x-ticker {
+  font-family: inherit;
+  white-space: pre;
+  min-height: 1.2em;
+  letter-spacing: 1px;
+}
+
+/* CRT Scanline Overlay */
+#crt-scanlines {
+  display: none;
+  pointer-events: none;
+  position: fixed;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  z-index: 9998;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.04) 0px,
+    rgba(255,255,255,0.04) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  mix-blend-mode: multiply;
+}
+
+/* Command Prompt Overlay */
+#cmd-overlay {
+  display: none;
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  background: #181818;
+  color: #ffb347;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.1em;
+  padding: 10px 18px;
+  z-index: 10000;
+  border-top: 1px solid #333;
+  box-shadow: 0 -2px 12px #000a;
+}
+#cmd-input {
+  background: transparent;
+  border: none;
+  color: #ffb347;
+  font-family: inherit;
+  font-size: 1em;
+  outline: none;
+  width: 80vw;
+  max-width: 420px;
+}
+#cmd-output {
+  margin-top: 6px;
+  color: #fff;
+  font-size: 0.98em;
+  min-height: 1.2em;
+}
+
+/* Social media apps styles */
+.social-hub {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+.social-app {
+  background: #181818;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 12px 16px 10px 16px;
+  box-shadow: 0 2px 12px #0004;
+  font-family: inherit;
+  max-width: 420px;
+  margin-bottom: 0;
+  position: relative;
+}
+.social-label {
+  font-size: 1em;
+  color: #ffb347;
+  font-weight: bold;
+  text-transform: lowercase;
+  margin-right: 8px;
+}
+.social-app a {
+  color: #00bcd4;
+  text-decoration: none;
+  font-size: 1em;
+  margin-right: 8px;
+}
+.social-feed {
+  margin-top: 6px;
+  font-size: 0.98em;
+  color: #fff;
+  min-height: 1.2em;
+  font-family: inherit;
+  white-space: pre;
+}
+#insta-ticker {
+  color: #ff69b4;
+}
+
+/* Gallery modal styles */
+#modal {
+  display: none;
+  position: fixed;
+  z-index: 10001;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.92);
+  align-items: center;
+  justify-content: center;
+  animation: fadein 0.3s;
+}
+#modal-img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border: 2px solid #ffb347;
+  box-shadow: 0 0 24px #000a;
+  background: #111;
+  display: block;
+  margin: 0 auto;
+}
+#caption {
+  color: #ffb347;
+  text-align: center;
+  margin-top: 12px;
+  font-size: 1.1em;
+  font-family: inherit;
+}
+.close {
+  position: absolute;
+  top: 24px;
+  right: 40px;
+  color: #ffb347;
+  font-size: 2.2em;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10002;
+  text-shadow: 0 2px 8px #000a;
+}
+@media (max-width: 600px) {
+  #modal-img { max-width: 98vw; max-height: 60vh; }
+  .close { top: 10px; right: 18px; }
+}
+@media (min-width: 900px) {
+  main {
+    max-width: 600px;
+    margin-left: calc(50vw - 320px);
+    margin-right: 0;
+    position: relative;
+  }
+}
+
+/* Animated ASCII divider (wave effect) */
+.ascii-divider {
+  font-family: inherit;
+  font-size: 1.1em;
+  letter-spacing: 2px;
+  color: #ffb347;
+  transition: none;
+  user-select: none;
+  margin: 48px 0 48px 0 !important;
+}
+
+/* Animated nav bounce */
+.nav-min {
+  will-change: transform;
+}
+
+/* Animated project highlight */
+a[name="projects"]+h2+ul>li {
+  transition: all 0.3s;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+/* About typewriter effect */
+a[name="about"]+h2+p {
+  font-family: inherit;
+  font-size: 1.08em;
+  min-height: 2.2em;
+  letter-spacing: 1px;
+}
+
+/* Tetris stat animation */
+.tetris-preview div b {
+  font-variant-numeric: tabular-nums;
+  font-size: 1.1em;
+  color: #ffd600;
+  letter-spacing: 1px;
+}
+
+/* Footer year animation */
+.footer-retro {
+  font-family: inherit;
+  font-size: 0.95em;
+  color: #888;
+  margin: 40px 0 10px 0;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+/* Konami code retro color theme */
+body.konami, body.konami main, body.konami .nav-min, body.konami .ascii-divider, body.konami .footer-retro {
+  background: #181818 !important;
+  color: #00ffea !important;
+}
+body.konami .ascii-divider {
+  color: #00ffea !important;
+}
+body.konami .nav-min a, body.konami .footer-retro {
+  color: #00ffea !important;
+}
+body.konami .gallery-img {
+  filter: hue-rotate(180deg) grayscale(0.2) !important;
+}
+body.konami .social-label {
+  color: #00ffea !important;
+}
+
+/* Screensaver overlay */
+#screensaver {
+  display: none;
+  position: fixed;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.97);
+  z-index: 10010;
+  align-items: center;
+  justify-content: center;
+}
+#screensaver span {
+  color: #ffb347;
+  font-size: 2.2em;
+  font-family: monospace;
+  position: absolute;
+}
+
+/* Tetris overlay */
+#close-tetris {
+  font-size: 1.2em;
+  padding: 6px 18px;
+  background: #ffb347;
+  color: #111;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 18px;
+}
+
+/* EXPERIENCE section revamp */
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-bottom: 18px;
+  width: 100%;
+}
+.experience-item {
+  background: #181818;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 18px 28px 18px 28px;
+  box-shadow: 0 2px 12px #0004;
+  font-family: inherit;
+  color: #ffb347;
+  position: relative;
+  transition: box-shadow 0.3s, border 0.3s;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  min-height: 90px;
+  width: 100%;
+}
+.company-logo {
+  flex-shrink: 0;
+  width: 74px;
+  height: 74px;
+  min-width: 74px;
+  min-height: 74px;
+  max-width: 74px;
+  max-height: 74px;
+  object-fit: contain;
+  filter: none !important;
+  opacity: 1 !important;
+  margin-right: 22px;
+  margin-bottom: 0;
+  margin-top: 0;
+  display: block;
+}
+.experience-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+.experience-role {
+  font-size: 1.08em;
+  font-weight: bold;
+  color: #ffd600;
+  margin-bottom: 2px;
+}
+.experience-company {
+  font-size: 1em;
+  color: #00bcd4;
+  margin-bottom: 2px;
+}
+.experience-year {
+  font-size: 0.98em;
+  color: #888;
+  margin-bottom: 6px;
+}
+.experience-desc {
+  font-size: 0.98em;
+  color: #fff;
+  margin-top: 2px;
+  font-style: italic;
+}
+@media (max-width: 700px) {
+  .experience-item {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    padding: 14px 12px 10px 12px;
+    min-height: unset;
+  }
+  .company-logo {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+  .experience-details {
+    width: 100%;
   }
 }
