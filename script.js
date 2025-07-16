@@ -24,3 +24,19 @@ window.onclick = function(event) {
     modal.style.display = 'none';
   }
 }
+
+// Optionally: Add beep sound for matrix rain Easter egg
+function retroBeep() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const o = ctx.createOscillator();
+    o.type = 'square';
+    o.frequency.value = 880;
+    o.connect(ctx.destination);
+    o.start();
+    setTimeout(() => { o.stop(); ctx.close(); }, 80);
+  } catch (e) {}
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === '~') retroBeep();
+});

@@ -1,179 +1,316 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link href="style.css" rel="stylesheet" type="text/css">
+  <meta charset="UTF-8">
   <title>Sayid Alsayid</title>
-  <meta name="description" content="Mechanical & Computer Engineer | NASA Intern | Software Engineer at Hudl">
-  <meta name="keywords" content="Sayid Alsayid, NASA, Software Engineer, Mechanical Engineering, QA, Python, Research, Hudl">
+  <meta name="description" content="Sayid Alsayid – Portfolio">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700&display=swap" rel="stylesheet">
+  <style>
+    body { animation: fadein 1.2s; }
+    @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+    .ascii-divider { color: #ffb347; font-family: inherit; letter-spacing: 2px; margin: 18px 0 18px 0; }
+    .nav-min { font-size: 1em; margin-bottom: 24px; text-align: left; letter-spacing: 1px; }
+    .nav-min a { margin-right: 18px; }
+    .gallery-scroll { display: flex; overflow-x: auto; gap: 6px; padding-bottom: 8px; scrollbar-color: #ffb347 #222; }
+    .gallery-scroll::-webkit-scrollbar { height: 8px; background: #222; }
+    .gallery-scroll::-webkit-scrollbar-thumb { background: #ffb347; border-radius: 4px; }
+    .gallery-img { transition: transform 0.18s cubic-bezier(.4,2,.6,1), filter 0.18s; }
+    .gallery-img:hover { transform: scale(1.12) rotate(-2deg); filter: grayscale(0.1) contrast(1.2); z-index: 2; }
+    .retro-blink { animation: blink 1.1s steps(2, start) infinite; color: #ffb347; }
+    @keyframes blink { to { visibility: hidden; } }
+    .tetris-preview video { filter: grayscale(0.7) contrast(1.1); border: 1px solid #444; background: #222; }
+    .tetris-preview video:hover { filter: none; }
+    .footer-retro { text-align: center; font-size: 0.95em; color: #888; margin: 40px 0 10px 0; letter-spacing: 1px; }
+
+    /* Boot/Terminal Intro Animation */
+    #boot-overlay {
+      display: none;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      color: #0f0;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.2em;
+      padding: 20px;
+      box-sizing: border-box;
+      z-index: 9999;
+    }
+    #boot-text {
+      opacity: 0;
+      transition: opacity 0.8s;
+    }
+
+    /* Section Typing Animation */
+    .typed-cursor {
+      display: inline-block;
+      width: 10px;
+      height: 1em;
+      background: #ffb347;
+      animation: blink-caret 0.8s step-end infinite;
+    }
+    @keyframes blink-caret {
+      0%, 100% { background: transparent; }
+      50% { background: #ffb347; }
+    }
+
+    /* Matrix Rain Easter Egg */
+    #matrix-canvas {
+      display: none;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+    }
+  </style>
 </head>
 <body>
+  <!-- ASCII Art Banner and Boot Animation -->
+  <div id="boot-overlay">
+    <pre id="boot-text">
+      ____  ____   __    ___  ____  
+     (  _ \(  _ \ /__\  / __)(  _ \ 
+      ) _ < )   //(__)\( (__  )   / 
+     (____/(__\_)(__)(__\___)(_)\_) 
 
-<table width="728" align="center"><tr height="120"></tr></table>
+     SAYID ALSAYID PORTFOLIO
+    </pre>
+  </div>
 
-<table width="700" align="center">
-  <tr>
-    <td>
-      <div align="center">
-        <a href="#about"><r>[ About ]</r></a>&nbsp;&nbsp;
-        <a href="#experience"><r>[ Experience ]</r></a>&nbsp;&nbsp;
-        <a href="#projects"><r>[ Projects ]</r></a>&nbsp;&nbsp;
-        <a href="gallery.html"><r>[ Gallery ]</r></a>&nbsp;&nbsp;
-        <a href="travel.html"><r>[ Travel ]</r></a>&nbsp;&nbsp;
-        <a href="tetris.html"><r>[ Tetris ]</r></a>&nbsp;&nbsp;
-        <a href="#resume"><r>[ Resume ]</r></a>&nbsp;&nbsp;
-        <a href="#contact"><r>[ Contact ]</r></a>
-      </div>
+  <div class="nav-min">
+    <a href="#about">about</a>
+    <a href="#experience">experience</a>
+    <a href="#projects">projects</a>
+    <a href="#gallery">gallery</a>
+    <a href="#travel">travel</a>
+    <a href="#tetris">tetris</a>
+    <a href="#resume">resume</a>
+    <a href="#contact">contact</a>
+    <span class="retro-blink">█</span>
+  </div>
 
+  <main style="max-width: 600px; margin: 0 auto;">
+    <h1 style="margin-bottom: 0.2em;">SAYID ALSAYID</h1>
+    <div class="ascii-divider">-----------------------------</div>
+    <div style="font-size:1.1em; margin-bottom: 18px;">undergraduate @ unl | mechanical engineering + computer science | intern @ nasa & hudl</div>
+    <div style="margin-bottom: 18px;">
+      email: <a href="mailto:alsayidoff@gmail.com">alsayidoff@gmail.com</a><br>
+      linkedin: <a href="https://linkedin.com/in/sayidalsayid">/in/sayidalsayid</a>
+    </div>
+    <div class="ascii-divider">-----------------------------</div>
+    <a name="about"></a>
+    <h2>ABOUT</h2>
+    <p style="margin-bottom: 18px;">
+      hi! i'm sayid. i like building things that blend hardware and software, especially for science, space, and fun. i love tetris, movies, and traveling. always learning, always exploring.
+    </p>
+    <div class="ascii-divider">-----------------------------</div>
+    <a name="experience"></a>
+    <h2>EXPERIENCE</h2>
+    <ul style="list-style: none; padding: 0; margin: 0 0 18px 0;">
+      <li>software qa engineer intern, hudl (2025)</li>
+      <li>aeronautical systems engineer intern, nasa glenn (2024)</li>
+      <li>undergraduate researcher, nebraska nanoscale energy lab (2024)</li>
+      <li>software engineer intern, nebraska transportation center (2023-24)</li>
+    </ul>
+    <div class="ascii-divider">-----------------------------</div>
+    <a name="projects"></a>
+    <h2>PROJECTS</h2>
+    <ul style="list-style: disc; margin-left: 18px;">
+      <li>rocket propulsion simulator (python, matlab)</li>
+      <li>burn plan evaluation app (python, opencv, sql)</li>
+      <li>smart home system (raspberry pi, python, js)</li>
+      <li>automated human-like rc car <a href="https://github.com/salsayid/Automated-human-like-RC-Car" target="_blank">[github]</a></li>
+    </ul>
+    <div class="ascii-divider">-----------------------------</div>
+    <a name="gallery"></a>
+    <h2>GALLERY</h2>
+    <div class="gallery-scroll">
+      <img src="images/vball.png" alt="volleyball" class="gallery-img" />
+      <img src="images/nanolab.png" alt="nanolab" class="gallery-img" />
+      <img src="images/grc.png" alt="nasa glenn" class="gallery-img" />
+      <img src="images/zols.png" alt="zols-fc" class="gallery-img" />
+      <img src="images/robodog.png" alt="robot dog" class="gallery-img"/>
+      <img src="images/artemis.png" alt="artemis" class="gallery-img" />
+    </div>
+    <div class="ascii-divider">-----------------------------</div>
+    <a name="travel"></a>
+    <h2>TRAVEL</h2>
+    <div style="font-size:1em; margin-bottom: 18px;">see photos from my adventures around the world!</div>
+    <div class="gallery-scroll">
+      <img src="images/outdoor.png" alt="outdoor" class="gallery-img" />
+      <!-- add more travel images as needed -->
+    </div>
+    <div class="ascii-divider">-----------------------------</div>
+    <a name="tetris"></a>
+    <h2>TETRIS</h2>
+    <div class="tetris-preview" style="margin-bottom: 18px;">
+      <video controls poster="images/tetris-thumb.png" style="width:220px; height:140px;">
+        <source src="videos/tetrisbest.mp4" type="video/mp4">
+        your browser does not support the video tag.
+      </video>
+      <div style="margin-top: 8px; font-size:1em;">fastest 40-line clear: <b>44.68s</b></div>
+      <div style="font-size:0.98em; color:#ffb347; margin-top: 4px;">(sprint mode on jstris)</div>
+      <div style="margin-top: 10px; font-size:0.98em;">personal bests: 40-line sprint 44.68s, marathon 1,234,000, highest level 29</div>
+      <div style="margin-top: 10px; font-size:0.98em;">where i play: <a href="https://jstris.jezevec10.com/" target="_blank">jstris</a>, <a href="https://tetr.io/" target="_blank">tetr.io</a></div>
+    </div>
+    <div class="ascii-divider">-----------------------------</div>
+    <a name="resume"></a>
+    <h2>RESUME</h2>
+    <div style="margin-bottom: 18px;">download my latest resume <a href="docs/Resume.pdf">here</a>.</div>
+    <div class="ascii-divider">-----------------------------</div>
+    <a name="contact"></a>
+    <h2>CONTACT</h2>
+    <div style="margin-bottom: 18px;">
+      email: <a href="mailto:alsayidoff@gmail.com">alsayidoff@gmail.com</a><br>
+      linkedin: <a href="https://linkedin.com/in/sayidalsayid">linkedin.com/in/sayidalsayid</a>
+    </div>
+    <div class="ascii-divider">-----------------------------</div>
+    <div class="footer-retro">sayid alsayid &copy; 2025</div>
+  </main>
+  <script>
+    // Fun retro animation: blink nav cursor, gallery scroll on arrow keys
+    document.addEventListener('keydown', function(e) {
+      const scrollers = document.querySelectorAll('.gallery-scroll');
+      if (e.key === 'ArrowRight') scrollers.forEach(s => s.scrollBy({left: 120, behavior:'smooth'}));
+      if (e.key === 'ArrowLeft') scrollers.forEach(s => s.scrollBy({left: -120, behavior:'smooth'}));
+    });
+  </script>
 
-      <div class="header-flex">
-        <div class="profile-info">
-          <h2>Sayid Alsayid</h2>
-          <pp>
-          Undergraduate @ UNL<br>
-          Mechanical Engineering + Computer Science<br>
-          Intern @ NASA & Hudl<br><br>
-          Email: <a href="mailto:alsayidoff@gmail.com">alsayidoff@gmail.com</a><br>
-          LinkedIn: <a href="https://linkedin.com/in/sayidalsayid">/in/sayidalsayid</a><br>
-          <br/>
-          UNL MME: <a href="https://engineering.unl.edu">Department of Mechanical & Materials Engineering</a><br>
-          UNL SOC: <a href="https://computing.unl.edu/">School of Computing</a><br>
-          </pp>
-        </div>
-        <div class="profile-pic">
-          <img src="images/me.png" alt="Sayid Alsayid" />
-        </div>
-      </div>
-      <a name="about"></a><h2>About</h2>
-      <hr>
-      <p align="justify">
-        Hi everyone! I'm Sayid, a dual-degree student in Mechanical Engineering and Computer Science at the <a href="https://www.unl.edu/"><Nebraska-Lincon></Nebraska-Lincon>University of Nebraska-Lincoln</a>.
-         I'm passionate about the intersection of applied physics, aerospace, and computing. 
-         My goal is to work on physical systems powered by smart software. 
-         I love building tools that solve real-world problems—and 
-         I'm always looking to learn more, push boundaries, and explore the world around me.
-         Outside of academics, my hobbies include playing <a href='https://jstris.jezevec10.com/u/sayid'>tetris</a>, watching <a href='https://letterboxd.com/sayidal/'>movies</a>, and traveling the <a href=travel.html>world</a>!
-      </p>
+  <!-- Boot/Terminal Intro Animation -->
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      const overlay = document.getElementById('boot-overlay');
+      const text = document.getElementById('boot-text');
+      overlay.style.display = 'block';
+      text.style.opacity = 1;
+      setTimeout(() => {
+        overlay.style.opacity = 0;
+        setTimeout(() => overlay.style.display = 'none', 800);
+      }, 1800);
+    });
+  </script>
 
-      <a name="experience"></a><h2>Experience</h2>
-      <hr>
+  <!-- Section Typing Animation -->
+  <script>
+    function typeInSection(section) {
+      const el = section;
+      const text = el.innerText;
+      el.innerText = '';
+      let i = 0;
+      function type() {
+        if (i < text.length) {
+          el.innerText += text[i];
+          i++;
+          setTimeout(type, 8 + Math.random()*30);
+        }
+      }
+      type();
+    }
 
-      <!-- Hudl -->
-      <div class="row">
-        <div class="column">
-          <img src="images/hudl.png" alt="Hudl" width="150">
-        </div>
-        <div class="company-description">
-          <h3>Software QA Engineer Intern – Hudl</h3>
-          <p>May 2025 – Present</p>
-          <p>Built test automation pipelines for live video features on Hudl Sideline. Improved backend API test coverage using Python and Postman, and solved latency issues in edge streaming environments. Collaborated cross-functionally with QA, DevOps, and Product teams for continuous improvements.</p>
-        </div>
-      </div>
-      <br>
+    window.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('h2, .company-description, ul, .gallery-grid, .tetris-preview, .wip');
+      let revealed = new Set();
+      function revealOnScroll() {
+        sections.forEach((sec, idx) => {
+          if (!revealed.has(sec) && sec.getBoundingClientRect().top < window.innerHeight - 80) {
+            if (sec.tagName === 'H2' || sec.classList.contains('company-description')) {
+              typeInSection(sec);
+            }
+            revealed.add(sec);
+          }
+        });
+      }
+      window.addEventListener('scroll', revealOnScroll);
+      revealOnScroll();
+    });
+  </script>
 
-      <!-- NASA -->
-      <div class="row">
-        <div class="column">
-          <img src="images/nasa.png" alt="NASA" width="210">
-        </div>
-        <div class="company-description">
-          <h3>Aeronautical Systems Engineer Intern – NASA Glenn Research Center</h3>
-          <p>Aug 2024 – Dec 2024</p>
-          <p>Worked on the Flow Boiling and Condensation Experiment (FBCE) aboard the ISS. Conducted thermal analysis, redesigned circuit logic, and migrated outdated Java simulations into interactive JavaScript educational modules for NASA’s Beginner’s Guide to Aeronautics.</p>
-        </div>
-      </div>
-      <br>
+  <!-- Retro Easter Egg: Matrix Rain -->
+  <script>
+  document.addEventListener('keydown', function(e) {
+    if (e.key === '~') {
+      if (document.getElementById('matrix-canvas')) return;
+      const canvas = document.createElement('canvas');
+      canvas.id = 'matrix-canvas';
+      canvas.style.position = 'fixed';
+      canvas.style.left = 0;
+      canvas.style.top = 0;
+      canvas.style.width = '100vw';
+      canvas.style.height = '100vh';
+      canvas.style.pointerEvents = 'none';
+      canvas.style.zIndex = 9999;
+      document.body.appendChild(canvas);
+      const ctx = canvas.getContext('2d');
+      let w = window.innerWidth;
+      let h = window.innerHeight;
+      canvas.width = w;
+      canvas.height = h;
+      let cols = Math.floor(w / 16);
+      let ypos = Array(cols).fill(0);
+      function matrix() {
+        ctx.fillStyle = 'rgba(0,0,0,0.08)';
+        ctx.fillRect(0,0,w,h);
+        ctx.fillStyle = '#0f0';
+        ctx.font = '16px monospace';
+        ypos.forEach((y, ind) => {
+          const text = String.fromCharCode(0x30A0 + Math.random()*96);
+          ctx.fillText(text, ind*16, y);
+          if (y > 100 + Math.random()*10000) ypos[ind] = 0;
+          else ypos[ind] = y + 16;
+        });
+      }
+      let interval = setInterval(matrix, 50);
+      setTimeout(() => {
+        clearInterval(interval);
+        canvas.remove();
+      }, 2500);
+    }
+  });
+  </script>
 
-      <!-- Nanoscale -->
-      <div class="row">
-        <div class="column">
-          <img src="images/lab.png" alt="Nanoscale Lab" width="150">
-        </div>
-        <div class="company-description">
-          <h3>Undergraduate Researcher – Nebraska Nanoscale Energy Engineering Lab</h3>
-          <p>Feb 2024 – July 2024</p>
-          <p>Used LabVIEW to monitor laser system stability and Python-based analytics to model optical path behavior. Developed automation for real-time energy drift visualization and supported hardware validation experiments.</p>
-        </div>
-      </div>
-      <br>
-
-      <!-- EV Charging -->
-      <div class="row">
-        <div class="column">
-          <img src="images/ev.png" alt="EV Research" width="150">
-        </div>
-        <div class="company-description">
-          <h3>Software Engineer Intern – Nebraska Transportation Center</h3>
-          <p>Dec 2023 – June 2024</p>
-          <p>Processed over 2TB of EV charging data to map demand hotspots. Designed interactive dashboards in Python with Plotly and SQL for state planners, optimizing rural supercharger network expansion.</p>
-        </div>
-      </div>
-      <br>
-
-      <a name="projects"></a><h2>Projects</h2>
-      <hr>
-      <ul>
-        <li><b>Rocket Propulsion Simulator</b> – Designed and tested fuel/oxidizer injector models in Python & MATLAB for Aerospace Club propulsion tests.</li>
-        <li><b>Burn Plan Evaluation App</b> – Python app with OpenCV + SQL that evaluates fire safety plans using rule logic and risk visualization.</li>
-        <li><b>Smart Home System</b> – Raspberry Pi system using Python + JS to control temperature, lights, and security with a dashboard UI.</li>
-        <li><b>Automated Human-like RC Car</b> – Developed a mobile target system by mounting a football dummy on an RC car platform for realistic motion testing. Integrated Pixhawk 6C autopilot, GPS, and Wimu wearable for data logging. Designed custom 3D-printed mounts and jersey stabilization for field durability. Used for performance evaluation of HUDL cameras and wearable tracking devices. <a href="https://github.com/salsayid/Automated-human-like-RC-Car" target="_blank">[GitHub Repo]</a></li>
-      </ul>
-
-      <a name="gallery"></a><h2>Gallery</h2>
-      <hr>
-      <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px 20px; justify-items: center;">
-        <img src="images/vball.png" alt="Cracked serve at Hudl Intern Sand Volleyball Day" class="gallery-img" />
-        <img src="images/nanolab.png" alt="Inside the clean room at the Nanoscale Energy Engineering Lab!" class="gallery-img" />
-        <img src="images/grc.png" alt="Space Experiments Laboratory at NASA Glenn!" class="gallery-img" />
-        <img src="images/zols.png" alt="Zols-FC Intramural Soccer Team at UNL" class="gallery-img" />
-        <img src="images/robodog.png" alt="Got to checkout and play with <a href='https://bostondynamics.com/products/spot/'>Boston Dynamic's robot dog 'Spot'</a> in Cleveland, Ohio." class="gallery-img"/>
-        <img src="images/artemis.png" alt="I got to meet <a href='https://www.nasa.gov/people/howard-hu/'>Howard Hu</a>, and the <a href=' https://www.nasa.gov/mission/artemis-ii/'>Artemis II</a> crew at NASA Glenn!" class="gallery-img" />
-      </div>
-      <div id="modal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="modal-img">
-        <div id="caption"></div>
-      </div>
-      <div align="center" style="margin-top: 16px;">
-        <a href="gallery.html"><r>[ View Full Gallery ]</r></a>
-      </div>
-
-      <div class="wip">
-        <h3 style="margin-bottom: 8px;">Travel Highlights</h3>
-        <div style="display: flex; gap: 12px; align-items: center;">
-          <img src="images/outdoor.png" alt="WIP" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
-          <span>See photos from my adventures around the world!</span>
-          <a href="travel.html" style="margin-left: 12px;"><r>[ View Travel Gallery ]</r></a>
-        </div>
-      </div>
-
-      <div class="tetris-preview">
-        <h3 style="margin-bottom: 8px;">Tetris Highlights</h3>
-        <div class="tetris-preview-flex">
-          <video controls poster="images/tetris-thumb.png">
-            <source src="videos/tetrisbest.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div class="tetris-preview-info">
-            <div>My fastest 40-line clear: <b>44.68s</b></div>
-            <a href="tetris.html"><r>[ See More Tetris ]</r></a>
-          </div>
-        </div>
-      </div>
-      <a name="resume"></a><h2>Resume</h2>
-      <hr>
-      <p>Download my latest resume <a href="docs/Resume.pdf">here</a>.</p>
-
-      <a name="contact"></a><h2>Contact</h2>
-      <hr>
-      <p>Email: <a href="mailto:alsayidoff@gmail.com">alsayidoff@gmail.com</a><br>
-      LinkedIn: <a href="https://linkedin.com/in/sayidalsayid">linkedin.com/in/sayidalsayid</a><br>
-      </p>
-
-      <br><div align="center"><a href="#top">&uarr; Back to top</a></div>
-    </td>
-  </tr>
-</table>
-
-<script src="script.js"></script>
+  <!-- Tetris Block Animation in Tetris Section -->
+  <script>
+  window.addEventListener('DOMContentLoaded', function() {
+    const tetrisDiv = document.querySelector('.tetris-preview');
+    if (!tetrisDiv) return;
+    const canvas = document.createElement('canvas');
+    canvas.width = 220;
+    canvas.height = 120;
+    canvas.style.position = 'absolute';
+    canvas.style.left = '0';
+    canvas.style.top = '0';
+    canvas.style.pointerEvents = 'none';
+    tetrisDiv.style.position = 'relative';
+    tetrisDiv.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    const colors = ['#ff9800','#00e676','#00bcd4','#e040fb','#f44336','#ffd600','#8bc34a'];
+    let blocks = [];
+    function spawnBlock() {
+      const x = Math.floor(Math.random()*7)*28;
+      blocks.push({x, y: -28, color: colors[Math.floor(Math.random()*colors.length)]});
+    }
+    setInterval(spawnBlock, 700);
+    function draw() {
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      blocks.forEach(b => {
+        ctx.fillStyle = b.color;
+        ctx.fillRect(b.x, b.y, 28, 28);
+        ctx.strokeStyle = '#222';
+        ctx.strokeRect(b.x, b.y, 28, 28);
+        b.y += 2;
+      });
+      blocks = blocks.filter(b => b.y < canvas.height);
+      requestAnimationFrame(draw);
+    }
+    draw();
+  });
+  </script>
 </body>
 </html>
