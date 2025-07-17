@@ -224,9 +224,22 @@
       background: #ffb347;
       color: #181818;
     }
+
+    /* HERO PARTICLES BACKGROUND */
+    #hero-particles-bg {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+
   </style>
 </head>
 <body>
+  <canvas id="hero-particles-bg" style="position:fixed;left:0;top:0;width:100vw;height:100vh;z-index:0;pointer-events:none;"></canvas>
   <div class="nav-min">
     <a href="#about">about</a>
     <a href="#experience">experience</a>
@@ -329,8 +342,8 @@
         <span>burn plan evaluation app (python, opencv, sql)</span>
       </li>
       <li>
-        <button class="readme-btn" data-project="smarthome">README.md</button>
-        <span>smart home system (raspberry pi, python, js)</span>
+        <button class="readme-btn" data-project="worldwide_airport_tracker">README.md</button>
+        <span>worldwide airport tracker (python, kivy, sql, requests) <a href="https://github.com/salsayid/worldwide-airport-tracker" target="_blank">[github]</a></span>
       </li>
       <li>
         <button class="readme-btn" data-project="rc_car">README.md</button>
@@ -651,7 +664,7 @@
     // Simple fake FS tree
     const fs = {
       '/': ['about.txt','experience.txt','projects/','gallery/','resume.txt','games/','social.txt'],
-      '/projects': ['rocket.txt','burnplan.txt','smarthome.txt','rc_car.txt'],
+      '/projects': ['rocket.txt','burnplan.txt','worldwide_airport_tracker.txt','rc_car.txt'],
       '/gallery': ['vball.jpg','nanolab.jpg','grc.jpg','zols.jpg','robodog.jpg','artemis.jpg'],
       '/games': ['guess','asciiart'],
     };
@@ -688,7 +701,7 @@
         '/resume.txt': 'Download at docs/Resume.pdf',
         '/projects/rocket.txt': 'Rocket Propulsion Simulator (python, matlab)',
         '/projects/burnplan.txt': 'Burn Plan Evaluation App (python, opencv, sql)',
-        '/projects/smarthome.txt': 'Smart Home System (raspberry pi, python, js)',
+        '/projects/worldwide_airport_tracker.txt': 'Worldwide Airport Tracker (python, kivy, sql, requests)',
         '/projects/rc_car.txt': 'Automated human-like RC car: github.com/salsayid/Automated-human-like-RC-Car',
         '/gallery/vball.jpg': '[Image: volleyball]',
         '/gallery/nanolab.jpg': '[Image: nanolab]',
@@ -761,10 +774,10 @@
           stack: 'Python, OpenCV, SQL',
           desc: 'Tool for evaluating and visualizing prescribed burn plans for land management.'
         },
-        'smarthome': {
-          name: 'Smart Home System',
-          stack: 'Raspberry Pi, Python, JavaScript',
-          desc: 'IoT system for automating and monitoring home devices.'
+        'worldwide_airport_tracker': {
+          name: 'Worldwide Airport Tracker',
+          stack: 'Python, Kivy, SQLAlchemy, Requests',
+          desc: 'A suite of apps for tracking airports, venues, and planning travel worldwide.\n\n- First Tracking App: Manage venues/operators, check forecasts.\n- Second Tracking App: Create airports/cities, check forecasts.\n- Travel Planner App: Enter DB credentials, plan travel, manage remote DB.\n\nStatus: All three main components are finished and complete.\n\nBuilding & Running:\n- Python 3.10+ required\n- Install dependencies: pip install kivy sqlalchemy mysql-connector-python requests\n- Run installer.py to set up the database\n- Run airport_main.py to start the tracking app\n- For travel planner, set up credentials.json and run travel_main.py\n\n[GitHub Repository](https://github.com/salsayid/worldwide-airport-tracker)\n\nAuthors: Sayid Alsayid, Ethan Friedman, James Benton, Nathaniel McVay'
         },
         'rc_car': {
           name: 'Automated Human-like RC Car',
@@ -774,13 +787,13 @@
       };
       if (!arg) {
         print('Usage: readme [project]');
-        print('Available: rocket, burnplan, smarthome, rc_car');
+        print('Available: rocket, burnplan, worldwide_airport_tracker, rc_car');
         prompt();
         return;
       }
       const info = projectInfo[arg];
       if (!info) {
-        print('No such project. Try: rocket, burnplan, smarthome, rc_car');
+        print('No such project. Try: rocket, burnplan, worldwide_airport_tracker, rc_car');
         prompt();
         return;
       }
@@ -808,7 +821,7 @@
       print('<span style="color:#b2ff59;">PROJECTS</span><br>' +
         '- rocket propulsion simulator (python, matlab)<br>' +
         '- burn plan evaluation app (python, opencv, sql)<br>' +
-        '- smart home system (raspberry pi, python, js)<br>' +
+        '- worldwide airport tracker (python, kivy, sql, requests) <a href="https://github.com/salsayid/worldwide-airport-tracker" target="_blank" style="color:#ffd600;">[github]</a><br>' +
         '- automated human-like rc car <a href="https://github.com/salsayid/Automated-human-like-RC-Car" target="_blank" style="color:#ffd600;">[github]</a>', 'terminal-proj');
     } else if (c === 'gallery') {
       print('<span style="color:#b2ff59;">GALLERY</span><br>' +
