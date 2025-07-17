@@ -72,15 +72,22 @@
 // README MODAL FUNCTIONALITY (robust, supports dynamic buttons)
 document.addEventListener('DOMContentLoaded', function () {
   const projectReadmes = {
-    rocket: `# Rocket Propulsion Simulator
+    rocket: `# StellarLab Propulsion Simulator
 
-**Stack:** Python, MATLAB
+**Stack:** Python, Streamlit, SciPy, NumPy, Plotly
 
-A physics-based simulator for rocket propulsion analysis and visualization.
+<img src="images/stellar1.png" alt="StellarLab Dashboard" style="width: 100%; max-width: 500px; margin: 12px 0; border-radius: 6px;" />
 
-- Simulates thrust, ISP, and burn profiles for custom engines
-- Interactive plots and parameter sweeps
-- Used for research and coursework in astronautics
+StellarLab is an interactive rocket propulsion simulator that models liquid, solid, and hybrid engines across multi-stage mission profiles. Users can visualize dynamic engine behavior, mass depletion, and altitude-based gravity changes in real-time through a sleek web UI built with Streamlit.
+
+Under the hood, it runs a physics-based RK4 integrator to simulate trajectories with high precision. Users can define custom rockets and missions via simple JSON files and export flight logs for analysis. Perfect for aerospace engineering students or space enthusiasts who want to explore propulsion dynamics without writing equations from scratch.
+
+<img src="images/stellar2.png" alt="Stellar Simulation Results" style="width: 100%; max-width: 500px; margin: 12px 0; border-radius: 6px;" />
+
+<a href="https://github.com/salsayid/StellarLab" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 12px;">
+  <img src="images/github-mark.png" alt="GitHub" style="width: 22px; height: 22px;" />
+  <span style="font-weight: 500;">View full project on GitHub</span>
+</a>
 `,
 
     burnplan: `# Burn Plan Evaluation App
@@ -91,8 +98,10 @@ This application supports land managers and fire control teams in making safe, d
 
 The algorithm prioritizes certain conditions like wind speed and temperature thresholds and even factors in local burn bans or incomplete data scenarios. It’s a rare blend of environmental science, risk modeling, and command-line interactivity.
 
-<a href="https://github.com/salsayid/Prescribed-Burn-App" target="_blank" style="display: inline-block; margin-top: 12px;">
-View full project on GitHub
+<a href="https://github.com/salsayid/Prescribed-Burn-App" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 12px;">
+  <img src="images/github-mark.png" alt="GitHub" style="width: 22px; height: 22px;" />  
+  <span style="font-weight: 500;">View full project on GitHub</span>
+</a>
 `,
 
     worldwide_airport_tracker: `# Worldwide Airport Tracker
@@ -110,9 +119,10 @@ The apps are tightly integrated to work together but can also function independe
 <img src="images/air3.png" alt="Travel Planner Interface" style="width: 100%; max-width: 500px; margin: 12px 0; border-radius: 6px;" />
 
 Built with cross-platform UI in mind, it's meant for enthusiasts who want a custom alternative to bloated, one-size-fits-all travel apps — putting control and clarity back into global planning.
-
-<a href="https://github.com/salsayid/worldwide-airport-tracker" target="_blank" style="display: inline-block; margin-top: 12px;">
-View full project on GitHub
+<a href="https://github.com/salsayid/worldwide-airport-tracker" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 12px;">
+  <img src="images/github-mark.png" alt="GitHub" style="width: 22px; height: 22px;" />  
+  <span style="font-weight: 500;">View full project on GitHub</span>
+</a>
 `,
 
     rc_car: `# Automated Human-like Moving Target
@@ -129,8 +139,10 @@ The system supports both manual control and preloaded autonomous missions using 
 
 The dummy's custom 3D mounting solution provides wind resistance and balance, while GPS and onboard sensors log every move for later analysis. Every field run produces actionable data, closing the gap between lab-grade test setups and real-world sports performance.
 
-<a href="https://github.com/salsayid/Automated-human-like-RC-Car" target="_blank" style="display: inline-block; margin-top: 12px;">
-View full project on GitHub
+<a href="https://github.com/salsayid/Automated-human-like-RC-Car" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 12px;">
+  <img src="images/github-mark.png" alt="GitHub" style="width: 22px; height: 22px;" />  
+  <span style="font-weight: 500;">View full project on GitHub</span>
+</a>
 `,
   };
 

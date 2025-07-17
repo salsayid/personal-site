@@ -17,14 +17,13 @@
     <a href="#gallery" data-translate="nav_gallery">gallery</a>
     <a href="#tetris" data-translate="nav_tetris">tetris</a>
     <a href="#resume" data-translate="nav_resume">resume</a>
-    <a href="#contact" data-translate="nav_contact">contact</a>
     <span class="retro-blink">█</span>
   </div>
 
   <div style="margin-bottom: 18px; text-align: right; position: fixed; top: 24px; right: 32px; z-index: 101; display: flex; flex-direction: column; align-items: flex-end; gap: 10px;">
     <button id="random-fact-btn" data-translate="btn_random_fact" style="background:#181818;color:#ffd600;border:1px solid #ffd600;border-radius:4px;padding:4px 14px;font-family:inherit;font-size:1em;cursor:pointer;">random fact</button>
     <button id="terminal-toggle-btn" data-translate="btn_terminal" style="background:#181818;color:#ffd600;border:1px solid #ffd600;border-radius:4px;padding:4px 14px;font-family:inherit;font-size:1em;cursor:pointer;">terminal</button>
-    <button id="lang-toggle-btn" style="background:#181818;color:#ffd600;border:1.5px solid #ffd600;border-radius:4px;padding:4px 16px;font-family:inherit;font-size:1em;cursor:pointer;">AR / EN</button>
+    <button id="lang-toggle-btn" style="background:#181818;color:#ffd600;border:1.5px solid #ffd600;border-radius:4px;padding:4px 16px;font-family:inherit;font-size:1em;cursor:pointer;">Arabic/English</button>
   </div>
 
   <section id="hero" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:90vh;">
@@ -95,7 +94,8 @@
     <ul class="project-list">
       <li>
         <button class="readme-btn" data-translate="btn_readme" data-project="rocket">README.md</button>
-        <span data-translate="proj_rocket">rocket propulsion simulator (python, matlab)</span>
+        <span data-translate="proj_rocket"><a href="https://github.com/salsayid/stellarlab" target="_blank">rocket propulsion simulator (python, numPy)</a></span>
+
       </li>
       <li>
         <button class="readme-btn" data-translate="btn_readme" data-project="burnplan">README.md</button>
@@ -138,7 +138,7 @@
       </video>
       <div data-translate="tetris_fastest" style="margin-top: 8px; font-size:1em;">fastest 40-line clear: <b>44.68s</b></div>
       <div data-translate="tetris_sprint_mode" style="font-size:0.98em; color:#ffb347; margin-top: 4px;">(sprint mode on jstris)</div>
-      <div data-translate="tetris_bests" style="margin-top: 10px; font-size:0.98em;">personal bests: 40-line sprint 44.68s, marathon 1,234,000, highest level 29</div>
+      <div data-translate="tetris_bests" style="margin-top: 10px; font-size:0.98em;">personal bests: 40-line sprint 44.68s, max APM 26.31</div>
       <div data-translate="tetris_where_i_play" style="margin-top: 10px; font-size:0.98em;">where i play: <a href="https://jstris.jezevec10.com/u/sayid" target="_blank">jstris</a>, <a href="https://ch.tetr.io/u/sayoodi" target="_blank">tetr.io</a></div>
     </div>
     <div class="ascii-divider">------------------------------------------------------------</div>
@@ -165,7 +165,7 @@
       </div>
     </div>
     <div class="ascii-divider">------------------------------------------------------------</div>
-    <div class="footer-retro">sayid alsayid &copy; 2025</div>
+    <div class="footer-retro">sayid alsayid &copy; 2025 | click [ctrl/cmnd + M] for a surprise</div>
   </main>
 
   <script src="script.js"></script>
@@ -520,7 +520,7 @@
       '',
       '<span style="color:#ffd600;">Welcome, traveler.</span>',
       '',
-      '<span style="color:#b3e5fc;">Sayid Alsayid Portfolio</span>',
+      '<span style="color:#b3e5fc;">This is Sayid Alsayid&#39;s Portfolio</span>',
       '<span style="color:#ffd600;">Type <b>help</b> in the terminal for commands.</span>',
       '',
       '<span style="color:#b2ff59;">Press any key to continue...</span>'
