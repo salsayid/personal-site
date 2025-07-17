@@ -11,7 +11,7 @@
 <body>
   <canvas id="hero-particles-bg" style="position:fixed;left:0;top:0;width:100vw;height:100vh;z-index:0;pointer-events:none;"></canvas>
   <div class="nav-min">
-    <a href="#about" data-translate="nav_about" class="blink">about</a>
+    <a href="#about" data-translate="nav_about">about</a>
     <a href="#experience" data-translate="nav_experience">experience</a>
     <a href="#projects" data-translate="nav_projects">projects</a>
     <a href="#gallery" data-translate="nav_gallery">gallery</a>
@@ -99,15 +99,16 @@
       </li>
       <li>
         <button class="readme-btn" data-translate="btn_readme" data-project="burnplan">README.md</button>
-        <span data-translate="proj_burnplan">burn plan evaluation app (python, opencv, sql)</span>
+        <span data-translate="proj_burnplan"><a href="https://github.com/salsayid/Prescribed-Burn-App" target="_blank">prescribed burn plan app (java, sql, rest api)</a></span>
+
       </li>
       <li>
         <button class="readme-btn" data-translate="btn_readme" data-project="worldwide_airport_tracker">README.md</button>
-        <span data-translate="proj_airport">worldwide airport tracker (python, kivy, sql, requests) <a href="https://github.com/salsayid/worldwide-airport-tracker" target="_blank">[github]</a></span>
+        <span data-translate="proj_airport"> <a href="https://github.com/salsayid/worldwide-airport-tracker" target="_blank">worldwide airport tracker (python, sql)</a></span>
       </li>
       <li>
         <button class="readme-btn" data-translate="btn_readme" data-project="rc_car">README.md</button>
-        <span data-translate="proj_rc_car">automated human-like rc car <a href="https://github.com/salsayid/Automated-human-like-RC-Car" target="_blank">[github]</a></span>
+        <span data-translate="proj_rc_car"> <a href="https://github.com/salsayid/Automated-human-like-RC-Car" target="_blank">automated human-like rc car</a></span>
       </li>
     </ul>
     <div id="readme-modal" style="display:none;position:fixed;left:0;top:0;width:100vw;height:100vh;background:rgba(16,16,16,0.98);z-index:20010;align-items:center;justify-content:center;">
@@ -214,7 +215,7 @@
     overlay.style.padding = '20px';
     overlay.style.boxSizing = 'border-box';
     overlay.style.zIndex = 10010;
-    overlay.innerHTML = '<div style="margin-bottom: 12px;">random fact (beta)</div><div style="line-height: 1.4;">'+
+    overlay.innerHTML = '<div style="margin-bottom: 12px;">random fact (work in progress)</div><div style="line-height: 1.4;">'+
       randomFact+
       '</div>';
     document.body.appendChild(overlay);

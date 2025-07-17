@@ -72,10 +72,66 @@
 // README MODAL FUNCTIONALITY (robust, supports dynamic buttons)
 document.addEventListener('DOMContentLoaded', function () {
   const projectReadmes = {
-    rocket: `# Rocket Propulsion Simulator\n\n**Stack:** Python, MATLAB\n\nA physics-based simulator for rocket propulsion analysis and visualization.\n\n- Simulates thrust, ISP, and burn profiles for custom engines\n- Interactive plots and parameter sweeps\n- Used for research and coursework in astronautics\n`,
-    burnplan: `# Burn Plan Evaluation App\n\n**Stack:** Python, OpenCV, SQL\n\nTool for evaluating and visualizing prescribed burn plans for land management.\n\n- Image analysis of satellite/aerial data\n- Generates reports and risk assessments\n- Used by researchers and land managers\n`,
-    worldwide_airport_tracker: `# Worldwide Airport Tracker\n\n**Stack:** Python, Kivy, SQLAlchemy, Requests\n\nA suite of apps for tracking airports, venues, and planning travel worldwide.\n\n- **First Tracking App:** Manage venues/operators, check forecasts.\n- **Second Tracking App:** Create airports/cities, check forecasts.\n- **Travel Planner App:** Enter DB credentials, plan travel, manage remote DB.\n\n**Status:** All three main components are finished and complete.\n\n**Building & Running:**\n- Python 3.10+ required\n- Install dependencies: \`pip install kivy sqlalchemy mysql-connector-python requests\`\n- Run \`installer.py\` to set up the database\n- Run \`airport_main.py\` to start the tracking app\n- For travel planner, set up \`credentials.json\` and run \`travel_main.py\`\n\n[GitHub Repository](https://github.com/salsayid/worldwide-airport-tracker)\n\n**Authors:** Sayid Alsayid, Ethan Friedman, James Benton, Nathaniel McVay\n`,
-    rc_car: `# Automated Human-like RC Car\n\n**Stack:** Python, Embedded, Computer Vision\n\nRC car with human-like driving using computer vision and ML.\n\n- Lane detection and obstacle avoidance\n- Trained on real driving data\n- [GitHub](https://github.com/salsayid/Automated-human-like-RC-Car)\n`
+    rocket: `# Rocket Propulsion Simulator
+
+**Stack:** Python, MATLAB
+
+A physics-based simulator for rocket propulsion analysis and visualization.
+
+- Simulates thrust, ISP, and burn profiles for custom engines
+- Interactive plots and parameter sweeps
+- Used for research and coursework in astronautics
+`,
+
+    burnplan: `# Burn Plan Evaluation App
+
+**Stack:** Java, OpenWeather API
+
+This application supports land managers and fire control teams in making safe, data-informed decisions about prescribed burns. By combining user-entered details — such as location, fuel type, acreage, fire pattern, and available supplies — with real-time weather data from OpenWeather, the system classifies the burn plan as desired, acceptable, not recommended (with category-specific reasons), or completely prohibited. The tool is especially useful in scenarios where regulatory requirements or public safety concerns demand high accountability for burn operations.
+
+The algorithm prioritizes certain conditions like wind speed and temperature thresholds and even factors in local burn bans or incomplete data scenarios. It’s a rare blend of environmental science, risk modeling, and command-line interactivity.
+
+<a href="https://github.com/salsayid/Prescribed-Burn-App" target="_blank" style="display: inline-block; margin-top: 12px;">
+View full project on GitHub
+`,
+
+    worldwide_airport_tracker: `# Worldwide Airport Tracker
+
+**Stack:** Python, Kivy, SQLAlchemy, Requests
+
+<img src="images/air1.png" alt="Airport Tracker App Screenshot 1" style="width: 100%; max-width: 500px; margin: 12px 0; border-radius: 6px;" />
+
+A suite of applications built to streamline how travelers, planners, and data enthusiasts manage airport and travel logistics. This multi-tool system allows users to track weather forecasts, manage international venues and operators, and plan multi-stop trips with real-time database sync — all from a desktop interface.
+
+<img src="images/air2.png" alt="City and Airport Creation Tool" style="width: 100%; max-width: 500px; margin: 12px 0; border-radius: 6px;" />
+
+The apps are tightly integrated to work together but can also function independently. You can build a personalized airport database, connect to remote services, or use it as a forecasting tool before international trips. Whether you're planning travel routes or just geeking out over aviation data, this tool makes it visual, responsive, and scalable.
+
+<img src="images/air3.png" alt="Travel Planner Interface" style="width: 100%; max-width: 500px; margin: 12px 0; border-radius: 6px;" />
+
+Built with cross-platform UI in mind, it's meant for enthusiasts who want a custom alternative to bloated, one-size-fits-all travel apps — putting control and clarity back into global planning.
+
+<a href="https://github.com/salsayid/worldwide-airport-tracker" target="_blank" style="display: inline-block; margin-top: 12px;">
+View full project on GitHub
+`,
+
+    rc_car: `# Automated Human-like Moving Target
+
+**Stack:** Embedded Systems, Pixhawk Autopilot, GPS, Wimu Sensors
+
+<img src="images/rccar1.png" alt="RC Car with Dummy" style="width: 100%; max-width: 500px; margin: 12px 0; border-radius: 6px;" />
+
+This project reimagines how we test sports tech — combining robotics, sensor integration, and field realism. At its core is an RC car modified to carry a life-sized dummy wearing a numbered jersey, designed to move across sports fields in a way that closely mimics real human motion. It was developed to help validate the performance of camera systems (like Hudl’s Nexus) and wearable tracking sensors (like the Wimu device) under controlled, repeatable conditions.
+
+The system supports both manual control and preloaded autonomous missions using the Pixhawk 6C flight controller. Real-world testing showed it could simulate realistic acceleration, turns, and stopping patterns — perfect for sideline camera calibration, motion tracking evaluation, or spatial data collection.
+
+<img src="images/rccar2.png" alt="RC Car Test Run" style="width: 100%; max-width: 500px; margin: 12px 0; border-radius: 6px;" />
+
+The dummy's custom 3D mounting solution provides wind resistance and balance, while GPS and onboard sensors log every move for later analysis. Every field run produces actionable data, closing the gap between lab-grade test setups and real-world sports performance.
+
+<a href="https://github.com/salsayid/Automated-human-like-RC-Car" target="_blank" style="display: inline-block; margin-top: 12px;">
+View full project on GitHub
+`,
   };
 
   const modal = document.getElementById('readme-modal');
@@ -289,6 +345,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.getAnimatedTitleWords = () => window._isArabic ? wordsAr : wordsEn;
 
+    // --- Fix: Ensure hero animation cycles through all words on first load ---
+    if (window.restartHeroAnimation) {
+        window.restartHeroAnimation();
+    } else {
+        // If not yet defined, wait for DOMContentLoaded and then run
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.restartHeroAnimation) window.restartHeroAnimation();
+        });
+    }
+
     // The translations object must use the new keys
     const translations = {
         'nav_about': 'عنّي',
@@ -320,10 +386,10 @@ document.addEventListener('DOMContentLoaded', function() {
         'exp_ntc_desc': 'بنيت نماذج بلغة بايثون لتحليل شبكات شحن السيارات الكهربائية. حسنت تخطيط النقل في المناطق الريفية.',
         'title_projects': 'المشاريع',
         'btn_readme': 'اقرأني',
-        'proj_rocket': 'محاكي دفع صواريخ (بايثون، ماتلاب)',
-        'proj_burnplan': 'تطبيق تقييم خطط الحرق (بايثون، OpenCV، SQL)',
-        'proj_airport': 'متعقب مطارات عالمي (بايثون، كيفي، SQL، طلبات) <a href="https://github.com/salsayid/worldwide-airport-tracker" target="_blank">[github]</a>',
-        'proj_rc_car': 'سيارة تحكم عن بعد آلية تشبه الإنسان <a href="https://github.com/salsayid/Automated-human-like-RC-Car" target="_blank">[github]</a>',
+        'proj_rocket': 'محاكي دفع صواريخ (python) <a href="https://github.com/salsayid/worldwide-airport-tracker" target="_blank">g</a>',
+        'proj_burnplan': 'تطبيق تقييم خطط الحرق (python, sql) <a href="https://github.com/salsayid/worldwide-airport-tracker" target="_blank">g</a>',
+        'proj_airport': 'متتبع مطارات عالمي (python, kivy, sql) <a href="https://github.com/salsayid/worldwide-airport-tracker" target="_blank">g</a>',
+        'proj_rc_car': 'سيارة تحكم عن بعد آلية تشبه الإنسان <a href="https://github.com/salsayid/Automated-human-like-RC-Car" target="_blank">g</a>',
         'title_gallery': 'المعرض',
         'title_tetris': 'تتريس',
         'tetris_fastest': 'أسرع إنهاء ٤٠ خط:',
@@ -376,6 +442,43 @@ document.addEventListener('DOMContentLoaded', function() {
             if (fontLink) fontLink.remove();
             document.body.style.fontFamily = "'IBM Plex Mono', monospace";
             document.body.style.fontSize = '1em';
+        }
+
+        // Font logic: always force correct font and size for hero animated title and subtitle
+        const animatedTitle = document.getElementById('animated-title');
+        const heroSubtitle = document.querySelector('[data-translate="hero_subtitle"]');
+        if (animatedTitle) {
+            if (window._isArabic) {
+                animatedTitle.style.fontFamily = "'IBM Plex Mono Arabic', 'IBM Plex Mono', monospace";
+                animatedTitle.style.fontSize = '1.7em'; // slightly larger for Arabic
+            } else {
+                animatedTitle.style.fontFamily = "'IBM Plex Mono', monospace";
+                animatedTitle.style.fontSize = '1.3em';
+            }
+        }
+        if (heroSubtitle) {
+            if (window._isArabic) {
+                heroSubtitle.style.fontFamily = "'IBM Plex Mono Arabic', 'IBM Plex Mono', monospace";
+                heroSubtitle.style.fontSize = '1.18em'; // slightly larger for Arabic
+            } else {
+                heroSubtitle.style.fontFamily = "'IBM Plex Mono', monospace";
+                heroSubtitle.style.fontSize = '1.08em';
+            }
+        }
+
+        // Fix typing cursor position for both directions: always at end of animated word
+        const typingCursor = document.querySelector('.typing-cursor');
+        if (animatedTitle && typingCursor) {
+            const wordSpan = document.getElementById('animated-title-word');
+            if (wordSpan && wordSpan.nextSibling !== typingCursor) {
+                wordSpan.parentNode.insertBefore(typingCursor, wordSpan.nextSibling);
+            }
+            // For RTL, also set direction on parent for correct cursor blink
+            if (window._isArabic) {
+                animatedTitle.style.direction = 'rtl';
+            } else {
+                animatedTitle.style.direction = 'ltr';
+            }
         }
 
         if (window.restartHeroAnimation) {
