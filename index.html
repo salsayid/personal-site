@@ -7,350 +7,109 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="style.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700&display=swap" rel="stylesheet">
-  <style>
-    body { animation: fadein 1.2s; }
-    @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
-    .ascii-divider { color: #ffb347; font-family: inherit; letter-spacing: 2px; margin: 18px 0 18px 0; font-size: 1.1em; }
-    .nav-min { font-size: 1em; margin-bottom: 24px; text-align: left; letter-spacing: 1px; }
-    .nav-min a { margin-right: 18px; }
-    .gallery-scroll { display: flex; overflow-x: auto; gap: 6px; padding-bottom: 8px; scrollbar-color: #ffb347 #222; }
-    .gallery-scroll::-webkit-scrollbar { height: 8px; background: #222; }
-    .gallery-scroll::-webkit-scrollbar-thumb { background: #ffb347; border-radius: 4px; }
-    .gallery-img { transition: transform 0.18s cubic-bezier(.4,2,.6,1), filter 0.18s; }
-    .gallery-img:hover { transform: scale(1.12) rotate(-2deg); filter: grayscale(0.1) contrast(1.2); z-index: 2; }
-    .retro-blink { animation: blink 1.1s steps(2, start) infinite; color: #ffb347; }
-    @keyframes blink { to { visibility: hidden; } }
-    .tetris-preview video { filter: grayscale(0.7) contrast(1.1); border: 1px solid #444; background: #222; }
-    .tetris-preview video:hover { filter: none; }
-    .footer-retro { text-align: center; font-size: 0.95em; color: #888; margin: 40px 0 10px 0; letter-spacing: 1px; }
-    .company-logo {
-      width: 100px;
-      height: auto;
-      filter: grayscale(1) brightness(0.8);
-      margin-bottom: 8px;
-    }
-
-    /* Matrix Rain Easter Egg */
-    #matrix-canvas {
-      display: none;
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 9999;
-    }
-
-    /* TERMINAL STYLES */
-    #terminal-overlay {
-      display: none;
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100vw;
-      height: 100vh;
-      background: #181818f0;
-      color: #ffd600;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.92em !important;
-      z-index: 10050;
-    }
-    #terminal-overlay .terminal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 8px;
-    }
-    #terminal-overlay .terminal-header span {
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-    #terminal-overlay .terminal-header button {
-      background: #222;
-      color: #ffd600;
-      border: 1px solid #ffd600;
-      border-radius: 4px;
-      padding: 2px 12px;
-      font-family: inherit;
-      font-size: 1em;
-      cursor: pointer;
-    }
-    #terminal-overlay #terminal-output {
-      background:#222222;
-      border-radius:8px;
-      padding:18px 14px;
-      min-height: 320px;
-      max-height: 48vh;
-      line-height: 1.7;
-      white-space: pre-wrap;
-      margin-bottom: 12px;
-      font-size: 0.98em;
-      box-shadow: 0 2px 16px #000a;
-      overflow-y: auto;
-    }
-    #terminal-overlay #terminal-form {
-      display: flex;
-      align-items: center;
-    }
-    #terminal-overlay #terminal-form span {
-      margin-right: 6px;
-    }
-    #terminal-overlay #terminal-input {
-      flex: 1;
-      background: #222;
-      color: #ffd600;
-      border: none;
-      padding: 6px 8px;
-      font-family: inherit;
-      font-size: 1em;
-      outline: none;
-    }
-
-    /* RETRO BOOT SEQUENCE STYLES */
-    #boot-sequence-overlay {
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100vw;
-      height: 100vh;
-      background: #101010;
-      color: #ffd600;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 1.15em;
-      z-index: 20000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      transition: opacity 0.7s;
-    }
-    #boot-sequence-content {
-      width: 100%;
-      max-width: 520px;
-      text-align: left;
-      line-height: 1.6;
-      white-space: pre;
-    }
-
-    /* PROJECT LIST STYLES */
-    .project-list {
-      list-style: disc inside;
-      padding: 0;
-      margin-left: 0;
-    }
-    .project-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 18px;
-      padding: 10px 0;
-    }
-    .project-list .readme-btn {
-      margin-left: 0;
-      margin-right: 12px;
-      min-width: 92px;
-      text-align: center;
-      font-size: 0.98em;
-      padding: 3px 0;
-      background: transparent;
-      color: #ffd600;
-      border: 1.5px solid #ffd600;
-      border-radius: 0;
-      letter-spacing: 1px;
-      font-family: 'IBM Plex Mono', monospace;
-      transition: background 0.15s, color 0.15s, box-shadow 0.15s;
-      flex-shrink: 0;
-      cursor: pointer;
-    }
-    .readme-btn:hover, .readme-btn:focus {
-      background: #ffd600;
-      color: #181818;
-      box-shadow: 0 2px 12px #ffd60044;
-      outline: none;
-    }
-    .readme-btn:active {
-      background: #ffb347;
-      color: #181818;
-      box-shadow: 0 1px 6px #ffd60033;
-    }
-
-    /* README MODAL STYLES */
-    @keyframes modalPop {
-      0% { transform: scale(0.85) translateY(40px); opacity: 0; }
-      100% { transform: scale(1) translateY(0); opacity: 1; }
-    }
-    #readme-modal {
-      display: none;
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(16,16,16,0.98);
-      z-index: 20010;
-      align-items: center;
-      justify-content: center;
-    }
-    #readme-modal-content {
-      background: #181818;
-      border: 2px solid #ffd600;
-      border-radius: 8px;
-      max-width: 540px;
-      width: 90vw;
-      max-height: 80vh;
-      overflow-y: auto;
-      padding: 32px 28px 24px 28px;
-      box-shadow: 0 4px 32px #000b;
-      color: #ffd600;
-      font-family: 'IBM Plex Mono', monospace;
-      position: relative;
-      animation: modalPop 0.32s cubic-bezier(.4,2,.6,1);
-    }
-    #readme-modal-close {
-      position: absolute;
-      top: 12px;
-      right: 18px;
-      background: #ffd600;
-      color: #181818;
-      border: none;
-      border-radius: 4px;
-      padding: 4px 16px;
-      font-size: 1.1em;
-      cursor: pointer;
-      font-family: inherit;
-      transition: background 0.15s;
-    }
-    #readme-modal-close:hover, #readme-modal-close:focus {
-      background: #ffb347;
-      color: #181818;
-    }
-
-    /* HERO PARTICLES BACKGROUND */
-    #hero-particles-bg {
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-  </style>
 </head>
 <body>
   <canvas id="hero-particles-bg" style="position:fixed;left:0;top:0;width:100vw;height:100vh;z-index:0;pointer-events:none;"></canvas>
   <div class="nav-min">
-    <a href="#about">about</a>
-    <a href="#experience">experience</a>
-    <a href="#projects">projects</a>
-    <a href="#gallery">gallery</a>
-    <a href="#tetris">tetris</a>
-    <a href="#resume">resume</a>
-    <a href="#contact">contact</a>
+    <a href="#about" data-translate="nav_about" class="blink">about</a>
+    <a href="#experience" data-translate="nav_experience">experience</a>
+    <a href="#projects" data-translate="nav_projects">projects</a>
+    <a href="#gallery" data-translate="nav_gallery">gallery</a>
+    <a href="#tetris" data-translate="nav_tetris">tetris</a>
+    <a href="#resume" data-translate="nav_resume">resume</a>
+    <a href="#contact" data-translate="nav_contact">contact</a>
     <span class="retro-blink">█</span>
   </div>
 
-  <!-- RETRO INNOVATION BLAST: Interactive Features -->
-  <div style="margin-bottom: 18px; text-align: right; position: fixed; top: 24px; right: 32px; z-index: 100;">
-    <button id="random-fact-btn" style="background:#181818;color:#ffd600;border:1px solid #ffd600;border-radius:4px;padding:4px 14px;font-family:inherit;font-size:1em;cursor:pointer;">random fact</button>
-    <br/>
-    <button id="terminal-toggle-btn" style="margin-top:10px;background:#181818;color:#ffd600;border:1px solid #ffd600;border-radius:4px;padding:4px 14px;font-family:inherit;font-size:1em;cursor:pointer;">terminal</button>
+  <div style="margin-bottom: 18px; text-align: right; position: fixed; top: 24px; right: 32px; z-index: 101; display: flex; flex-direction: column; align-items: flex-end; gap: 10px;">
+    <button id="random-fact-btn" data-translate="btn_random_fact" style="background:#181818;color:#ffd600;border:1px solid #ffd600;border-radius:4px;padding:4px 14px;font-family:inherit;font-size:1em;cursor:pointer;">random fact</button>
+    <button id="terminal-toggle-btn" data-translate="btn_terminal" style="background:#181818;color:#ffd600;border:1px solid #ffd600;border-radius:4px;padding:4px 14px;font-family:inherit;font-size:1em;cursor:pointer;">terminal</button>
+    <button id="lang-toggle-btn" style="background:#181818;color:#ffd600;border:1.5px solid #ffd600;border-radius:4px;padding:4px 16px;font-family:inherit;font-size:1em;cursor:pointer;">AR / EN</button>
   </div>
 
-  <!-- HERO SECTION -->
   <section id="hero" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:90vh;">
     <img src="images/sa2.png" alt="Sayid Alsayid" style="width:250px;height:250px;object-fit:cover;margin-bottom:0;display:block;" />
-    <h1 style="margin:0 0 10px 0;font-size:2.4em;letter-spacing:2px;background:#ffd600;color:#181818;display:inline-block;padding:0.18em 0.7em 0.18em 0.7em;line-height:1.1;box-shadow:0 2px 8px #1112;">SAYID ALSAYID</h1>
-    <div id="animated-title" style="font-size:1.3em;color:#ffd600;font-style:italic;min-height:1.5em;">aspiring <span id='animated-title-word'></span><span class='typing-cursor' style='display:inline-block;width:1ch;'>|</span></div>
-    <div style="margin:18px 0 0 0; font-size:1.08em; color:#ffb347; text-align:center;">
+    <h1 data-translate="hero_name" style="margin:0 0 10px 0;font-size:2.4em;letter-spacing:2px;background:#ffd600;color:#181818;display:inline-block;padding:0.18em 0.7em 0.18em 0.7em;line-height:1.1;box-shadow:0 2px 8px #1112;">SAYID ALSAYID</h1>
+    <div id="animated-title" data-translate="hero_animated_prefix" style="font-size:1.3em;color:#ffd600;font-style:italic;min-height:1.5em;">aspiring <span id='animated-title-word'></span><span class='typing-cursor' style='display:inline-block;width:1ch;'>|</span></div>
+    <div data-translate="hero_subtitle" style="margin:18px 0 0 0; font-size:1.08em; color:#ffb347; text-align:center;">
       undergraduate @ unl | mechanical engineering + computer science | intern @ nasa & hudl
     </div>
     <div style="margin:18px 0 0 0; text-align:center; font-size:1.08em; color:#ffb347;">
-      <div>email: <a href="mailto:alsayidoff@gmail.com" style="color:#ffd600;">alsayidoff@gmail.com</a></div>
-      <div>linkedin: <a href="https://linkedin.com/in/sayidalsayid" style="color:#ffd600;">/in/sayidalsayid</a></div>
-      <div>github: <a href="https://github.com/salsayid" style="color:#ffd600;">github.com/salsayid</a></div>
+      <div data-translate="hero_email">email: <a href="mailto:alsayidoff@gmail.com" style="color:#ffd600;">alsayidoff@gmail.com</a></div>
+      <div data-translate="hero_linkedin">linkedin: <a href="https://linkedin.com/in/sayidalsayid" style="color:#ffd600;">/in/sayidalsayid</a></div>
+      <div data-translate="hero_github">github: <a href="https://github.com/salsayid" style="color:#ffd600;">github.com/salsayid</a></div>
     </div>
     <a href="#main-content" style="display:inline-block;margin:38px auto 0 auto;color:#ffb347;font-size:2.5em;text-decoration:none;">↓</a>
   </section>
   <main id="main-content" style="max-width: 600px; margin: 0 auto;">
     <div class="ascii-divider">------------------------------------------------------------</div>
     <a name="about"></a>
-    <h2>ABOUT</h2>
-    <p style="margin-bottom: 18px;">
-      hi everyone! i'm sayid, a dual-degree student in mechanical engineering and computer science at the <a href="https://www.unl.edu/"><Nebraska-Lincon></Nebraska-Lincon>university of nebraska-lincoln</a>.
-         I'm passionate about the intersection of applied physics, astronautics, and computing. 
-         my goal is to work on physical systems powered by smart software. 
-         i love building tools that solve real-world problems—and 
-         i'm always looking to learn more, push boundaries, and explore the world around me.
-         outside of academics, my hobbies include playing <a href='https://jstris.jezevec10.com/u/sayid'>tetris</a>, watching <a href='https://letterboxd.com/sayidal/'>movies</a>, playing <a href='https://www.nitrotype.com/racer/sayidal'>typing games</a> and traveling the world!
-
+    <h2 data-translate="title_about">ABOUT</h2>
+    <p style="margin-bottom: 18px;" id="about-paragraph" data-translate="p_about">
+      hi everyone! i'm sayid, a dual-degree student in mechanical engineering and computer science at the <a href="https://www.unl.edu/">university of nebraska-lincoln</a>. i'm passionate about the intersection of applied physics, astronautics, and computing. my goal is to work on physical systems powered by smart software. i love building tools that solve real-world problems and i'm always looking to learn more, push boundaries, and explore the world around me. outside of academics, my hobbies include playing <a href='https://jstris.jezevec10.com/u/sayid'>tetris</a>, watching <a href='https://letterboxd.com/sayidal/'>movies</a>, playing <a href='https://www.nitrotype.com/racer/sayidal'>typing games</a> and traveling the world!
     </p>
     <div class="ascii-divider">------------------------------------------------------------</div>
     <a name="experience"></a>
-    <h2>EXPERIENCE</h2>
+    <h2 data-translate="title_experience">EXPERIENCE</h2>
     <div class="experience-list">
       <div class="experience-item">
         <img src="images/hudl4.png" alt="Hudl logo" class="company-logo" />
         <div class="experience-details">
-          <div class="experience-role">software qa engineer intern</div>
+          <div class="experience-role" data-translate="exp_hudl_role">software qa engineer intern</div>
           <div class="experience-company">hudl</div>
           <div class="experience-year">may 2025 - aug 2025</div>
-          <div class="experience-desc">developed Playwright and API test automation for sideline systems in an agile dev environment</div>
+          <div class="experience-desc" data-translate="exp_hudl_desc">developed Playwright and API test automation for sideline systems in an agile dev environment</div>
         </div>
       </div>
       <div class="experience-item">
         <img src="images/nasa4.png" alt="NASA logo" class="company-logo" />
         <div class="experience-details">
-          <div class="experience-role">aeronautical systems engineer intern</div>
+          <div class="experience-role" data-translate="exp_nasa_role">aeronautical systems engineer intern</div>
           <div class="experience-company">nasa</div>
           <div class="experience-year">aug 2024 - dec 2024</div>
-          <div class="experience-desc">flight systems and propulsion simulations. hardware testing for the flow boiling and condensation experiment (FBCE)</div>
+          <div class="experience-desc" data-translate="exp_nasa_desc">flight systems and propulsion simulations. hardware testing for the flow boiling and condensation experiment (FBCE)</div>
         </div>
       </div>
       <div class="experience-item">
         <img src="images/unl7.png" alt="NanoLab logo" class="company-logo" />
         <div class="experience-details">
-          <div class="experience-role">undergraduate researcher</div>
+          <div class="experience-role" data-translate="exp_unl_role">undergraduate researcher</div>
           <div class="experience-company">nebraska nanoscale energy engineering lab</div>
           <div class="experience-year">feb 2024 - jul 2024</div>
-          <div class="experience-desc">nanoscale heat transfer and thermionic energy conversion. ran experiments, analyzed results, and contributed to next-gen energy systems.
-
-</div>
+          <div class="experience-desc" data-translate="exp_unl_desc">nanoscale heat transfer and thermionic energy conversion. ran experiments, analyzed results, and contributed to next-gen energy systems.</div>
         </div>
       </div>
       <div class="experience-item">
         <img src="images/midam3.png" alt="Nebraska Transportation Center logo" class="company-logo" />
         <div class="experience-details">
-          <div class="experience-role">software engineer intern</div>
+          <div class="experience-role" data-translate="exp_ntc_role">software engineer intern</div>
           <div class="experience-company">nebraska transportation center</div>
           <div class="experience-year">dec 2023 - jul 2024</div>
-          <div class="experience-desc">built models in python to analyze EV charging networks. improved rural transportation planning.</div>
+          <div class="experience-desc" data-translate="exp_ntc_desc">built models in python to analyze EV charging networks. improved rural transportation planning.</div>
         </div>
       </div>
     </div>
     <div class="ascii-divider">------------------------------------------------------------</div>
     <a name="projects"></a>
-    <h2>PROJECTS</h2>
+    <h2 data-translate="title_projects">PROJECTS</h2>
     <ul class="project-list">
       <li>
-        <button class="readme-btn" data-project="rocket">README.md</button>
-        <span>rocket propulsion simulator (python, matlab)</span>
+        <button class="readme-btn" data-translate="btn_readme" data-project="rocket">README.md</button>
+        <span data-translate="proj_rocket">rocket propulsion simulator (python, matlab)</span>
       </li>
       <li>
-        <button class="readme-btn" data-project="burnplan">README.md</button>
-        <span>burn plan evaluation app (python, opencv, sql)</span>
+        <button class="readme-btn" data-translate="btn_readme" data-project="burnplan">README.md</button>
+        <span data-translate="proj_burnplan">burn plan evaluation app (python, opencv, sql)</span>
       </li>
       <li>
-        <button class="readme-btn" data-project="worldwide_airport_tracker">README.md</button>
-        <span>worldwide airport tracker (python, kivy, sql, requests) <a href="https://github.com/salsayid/worldwide-airport-tracker" target="_blank">[github]</a></span>
+        <button class="readme-btn" data-translate="btn_readme" data-project="worldwide_airport_tracker">README.md</button>
+        <span data-translate="proj_airport">worldwide airport tracker (python, kivy, sql, requests) <a href="https://github.com/salsayid/worldwide-airport-tracker" target="_blank">[github]</a></span>
       </li>
       <li>
-        <button class="readme-btn" data-project="rc_car">README.md</button>
-        <span>automated human-like rc car <a href="https://github.com/salsayid/Automated-human-like-RC-Car" target="_blank">[github]</a></span>
+        <button class="readme-btn" data-translate="btn_readme" data-project="rc_car">README.md</button>
+        <span data-translate="proj_rc_car">automated human-like rc car <a href="https://github.com/salsayid/Automated-human-like-RC-Car" target="_blank">[github]</a></span>
       </li>
     </ul>
-    <!-- README MODAL OVERLAY -->
     <div id="readme-modal" style="display:none;position:fixed;left:0;top:0;width:100vw;height:100vh;background:rgba(16,16,16,0.98);z-index:20010;align-items:center;justify-content:center;">
       <div id="readme-modal-content" style="background:#181818;border:2px solid #ffd600;border-radius:8px;max-width:540px;width:90vw;max-height:80vh;overflow-y:auto;padding:32px 28px 24px 28px;box-shadow:0 4px 32px #000b;color:#ffd600;font-family:'IBM Plex Mono',monospace;position:relative;animation:modalPop 0.32s cubic-bezier(.4,2,.6,1);">
         <button id="readme-modal-close" style="position:absolute;top:12px;right:18px;background:#ffd600;color:#181818;border:none;border-radius:4px;padding:4px 16px;font-size:1.1em;cursor:pointer;font-family:inherit;transition:background 0.15s;">close</button>
@@ -359,7 +118,7 @@
     </div>
     <div class="ascii-divider">------------------------------------------------------------</div>
     <a name="gallery"></a>
-    <h2>GALLERY</h2>
+    <h2 data-translate="title_gallery">GALLERY</h2>
     <div class="gallery-scroll">
       <img src="images/vball.png" alt="volleyball" class="gallery-img" />
       <img src="images/nanolab.png" alt="nanolab" class="gallery-img" />
@@ -370,43 +129,46 @@
     </div>
     <div class="ascii-divider">------------------------------------------------------------</div>
     <a name="tetris"></a>
-    <h2>TETRIS</h2>
+    <h2 data-translate="title_tetris">TETRIS</h2>
     <div class="tetris-preview" style="margin-bottom: 18px;">
       <video controls poster="images/tetris-thumb.png" style="width:220px; height:140px;">
         <source src="videos/tetrisbest.mp4" type="video/mp4">
         your browser does not support the video tag.
       </video>
-      <div style="margin-top: 8px; font-size:1em;">fastest 40-line clear: <b>44.68s</b></div>
-      <div style="font-size:0.98em; color:#ffb347; margin-top: 4px;">(sprint mode on jstris)</div>
-      <div style="margin-top: 10px; font-size:0.98em;">personal bests: 40-line sprint 44.68s, marathon 1,234,000, highest level 29</div>
-      <div style="margin-top: 10px; font-size:0.98em;">where i play: <a href="https://jstris.jezevec10.com/" target="_blank">jstris</a>, <a href="https://tetr.io/" target="_blank">tetr.io</a></div>
+      <div data-translate="tetris_fastest" style="margin-top: 8px; font-size:1em;">fastest 40-line clear: <b>44.68s</b></div>
+      <div data-translate="tetris_sprint_mode" style="font-size:0.98em; color:#ffb347; margin-top: 4px;">(sprint mode on jstris)</div>
+      <div data-translate="tetris_bests" style="margin-top: 10px; font-size:0.98em;">personal bests: 40-line sprint 44.68s, marathon 1,234,000, highest level 29</div>
+      <div data-translate="tetris_where_i_play" style="margin-top: 10px; font-size:0.98em;">where i play: <a href="https://jstris.jezevec10.com/u/sayid" target="_blank">jstris</a>, <a href="https://ch.tetr.io/u/sayoodi" target="_blank">tetr.io</a></div>
     </div>
     <div class="ascii-divider">------------------------------------------------------------</div>
     <a name="resume"></a>
-    <h2>RESUME</h2>
-    <div style="margin-bottom: 18px;">download my latest resume <a href="docs/Resume.pdf">here</a>.</div>
+    <h2 data-translate="title_resume">RESUME</h2>
+    <div data-translate="resume_download" style="margin-bottom: 18px;">download my latest resume <a href="still-work-in-progress-gimme-a-min.pdf">here</a>.</div>
     <div class="ascii-divider">------------------------------------------------------------</div>
     <a name="social"></a>
-    <h2>SOCIAL</h2>
+    <h2 data-translate="title_social">SOCIAL</h2>
 
       <div class="social-app" id="insta-app" style="margin-top: 12px;">
-        <span class="social-label">instagram</span>
+        <span class="social-label" data-translate="social_insta">instagram</span>
         <a href="https://www.instagram.com/sayidall/" target="_blank">@sayidall</a>
       </div>
 
       <div class="social-app" id="x-app" style="margin-top: 12px;">
-        <span class="social-label">x/twitter</span>
+        <span class="social-label" data-translate="social_x">x/twitter</span>
         <a href="https://x.com/AlsayidSayid" target="_blank">@AlsayidSayid</a>
       </div>
 
       <div class="social-app" id="letterboxd-app" style="margin-top: 12px;">
-        <span class="social-label">letterboxd</span>
+        <span class="social-label" data-translate="social_letterboxd">letterboxd</span>
         <a href="https://letterboxd.com/sayidal/" target="_blank">@sayidal</a>
       </div>
     </div>
     <div class="ascii-divider">------------------------------------------------------------</div>
     <div class="footer-retro">sayid alsayid &copy; 2025</div>
   </main>
+
+  <script src="script.js"></script>
+  
   <script>
     // Fun retro animation: blink nav cursor, gallery scroll on arrow keys
     document.addEventListener('keydown', function(e) {
@@ -415,89 +177,12 @@
       if (e.key === 'ArrowLeft') scrollers.forEach(s => s.scrollBy({left: -120, behavior:'smooth'}));
     });
   </script>
-
-  <!-- Retro Easter Egg: Matrix Rain -->
   <script>
-  document.addEventListener('keydown', function(e) {
-    if (e.key === '~') {
-      if (document.getElementById('matrix-canvas')) return;
-      const canvas = document.createElement('canvas');
-      canvas.id = 'matrix-canvas';
-      canvas.style.position = 'fixed';
-      canvas.style.left = 0;
-      canvas.style.top = 0;
-      canvas.style.width = '100vw';
-      canvas.style.height = '100vh';
-      canvas.style.pointerEvents = 'none';
-      canvas.style.zIndex = 9999;
-      document.body.appendChild(canvas);
-      const ctx = canvas.getContext('2d');
-      let w = window.innerWidth;
-      let h = window.innerHeight;
-      canvas.width = w;
-      canvas.height = h;
-      let cols = Math.floor(w / 16);
-      let ypos = Array(cols).fill(0);
-      function matrix() {
-        ctx.fillStyle = 'rgba(0,0,0,0.08)';
-        ctx.fillRect(0,0,w,h);
-        ctx.fillStyle = '#0f0';
-        ctx.font = '16px monospace';
-        ypos.forEach((y, ind) => {
-          const text = String.fromCharCode(0x30A0 + Math.random()*96);
-          ctx.fillText(text, ind*16, y);
-          if (y > 100 + Math.random()*10000) ypos[ind] = 0;
-          else ypos[ind] = y + 16;
-        });
-      }
-      let interval = setInterval(matrix, 50);
-      setTimeout(() => {
-        clearInterval(interval);
-        canvas.remove();
-      }, 2500);
-    }
-  });
-  </script>
 
-  <!-- Tetris Block Animation in Tetris Section -->
+  </script>
   <script>
-  window.addEventListener('DOMContentLoaded', function() {
-    const tetrisDiv = document.querySelector('.tetris-preview');
-    if (!tetrisDiv) return;
-    const canvas = document.createElement('canvas');
-    canvas.width = 220;
-    canvas.height = 120;
-    canvas.style.position = 'absolute';
-    canvas.style.left = '0';
-    canvas.style.top = '0';
-    canvas.style.pointerEvents = 'none';
-    tetrisDiv.style.position = 'relative';
-    tetrisDiv.appendChild(canvas);
-    const ctx = canvas.getContext('2d');
-    const colors = ['#ff9800','#00e676','#00bcd4','#e040fb','#f44336','#ffd600','#8bc34a'];
-    let blocks = [];
-    function spawnBlock() {
-      const x = Math.floor(Math.random()*7)*28;
-      blocks.push({x, y: -28, color: colors[Math.floor(Math.random()*colors.length)]});
-    }
-    setInterval(spawnBlock, 700);
-    function draw() {
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      blocks.forEach(b => {
-        ctx.fillStyle = b.color;
-        ctx.fillRect(b.x, b.y, 28, 28);
-        ctx.strokeStyle = '#222';
-        ctx.strokeRect(b.x, b.y, 28, 28);
-        b.y += 2;
-      });
-      blocks = blocks.filter(b => b.y < canvas.height);
-      requestAnimationFrame(draw);
-    }
-    draw();
-  });
-  </script>
 
-  <!-- RETRO INNOVATION BLAST: Interactive Features -->
+  </script>
   <script>
   // Random Fact Overlay
   document.getElementById('random-fact-btn').addEventListener('click', function() {
@@ -533,97 +218,58 @@
       randomFact+
       '</div>';
     document.body.appendChild(overlay);
-
-    // Close overlay on click
     overlay.addEventListener('click', function() {
       overlay.remove();
     });
   });
   </script>
-
-  <!-- INNOVATIVE RETRO UPGRADES -->
   <script>
-  // 1. Secret Konami Code: unlocks a retro color theme
-  (function(){
-    const code = [38,38,40,40,37,39,37,39,66,65];
-    let pos = 0;
-    document.addEventListener('keydown', function(e){
-      if (e.keyCode === code[pos]) {
-        pos++;
-        if (pos === code.length) {
-          document.body.classList.toggle('konami');
-          pos = 0;
-        }
-      } else {
-        pos = 0;
-      }
-    });
-  })();
-
-  // 3. Secret: Press 'g' to play a mini Tetris game overlay
-  (function(){
-    let active = false;
-    document.addEventListener('keydown', function(e){
-      if (e.key==='3' && !active) {
-        active = true;
-        const overlay = document.createElement('div');
-        overlay.style.position = 'fixed';
-        overlay.style.left = 0;
-        overlay.style.top = 0;
-        overlay.style.width = '100vw';
-        overlay.style.height = '100vh';
-        overlay.style.background = 'rgba(0,0,0,0.98)';
-        overlay.style.zIndex = 10020;
-        overlay.innerHTML = '<iframe src="https://jstris.jezevec10.com/embed" style="width:420px;height:600px;border:none;display:block;margin:40px auto 0 auto;background:#111;"></iframe><div style="text-align:center;margin-top:18px;"><button id="close-tetris" style="font-size:1.2em;padding:6px 18px;background:#ffb347;color:#111;border:none;border-radius:6px;cursor:pointer;">close</button></div>';
-        document.body.appendChild(overlay);
-        overlay.querySelector('#close-tetris').onclick = function(){
-          overlay.remove();
-          active = false;
-        };
-      }
-    });
-  })();
+  
   </script>
-  <script src="script.js"></script>
   <script>
-      // Animated hero title cycle
-      (function() {
-        const words = ['engineer', 'computer scientist', 'full-stack developer', 'embedded systems engineer'];
-        let wordIndex = 0;
-        let charIndex = 0;
-        let typing = true;
-        const wordSpan = document.getElementById('animated-title-word');
-        const cursor = document.querySelector('.typing-cursor');
-        function type() {
-          const word = words[wordIndex];
-          if (typing) {
-            if (charIndex < word.length) {
-              wordSpan.textContent += word[charIndex++];
-              setTimeout(type, 120); // slower typing
-            } else {
-              typing = false;
-              setTimeout(type, 1200); // longer pause after typing
-            }
+    // Animated hero title cycle
+    let heroAnimationTimeout;
+    window.restartHeroAnimation = function() {
+      clearTimeout(heroAnimationTimeout);
+      const wordSpan = document.getElementById('animated-title-word');
+      if (!wordSpan) return;
+      wordSpan.textContent = '';
+      const words = window.getAnimatedTitleWords ? window.getAnimatedTitleWords() : ['engineer'];
+      let wordIndex = 0;
+      let charIndex = 0;
+      let typing = true;
+      function type() {
+        if (!wordSpan) return;
+        const currentWord = words[wordIndex % words.length];
+        if (typing) {
+          if (charIndex < currentWord.length) {
+            wordSpan.textContent += currentWord[charIndex++];
+            heroAnimationTimeout = setTimeout(type, 120);
           } else {
-            if (charIndex > 0) {
-              wordSpan.textContent = word.slice(0, --charIndex);
-              setTimeout(type, 60); // slower deleting
-            } else {
-              typing = true;
-              wordIndex = (wordIndex + 1) % words.length;
-              setTimeout(type, 600); // longer pause before next word
-            }
+            typing = false;
+            heroAnimationTimeout = setTimeout(type, 1200);
+          }
+        } else {
+          if (charIndex > 0) {
+            wordSpan.textContent = currentWord.slice(0, --charIndex);
+            heroAnimationTimeout = setTimeout(type, 60);
+          } else {
+            typing = true;
+            wordIndex++;
+            heroAnimationTimeout = setTimeout(type, 600);
           }
         }
-        // Blinking cursor
-        setInterval(() => {
-          cursor.style.visibility = cursor.style.visibility === 'hidden' ? 'visible' : 'hidden';
+      }
+      type();
+    };
+    if (!window.cursorInterval) {
+        window.cursorInterval = setInterval(() => {
+            const cursor = document.querySelector('.typing-cursor');
+            if (cursor) cursor.style.visibility = cursor.style.visibility === 'hidden' ? 'visible' : 'hidden';
         }, 500);
-        type();
-      })();
-    </script>
-
-  <!-- TERMINAL OVERLAY (pivot: interactive CLI portfolio) -->
+    }
+    window.restartHeroAnimation();
+  </script>
   <div id="terminal-overlay">
   <div style="max-width:700px;margin:48px auto 0 auto;padding:0 18px;">
     <div class="terminal-header">
@@ -660,8 +306,6 @@
     const c = cmd.trim().toLowerCase();
     if (!c) return;
     print('<span style="color:#ffd600;font-weight:bold;">$ '+cmd+'</span>', 'terminal-cmd');
-    // --- FILESYSTEM EMULATION ---
-    // Simple fake FS tree
     const fs = {
       '/': ['about.txt','experience.txt','projects/','gallery/','resume.txt','games/','social.txt'],
       '/projects': ['rocket.txt','burnplan.txt','worldwide_airport_tracker.txt','rc_car.txt'],
@@ -669,7 +313,6 @@
       '/games': ['guess','asciiart'],
     };
     let cwd = handle.cwd || '/';
-    // Parse for cd/ls/cat
     if (c.startsWith('cd ')) {
       let arg = c.slice(3).replace(/\/$/,'');
       if (arg === '..') {
@@ -694,7 +337,6 @@
     } else if (c.startsWith('cat ')) {
       let file = c.slice(4);
       let path = cwd==='/'?'/'+file:cwd+'/'+file;
-      // Simulate file contents
       const files = {
         '/about.txt': 'Sayid Alsayid\nMechanical Engineering + Computer Science @ UNL\nPassionate about applied physics, astronautics, and computing.',
         '/experience.txt': 'See experience section on main site.',
@@ -719,14 +361,12 @@
       prompt();
       return;
     }
-    // --- MINI GAMES ---
     if (c === 'games' || c === 'ls games' || c === 'cd games') {
       print('Available games: <span style="color:#ffd600;">guess, asciiart</span>');
       prompt();
       return;
     }
     if (c === 'guess') {
-      // Number guessing game
       if (!handle.guessNum) {
         handle.guessNum = Math.floor(Math.random()*100)+1;
         print('Guess a number between 1 and 100. Type your guess:');
@@ -752,38 +392,20 @@
     }
     if (c === 'asciiart') {
       print('<pre style="color:#ffd600;">'+
-`   /\_/\  
+`   /\\_/\\  
   ( o.o ) 
    > ^ <  
 `+'</pre>');
       prompt();
       return;
     }
-    // --- PROJECT README GENERATOR ---
     if (c.startsWith('readme') || c.startsWith('readme ')) {
       let arg = c.split(' ')[1] || '';
-      // Map project keys to info
       const projectInfo = {
-        'rocket': {
-          name: 'Rocket Propulsion Simulator',
-          stack: 'Python, MATLAB',
-          desc: 'A physics-based simulator for rocket propulsion analysis and visualization.'
-        },
-        'burnplan': {
-          name: 'Burn Plan Evaluation App',
-          stack: 'Python, OpenCV, SQL',
-          desc: 'Tool for evaluating and visualizing prescribed burn plans for land management.'
-        },
-        'worldwide_airport_tracker': {
-          name: 'Worldwide Airport Tracker',
-          stack: 'Python, Kivy, SQLAlchemy, Requests',
-          desc: 'A suite of apps for tracking airports, venues, and planning travel worldwide.\n\n- First Tracking App: Manage venues/operators, check forecasts.\n- Second Tracking App: Create airports/cities, check forecasts.\n- Travel Planner App: Enter DB credentials, plan travel, manage remote DB.\n\nStatus: All three main components are finished and complete.\n\nBuilding & Running:\n- Python 3.10+ required\n- Install dependencies: pip install kivy sqlalchemy mysql-connector-python requests\n- Run installer.py to set up the database\n- Run airport_main.py to start the tracking app\n- For travel planner, set up credentials.json and run travel_main.py\n\n[GitHub Repository](https://github.com/salsayid/worldwide-airport-tracker)\n\nAuthors: Sayid Alsayid, Ethan Friedman, James Benton, Nathaniel McVay'
-        },
-        'rc_car': {
-          name: 'Automated Human-like RC Car',
-          stack: 'Python, Embedded, Computer Vision',
-          desc: 'RC car with human-like driving using computer vision and ML. [GitHub](https://github.com/salsayid/Automated-human-like-RC-Car)'
-        }
+        'rocket': { name: 'Rocket Propulsion Simulator', stack: 'Python, MATLAB', desc: 'A physics-based simulator for rocket propulsion analysis and visualization.' },
+        'burnplan': { name: 'Burn Plan Evaluation App', stack: 'Python, OpenCV, SQL', desc: 'Tool for evaluating and visualizing prescribed burn plans for land management.'},
+        'worldwide_airport_tracker': { name: 'Worldwide Airport Tracker', stack: 'Python, Kivy, SQLAlchemy, Requests', desc: 'A suite of apps for tracking airports, venues, and planning travel worldwide.' },
+        'rc_car': { name: 'Automated Human-like RC Car', stack: 'Python, Embedded, Computer Vision', desc: 'RC car with human-like driving using computer vision and ML. [GitHub](https://github.com/salsayid/Automated-human-like-RC-Car)' }
       };
       if (!arg) {
         print('Usage: readme [project]');
@@ -802,7 +424,6 @@
       prompt();
       return;
     }
-    // --- EXISTING COMMANDS ---
     if (c === 'help') {
       print('<span style="color:#b3e5fc;">Available commands:</span> <span style="color:#ffd600;">help, about, experience, projects, gallery, tetris, resume, social, clear, exit, ls, cd, cat, games, guess, asciiart</span>', 'terminal-help');
     } else if (c === 'about') {
@@ -877,8 +498,6 @@
   overlay.addEventListener('click', function(e){ if(e.target===overlay) overlay.style.display='none'; });
 })();
 </script>
-
-  <!-- RETRO BOOT SEQUENCE OVERLAY -->
   <div id="boot-sequence-overlay">
     <div id="boot-sequence-content">
       <span style="color:#b3e5fc;">[BIOS] Portfolio Boot v1.0</span>\n
@@ -886,7 +505,7 @@
       <span id="boot-sequence-lines"></span>
     </div>
   </div>
-  <script>
+<script>
   (function(){
     if (sessionStorage.getItem('booted')) { document.getElementById('boot-sequence-overlay').style.display = 'none'; return; }
     const overlay = document.getElementById('boot-sequence-overlay');
@@ -924,10 +543,8 @@
     setTimeout(nextLine, 600);
   })();
   </script>
-
-  <!-- Matrix Rain Background (toggleable) -->
   <canvas id="matrix-bg" style="display:none;position:fixed;left:0;top:0;width:100vw;height:100vh;z-index:20000;pointer-events:none;"></canvas>
-  <script>
+<script>
   (function(){
     const canvas = document.getElementById('matrix-bg');
     let running = false;
@@ -961,7 +578,6 @@
     window.toggleMatrix = function(on) {
       if(on) startMatrix(); else stopMatrix();
     };
-    // Secret key: 'm'
     document.addEventListener('keydown',function(e){
       if(e.key==='m' && (e.ctrlKey||e.metaKey)) window.toggleMatrix(canvas.style.display!=='block');
     });

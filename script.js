@@ -65,114 +65,9 @@
   animateDividers();
 })();
 
-
-// Animated Tetris stats (count up)
-(function(){
-  const stat = document.querySelector('.tetris-preview div b');
-  if (!stat) return;
-  let target = 44.68, n = 0;
-  function count() {
-    n += (target-n)*0.18 + 0.01;
-    if (Math.abs(n-target)<0.02) n = target;
-    stat.textContent = n.toFixed(2)+'s';
-    if (n!==target) setTimeout(count, 32);
-  }
-  count();
-})();
-
-// Animated footer (scrolls year)
-(function(){
-  const foot = document.querySelector('.footer-retro');
-  if (!foot) return;
-  let base = foot.textContent.replace(/\d{4}/,'');
-  let year = 2025;
-  setInterval(()=>{
-    year++;
-    foot.textContent = base + year;
-    if (year>2040) year=2025;
-  }, 1200);
-})();
-
 // --- INNOVATIVE RETRO UPGRADES ---
-// Secret Konami Code: unlocks a retro color theme
-(function(){
-  const code = [38,38,40,40,37,39,37,39,66,65];
-  let pos = 0;
-  document.addEventListener('keydown', function(e){
-    if (e.keyCode === code[pos]) {
-      pos++;
-      if (pos === code.length) {
-        document.body.classList.toggle('konami');
-        pos = 0;
-      }
-    } else {
-      pos = 0;
-    }
-  });
-})();
 
 
-// --- SAYID'S MOVIE PICKS: Live Letterboxd Feed ---
-window.addEventListener('DOMContentLoaded', function() {
-  const feedContainer = document.getElementById('letterboxd-feed');
-  if (!feedContainer) {
-    console.warn('No #letterboxd-feed container found in the DOM.');
-    return;
-  }
-  feedContainer.innerHTML = '<div style="color:#ffd600;">Loading Sayid\'s Movie Picks...</div>';
-  const url = 'https://api.allorigins.win/get?url=' + encodeURIComponent('https://letterboxd.com/sayidal/rss/');
-  console.log('[Letterboxd] Fetching:', url);
-  fetch(url)
-    .then(r => {
-      if (!r.ok) throw new Error('Network error');
-      return r.json();
-    })
-    .then(data => {
-      if (!data || !data.contents) throw new Error('No data.contents from proxy');
-      const parser = new window.DOMParser();
-      const xml = parser.parseFromString(data.contents, 'text/xml');
-      const items = Array.from(xml.querySelectorAll('item'));
-      console.log(`[Letterboxd] Found ${items.length} items in RSS feed.`);
-      if (!items.length) throw new Error('No entries found');
-      feedContainer.innerHTML = '';
-      let shown = 0;
-      items.slice(0, 5).forEach((item, idx) => {
-        const title = item.querySelector('title')?.textContent || 'Untitled';
-        const link = item.querySelector('link')?.textContent || '#';
-        const pubDate = item.querySelector('pubDate')?.textContent || '';
-        let poster = '';
-        const desc = item.querySelector('description')?.textContent || '';
-        const imgMatch = desc.match(/<img src=\"(.*?)\"/);
-        if (imgMatch) poster = imgMatch[1];
-        const date = pubDate ? new Date(pubDate).toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'}) : '';
-        // Log each entry
-        console.log(`[Letterboxd] Entry ${idx+1}:`, {title, link, date, poster});
-        // Card element
-        const card = document.createElement('div');
-        card.className = 'lb-card';
-        card.style.opacity = 0;
-        card.innerHTML =
-          `<div class='lb-card-inner'>`+
-            (poster ? `<img src='${poster}' alt='${title}' class='lb-poster'>` : '')+
-            `<div class='lb-info'>
-              <a href='${link}' target='_blank' class='lb-title'>${title}</a>
-              <div class='lb-date'>${date}</div>
-            </div>`+
-          `</div>`;
-        feedContainer.appendChild(card);
-        // Animate in one at a time
-        setTimeout(() => { card.style.opacity = 1; }, 200 + idx * 350);
-        shown++;
-      });
-      if (!shown) {
-        feedContainer.innerHTML = '<div style="color:#ffd600;">No recent movies found.</div>';
-      }
-    })
-    .catch(err => {
-      console.error('[Letterboxd] Error:', err);
-      feedContainer.innerHTML = `<div style='color:#f44336;'>Could not load Letterboxd feed.</div>`;
-    });
-});
 
 // README MODAL FUNCTIONALITY (robust, supports dynamic buttons)
 document.addEventListener('DOMContentLoaded', function () {
@@ -378,3 +273,118 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   draw();
 })();
+
+// --- LANGUAGE TOGGLE: FINALIZED & CORRECTED ---
+document.addEventListener('DOMContentLoaded', function() {
+    const langBtn = document.getElementById('lang-toggle-btn');
+    if (!langBtn) return;
+
+    if (document.body.dataset.langInitialized) return;
+    document.body.dataset.langInitialized = 'true';
+
+    window._isArabic = false; // Initial language state
+    
+    const wordsEn = ['engineer', 'computer scientist', 'full-stack developer', 'embedded systems engineer'];
+    const wordsAr = ['مهندس', 'عالم كمبيوتر', 'مطور شامل', 'مهندس أنظمة مدمجة'];
+
+    window.getAnimatedTitleWords = () => window._isArabic ? wordsAr : wordsEn;
+
+    // The translations object must use the new keys
+    const translations = {
+        'nav_about': 'عنّي',
+        'nav_experience': 'الخبرات',
+        'nav_projects': 'المشاريع',
+        'nav_gallery': 'المعرض',
+        'nav_tetris': 'تتريس',
+        'nav_resume': 'السيرة الذاتية',
+        'nav_contact': 'تواصل',
+        'btn_random_fact': 'معلومة عشوائية',
+        'btn_terminal': 'تيرمنال',
+        'hero_name': 'سيد السيد',
+        'hero_animated_prefix': 'طموح <span id="animated-title-word"></span><span class="typing-cursor" style="display:inline-block;width:1ch;">|</span>',
+        // This key must match the data-translate attribute in your HTML
+        'hero_subtitle': 'طالب جامعي في جامعة نبراسكا لينكولن | هندسة ميكانيكية + علوم حاسوب | متدرب في ناسا و هدل',
+        'hero_email': 'البريد الإلكتروني: <a href="mailto:alsayidoff@gmail.com" style="color:#ffd600;">alsayidoff@gmail.com</a>',
+        'hero_linkedin': 'لينكدإن: <a href="https://linkedin.com/in/sayidalsayid" style="color:#ffd600;">/in/sayidalsayid</a>',
+        'hero_github': 'جيت هب: <a href="https://github.com/salsayid" style="color:#ffd600;">github.com/salsayid</a>',
+        'title_about': 'عنّي',
+        'p_about': 'أهلاً بالجميع! أنا سيد، طالب في تخصص مزدوج في الهندسة الميكانيكية وعلوم الحاسوب بجامعة نبراسكا لينكولن. شغوف بتقاطع الفيزياء التطبيقية والملاحة الفضائية والحوسبة. هدفي هو العمل على أنظمة مادية مدعومة ببرمجيات ذكية. أحب بناء الأدوات التي تحل مشاكل العالم الحقيقي، وأسعى دائمًا لتعلم المزيد وتجاوز الحدود واستكشاف العالم من حولي. خارج النطاق الأكاديمي، تشمل هواياتي لعب <a href=\'https://jstris.jezevec10.com/u/sayid\'>التتريس</a> ومشاهدة <a href=\'https://letterboxd.com/sayidal/\'>الأفلام</a> وممارسة <a href=\'https://www.nitrotype.com/racer/sayidal\'>ألعاب الكتابة</a> والسفر حول العالم!',
+        'title_experience': 'الخبرات',
+        'exp_hudl_role': 'متدرب مهندس ضمان جودة البرمجيات',
+        'exp_hudl_desc': 'طورت اختبارات التشغيل الآلي لـ Playwright و API لأنظمة sideline في بيئة تطوير سريعة',
+        'exp_nasa_role': 'متدرب مهندس نظم طيران',
+        'exp_nasa_desc': 'محاكاة أنظمة الطيران والدفع. اختبار أجهزة لتجربة الغليان والتكثيف (FBCE)',
+        'exp_unl_role': 'باحث جامعي',
+        'exp_unl_desc': 'نقل الحرارة النانوي وتحويل الطاقة الحرارية. أجريت تجارب وحللت النتائج وساهمت في أنظمة الطاقة من الجيل التالي.',
+        'exp_ntc_role': 'متدرب مهندس برمجيات',
+        'exp_ntc_desc': 'بنيت نماذج بلغة بايثون لتحليل شبكات شحن السيارات الكهربائية. حسنت تخطيط النقل في المناطق الريفية.',
+        'title_projects': 'المشاريع',
+        'btn_readme': 'اقرأني',
+        'proj_rocket': 'محاكي دفع صواريخ (بايثون، ماتلاب)',
+        'proj_burnplan': 'تطبيق تقييم خطط الحرق (بايثون، OpenCV، SQL)',
+        'proj_airport': 'متعقب مطارات عالمي (بايثون، كيفي، SQL، طلبات) <a href="https://github.com/salsayid/worldwide-airport-tracker" target="_blank">[github]</a>',
+        'proj_rc_car': 'سيارة تحكم عن بعد آلية تشبه الإنسان <a href="https://github.com/salsayid/Automated-human-like-RC-Car" target="_blank">[github]</a>',
+        'title_gallery': 'المعرض',
+        'title_tetris': 'تتريس',
+        'tetris_fastest': 'أسرع إنهاء ٤٠ خط:',
+        'tetris_sprint_mode': '(طور السرعة في جستريس)',
+        'tetris_bests': 'أفضل إنجازاتي: ٤٠ خط ٤٤.٦٨ ثانية، ماراثون ١٬٢٣٤٬٠٠٠، أعلى مستوى ٢٩',
+        'tetris_where_i_play': 'أين ألعب:',
+        'title_resume': 'السيرة الذاتية',
+        'resume_download': 'حمّل سيرتي الذاتية المحدثة <a href="docs/Resume.pdf">من هنا</a>.',
+        'title_social': 'التواصل الاجتماعي',
+        'social_insta': 'انستغرام',
+        'social_x': 'إكس/تويتر',
+        'social_letterboxd': 'ليتربوكسد'
+    };
+
+    // Store original English text in a data attribute ONCE.
+    document.querySelectorAll('[data-translate]').forEach(el => {
+        el.dataset.langEn = el.innerHTML;
+    });
+
+    function updateLanguage() {
+        document.querySelectorAll('[data-translate]').forEach(el => {
+            const key = el.dataset.translate;
+            const englishText = el.dataset.langEn;
+            const arabicText = translations[key];
+            el.innerHTML = window._isArabic && arabicText ? arabicText : englishText;
+        });
+
+        const elementsToAlign = document.querySelectorAll('main, .experience-details');
+        elementsToAlign.forEach(el => {
+            el.style.textAlign = window._isArabic ? 'right' : 'left';
+        });
+
+        document.querySelectorAll('.experience-item').forEach(item => {
+            item.style.flexDirection = 'row';
+            item.style.gap = window._isArabic ? '0' : '22px';
+            item.querySelector('.company-logo').style.marginLeft = window._isArabic ? '22px' : '0';
+            item.querySelector('.company-logo').style.marginRight = window._isArabic ? '0' : '22px';
+        });
+
+        const fontLink = document.getElementById('arabic-font-link');
+        if (window._isArabic && !fontLink) {
+            const newFontLink = document.createElement('link');
+            newFontLink.id = 'arabic-font-link';
+            newFontLink.href = 'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono+Arabic:wght@400;700&display=swap';
+            newFontLink.rel = 'stylesheet';
+            document.head.appendChild(newFontLink);
+            document.body.style.fontFamily = "'IBM Plex Mono Arabic', 'IBM Plex Mono', monospace";
+            document.body.style.fontSize = '1.08em';
+        } else if (!window._isArabic) {
+            if (fontLink) fontLink.remove();
+            document.body.style.fontFamily = "'IBM Plex Mono', monospace";
+            document.body.style.fontSize = '1em';
+        }
+
+        if (window.restartHeroAnimation) {
+            window.restartHeroAnimation();
+        }
+    }
+
+    langBtn.addEventListener('click', function() {
+        window._isArabic = !window._isArabic;
+        updateLanguage();
+    });
+});
