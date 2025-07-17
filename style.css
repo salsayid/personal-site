@@ -623,6 +623,10 @@ h2, .company-description, ul, .gallery-grid, .tetris-preview, .wip {
   margin: 48px 0 48px 0 !important;
 }
 
+/* Animated nav bounce */
+.nav-min {
+  will-change: transform;
+}
 
 /* Animated project highlight */
 a[name="projects"]+h2+ul>li {

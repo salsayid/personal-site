@@ -42,7 +42,188 @@
       z-index: 9999;
     }
 
-    /* INNOVATIVE RETRO UPGRADES */
+    /* TERMINAL STYLES */
+    #terminal-overlay {
+      display: none;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #181818f0;
+      color: #ffd600;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.92em !important;
+      z-index: 10050;
+    }
+    #terminal-overlay .terminal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    #terminal-overlay .terminal-header span {
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    #terminal-overlay .terminal-header button {
+      background: #222;
+      color: #ffd600;
+      border: 1px solid #ffd600;
+      border-radius: 4px;
+      padding: 2px 12px;
+      font-family: inherit;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    #terminal-overlay #terminal-output {
+      background:#222222;
+      border-radius:8px;
+      padding:18px 14px;
+      min-height: 320px;
+      max-height: 48vh;
+      line-height: 1.7;
+      white-space: pre-wrap;
+      margin-bottom: 12px;
+      font-size: 0.98em;
+      box-shadow: 0 2px 16px #000a;
+      overflow-y: auto;
+    }
+    #terminal-overlay #terminal-form {
+      display: flex;
+      align-items: center;
+    }
+    #terminal-overlay #terminal-form span {
+      margin-right: 6px;
+    }
+    #terminal-overlay #terminal-input {
+      flex: 1;
+      background: #222;
+      color: #ffd600;
+      border: none;
+      padding: 6px 8px;
+      font-family: inherit;
+      font-size: 1em;
+      outline: none;
+    }
+
+    /* RETRO BOOT SEQUENCE STYLES */
+    #boot-sequence-overlay {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #101010;
+      color: #ffd600;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.15em;
+      z-index: 20000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transition: opacity 0.7s;
+    }
+    #boot-sequence-content {
+      width: 100%;
+      max-width: 520px;
+      text-align: left;
+      line-height: 1.6;
+      white-space: pre;
+    }
+
+    /* PROJECT LIST STYLES */
+    .project-list {
+      list-style: disc inside;
+      padding: 0;
+      margin-left: 0;
+    }
+    .project-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 10px 0;
+    }
+    .project-list .readme-btn {
+      margin-left: 0;
+      margin-right: 12px;
+      min-width: 92px;
+      text-align: center;
+      font-size: 0.98em;
+      padding: 3px 0;
+      background: transparent;
+      color: #ffd600;
+      border: 1.5px solid #ffd600;
+      border-radius: 0;
+      letter-spacing: 1px;
+      font-family: 'IBM Plex Mono', monospace;
+      transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .readme-btn:hover, .readme-btn:focus {
+      background: #ffd600;
+      color: #181818;
+      box-shadow: 0 2px 12px #ffd60044;
+      outline: none;
+    }
+    .readme-btn:active {
+      background: #ffb347;
+      color: #181818;
+      box-shadow: 0 1px 6px #ffd60033;
+    }
+
+    /* README MODAL STYLES */
+    @keyframes modalPop {
+      0% { transform: scale(0.85) translateY(40px); opacity: 0; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    #readme-modal {
+      display: none;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(16,16,16,0.98);
+      z-index: 20010;
+      align-items: center;
+      justify-content: center;
+    }
+    #readme-modal-content {
+      background: #181818;
+      border: 2px solid #ffd600;
+      border-radius: 8px;
+      max-width: 540px;
+      width: 90vw;
+      max-height: 80vh;
+      overflow-y: auto;
+      padding: 32px 28px 24px 28px;
+      box-shadow: 0 4px 32px #000b;
+      color: #ffd600;
+      font-family: 'IBM Plex Mono', monospace;
+      position: relative;
+      animation: modalPop 0.32s cubic-bezier(.4,2,.6,1);
+    }
+    #readme-modal-close {
+      position: absolute;
+      top: 12px;
+      right: 18px;
+      background: #ffd600;
+      color: #181818;
+      border: none;
+      border-radius: 4px;
+      padding: 4px 16px;
+      font-size: 1.1em;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.15s;
+    }
+    #readme-modal-close:hover, #readme-modal-close:focus {
+      background: #ffb347;
+      color: #181818;
+    }
   </style>
 </head>
 <body>
@@ -60,12 +241,14 @@
   <!-- RETRO INNOVATION BLAST: Interactive Features -->
   <div style="margin-bottom: 18px; text-align: right; position: fixed; top: 24px; right: 32px; z-index: 100;">
     <button id="random-fact-btn" style="background:#181818;color:#ffd600;border:1px solid #ffd600;border-radius:4px;padding:4px 14px;font-family:inherit;font-size:1em;cursor:pointer;">random fact</button>
+    <br/>
+    <button id="terminal-toggle-btn" style="margin-top:10px;background:#181818;color:#ffd600;border:1px solid #ffd600;border-radius:4px;padding:4px 14px;font-family:inherit;font-size:1em;cursor:pointer;">terminal</button>
   </div>
 
   <!-- HERO SECTION -->
   <section id="hero" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:90vh;">
-    <img src="images/me.png" alt="Sayid Alsayid" style="width:200px;height:200px;object-fit:cover;border-radius:18px;border:3px solid #ffb347;box-shadow:0 4px 32px #111b;margin-bottom:24px;" />
-    <h1 style="margin-bottom:10px;font-size:2.4em;letter-spacing:2px;">SAYID ALSAYID</h1>
+    <img src="images/sa2.png" alt="Sayid Alsayid" style="width:250px;height:250px;object-fit:cover;margin-bottom:0;display:block;" />
+    <h1 style="margin:0 0 10px 0;font-size:2.4em;letter-spacing:2px;background:#ffd600;color:#181818;display:inline-block;padding:0.18em 0.7em 0.18em 0.7em;line-height:1.1;box-shadow:0 2px 8px #1112;">SAYID ALSAYID</h1>
     <div id="animated-title" style="font-size:1.3em;color:#ffd600;font-style:italic;min-height:1.5em;">aspiring <span id='animated-title-word'></span><span class='typing-cursor' style='display:inline-block;width:1ch;'>|</span></div>
     <div style="margin:18px 0 0 0; font-size:1.08em; color:#ffb347; text-align:center;">
       undergraduate @ unl | mechanical engineering + computer science | intern @ nasa & hudl
@@ -87,7 +270,7 @@
          my goal is to work on physical systems powered by smart software. 
          i love building tools that solve real-world problems—and 
          i'm always looking to learn more, push boundaries, and explore the world around me.
-         outside of academics, my hobbies include playing <a href='https://jstris.jezevec10.com/u/sayid'>tetris</a>, watching <a href='https://letterboxd.com/sayidal/'>movies</a>, and traveling the world!
+         outside of academics, my hobbies include playing <a href='https://jstris.jezevec10.com/u/sayid'>tetris</a>, watching <a href='https://letterboxd.com/sayidal/'>movies</a>, playing <a href='https://www.nitrotype.com/racer/sayidal'>typing games</a> and traveling the world!
 
     </p>
     <div class="ascii-divider">------------------------------------------------------------</div>
@@ -136,12 +319,31 @@
     <div class="ascii-divider">------------------------------------------------------------</div>
     <a name="projects"></a>
     <h2>PROJECTS</h2>
-    <ul style="list-style: disc; margin-left: 18px;">
-      <li>rocket propulsion simulator (python, matlab)</li>
-      <li>burn plan evaluation app (python, opencv, sql)</li>
-      <li>smart home system (raspberry pi, python, js)</li>
-      <li>automated human-like rc car <a href="https://github.com/salsayid/Automated-human-like-RC-Car" target="_blank">[github]</a></li>
+    <ul class="project-list">
+      <li>
+        <button class="readme-btn" data-project="rocket">README.md</button>
+        <span>rocket propulsion simulator (python, matlab)</span>
+      </li>
+      <li>
+        <button class="readme-btn" data-project="burnplan">README.md</button>
+        <span>burn plan evaluation app (python, opencv, sql)</span>
+      </li>
+      <li>
+        <button class="readme-btn" data-project="smarthome">README.md</button>
+        <span>smart home system (raspberry pi, python, js)</span>
+      </li>
+      <li>
+        <button class="readme-btn" data-project="rc_car">README.md</button>
+        <span>automated human-like rc car <a href="https://github.com/salsayid/Automated-human-like-RC-Car" target="_blank">[github]</a></span>
+      </li>
     </ul>
+    <!-- README MODAL OVERLAY -->
+    <div id="readme-modal" style="display:none;position:fixed;left:0;top:0;width:100vw;height:100vh;background:rgba(16,16,16,0.98);z-index:20010;align-items:center;justify-content:center;">
+      <div id="readme-modal-content" style="background:#181818;border:2px solid #ffd600;border-radius:8px;max-width:540px;width:90vw;max-height:80vh;overflow-y:auto;padding:32px 28px 24px 28px;box-shadow:0 4px 32px #000b;color:#ffd600;font-family:'IBM Plex Mono',monospace;position:relative;animation:modalPop 0.32s cubic-bezier(.4,2,.6,1);">
+        <button id="readme-modal-close" style="position:absolute;top:12px;right:18px;background:#ffd600;color:#181818;border:none;border-radius:4px;padding:4px 16px;font-size:1.1em;cursor:pointer;font-family:inherit;transition:background 0.15s;">close</button>
+        <div id="readme-modal-body"></div>
+      </div>
+    </div>
     <div class="ascii-divider">------------------------------------------------------------</div>
     <a name="gallery"></a>
     <h2>GALLERY</h2>
@@ -349,7 +551,7 @@
   (function(){
     let active = false;
     document.addEventListener('keydown', function(e){
-      if (e.key==='g' && !active) {
+      if (e.key==='3' && !active) {
         active = true;
         const overlay = document.createElement('div');
         overlay.style.position = 'fixed';
@@ -407,5 +609,350 @@
         type();
       })();
     </script>
+
+  <!-- TERMINAL OVERLAY (pivot: interactive CLI portfolio) -->
+  <div id="terminal-overlay">
+  <div style="max-width:700px;margin:48px auto 0 auto;padding:0 18px;">
+    <div class="terminal-header">
+      <span>sayid@portfolio:~$</span>
+      <button id="terminal-exit-btn">exit</button>
+    </div>
+    <div id="terminal-output" style="background:#222222;border-radius:8px;padding:18px 14px;min-height:320px;max-height:48vh;line-height:1.7;white-space:pre-wrap;margin-bottom:12px;font-size:0.98em;box-shadow:0 2px 16px #000a;overflow-y:auto;"></div>
+    <form id="terminal-form" autocomplete="off">
+      <span style="margin-right:6px;color:#ffd600;">$</span>
+      <input id="terminal-input" type="text" style="flex:1;background:#222;color:#ffd600;border:none;padding:6px 8px;font-family:inherit;font-size:1em;outline:none;" autofocus autocomplete="off" />
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  const overlay = document.getElementById('terminal-overlay');
+  const toggleBtn = document.getElementById('terminal-toggle-btn');
+  const exitBtn = document.getElementById('terminal-exit-btn');
+  const form = document.getElementById('terminal-form');
+  const input = document.getElementById('terminal-input');
+  const output = document.getElementById('terminal-output');
+  let history = [], histIdx = 0;
+  function print(text, styleClass) {
+    const div = document.createElement('div');
+    div.className = styleClass||'';
+    div.innerHTML = text;
+    output.appendChild(div);
+    output.scrollTop = output.scrollHeight;
+  }
+  function prompt() {
+    print('<span style="color:#ffb347;font-weight:bold;">sayid@portfolio</span>:<span style="color:#ffd600;">~$</span>', 'terminal-prompt');
+  }
+  function handle(cmd) {
+    const c = cmd.trim().toLowerCase();
+    if (!c) return;
+    print('<span style="color:#ffd600;font-weight:bold;">$ '+cmd+'</span>', 'terminal-cmd');
+    // --- FILESYSTEM EMULATION ---
+    // Simple fake FS tree
+    const fs = {
+      '/': ['about.txt','experience.txt','projects/','gallery/','resume.txt','games/','social.txt'],
+      '/projects': ['rocket.txt','burnplan.txt','smarthome.txt','rc_car.txt'],
+      '/gallery': ['vball.jpg','nanolab.jpg','grc.jpg','zols.jpg','robodog.jpg','artemis.jpg'],
+      '/games': ['guess','asciiart'],
+    };
+    let cwd = handle.cwd || '/';
+    // Parse for cd/ls/cat
+    if (c.startsWith('cd ')) {
+      let arg = c.slice(3).replace(/\/$/,'');
+      if (arg === '..') {
+        if (cwd !== '/') cwd = cwd.replace(/\/?[^/]+$/,'') || '/';
+      } else if (fs[cwd+'/'+arg] || fs['/'+arg]) {
+        cwd = cwd==='/' ? '/'+arg : cwd+'/'+arg;
+      } else {
+        print('<span style="color:#f44336;">No such directory:</span> <span style="color:#ffd600;">'+arg+'</span>','terminal-error');
+        prompt();
+        handle.cwd = cwd;
+        return;
+      }
+      print('Changed directory to <span style="color:#ffd600;">'+cwd+'</span>');
+      handle.cwd = cwd;
+      prompt();
+      return;
+    } else if (c === 'ls') {
+      let list = fs[cwd] || fs['/'+cwd] || [];
+      print(list.map(f=>f.endsWith('/')?'<span style="color:#b2ff59;">'+f+'</span>':f).join('  '));
+      prompt();
+      return;
+    } else if (c.startsWith('cat ')) {
+      let file = c.slice(4);
+      let path = cwd==='/'?'/'+file:cwd+'/'+file;
+      // Simulate file contents
+      const files = {
+        '/about.txt': 'Sayid Alsayid\nMechanical Engineering + Computer Science @ UNL\nPassionate about applied physics, astronautics, and computing.',
+        '/experience.txt': 'See experience section on main site.',
+        '/resume.txt': 'Download at docs/Resume.pdf',
+        '/projects/rocket.txt': 'Rocket Propulsion Simulator (python, matlab)',
+        '/projects/burnplan.txt': 'Burn Plan Evaluation App (python, opencv, sql)',
+        '/projects/smarthome.txt': 'Smart Home System (raspberry pi, python, js)',
+        '/projects/rc_car.txt': 'Automated human-like RC car: github.com/salsayid/Automated-human-like-RC-Car',
+        '/gallery/vball.jpg': '[Image: volleyball]',
+        '/gallery/nanolab.jpg': '[Image: nanolab]',
+        '/gallery/grc.jpg': '[Image: nasa glenn]',
+        '/gallery/zols.jpg': '[Image: zols-fc]',
+        '/gallery/robodog.jpg': '[Image: robot dog]',
+        '/gallery/artemis.jpg': '[Image: artemis]',
+        '/social.txt': 'Instagram: @sayidall\nX/Twitter: @AlsayidSayid\nLetterboxd: @sayidal',
+      };
+      if (files[path]) {
+        print('<pre style="color:#ffd600;">'+files[path]+'</pre>');
+      } else {
+        print('<span style="color:#f44336;">No such file:</span> <span style="color:#ffd600;">'+file+'</span>','terminal-error');
+      }
+      prompt();
+      return;
+    }
+    // --- MINI GAMES ---
+    if (c === 'games' || c === 'ls games' || c === 'cd games') {
+      print('Available games: <span style="color:#ffd600;">guess, asciiart</span>');
+      prompt();
+      return;
+    }
+    if (c === 'guess') {
+      // Number guessing game
+      if (!handle.guessNum) {
+        handle.guessNum = Math.floor(Math.random()*100)+1;
+        print('Guess a number between 1 and 100. Type your guess:');
+        handle.guessActive = true;
+      } else {
+        print('Already in a game! Type your guess.');
+      }
+      prompt();
+      return;
+    }
+    if (handle.guessActive && /^\d+$/.test(c)) {
+      let n = parseInt(c);
+      if (n === handle.guessNum) {
+        print('<span style="color:#b2ff59;">Correct! The number was '+n+'.</span>');
+        handle.guessNum = null; handle.guessActive = false;
+      } else if (n < handle.guessNum) {
+        print('Too low!');
+      } else {
+        print('Too high!');
+      }
+      prompt();
+      return;
+    }
+    if (c === 'asciiart') {
+      print('<pre style="color:#ffd600;">'+
+`   /\_/\  
+  ( o.o ) 
+   > ^ <  
+`+'</pre>');
+      prompt();
+      return;
+    }
+    // --- PROJECT README GENERATOR ---
+    if (c.startsWith('readme') || c.startsWith('readme ')) {
+      let arg = c.split(' ')[1] || '';
+      // Map project keys to info
+      const projectInfo = {
+        'rocket': {
+          name: 'Rocket Propulsion Simulator',
+          stack: 'Python, MATLAB',
+          desc: 'A physics-based simulator for rocket propulsion analysis and visualization.'
+        },
+        'burnplan': {
+          name: 'Burn Plan Evaluation App',
+          stack: 'Python, OpenCV, SQL',
+          desc: 'Tool for evaluating and visualizing prescribed burn plans for land management.'
+        },
+        'smarthome': {
+          name: 'Smart Home System',
+          stack: 'Raspberry Pi, Python, JavaScript',
+          desc: 'IoT system for automating and monitoring home devices.'
+        },
+        'rc_car': {
+          name: 'Automated Human-like RC Car',
+          stack: 'Python, Embedded, Computer Vision',
+          desc: 'RC car with human-like driving using computer vision and ML. [GitHub](https://github.com/salsayid/Automated-human-like-RC-Car)'
+        }
+      };
+      if (!arg) {
+        print('Usage: readme [project]');
+        print('Available: rocket, burnplan, smarthome, rc_car');
+        prompt();
+        return;
+      }
+      const info = projectInfo[arg];
+      if (!info) {
+        print('No such project. Try: rocket, burnplan, smarthome, rc_car');
+        prompt();
+        return;
+      }
+      let md = `# ${info.name}\n\n**Stack:** ${info.stack}\n\n${info.desc}\n`;
+      print('<pre style="color:#ffd600;">'+md+'</pre>');
+      prompt();
+      return;
+    }
+    // --- EXISTING COMMANDS ---
+    if (c === 'help') {
+      print('<span style="color:#b3e5fc;">Available commands:</span> <span style="color:#ffd600;">help, about, experience, projects, gallery, tetris, resume, social, clear, exit, ls, cd, cat, games, guess, asciiart</span>', 'terminal-help');
+    } else if (c === 'about') {
+      print('<span style="color:#fff;">Sayid Alsayid<br>Mechanical Engineering + Computer Science @ UNL<br>Passionate about applied physics, astronautics, and computing.<br>Loves building tools that solve real-world problems.</span>', 'terminal-about');
+    } else if (c === 'experience') {
+      print('<span style="color:#b2ff59;">EXPERIENCE</span><br>' +
+        '<b>software qa engineer intern</b> @ hudl (may 2025 - aug 2025)<br>' +
+        '<span style="color:#aaa;">developed Playwright and API test automation for sideline systems in an agile dev environment</span><br>' +
+        '<b>aeronautical systems engineer intern</b> @ nasa (aug 2024 - dec 2024)<br>' +
+        '<span style="color:#aaa;">flight systems and propulsion simulations. hardware testing for the flow boiling and condensation experiment (FBCE)</span><br>' +
+        '<b>undergraduate researcher</b> @ nebraska nanoscale energy engineering lab (feb 2024 - jul 2024)<br>' +
+        '<span style="color:#aaa;">nanoscale heat transfer and thermionic energy conversion. ran experiments, analyzed results, and contributed to next-gen energy systems.</span><br>' +
+        '<b>software engineer intern</b> @ nebraska transportation center (dec 2023 - jul 2024)<br>' +
+        '<span style="color:#aaa;">built models in python to analyze EV charging networks. improved rural transportation planning.</span>', 'terminal-exp');
+    } else if (c === 'projects') {
+      print('<span style="color:#b2ff59;">PROJECTS</span><br>' +
+        '- rocket propulsion simulator (python, matlab)<br>' +
+        '- burn plan evaluation app (python, opencv, sql)<br>' +
+        '- smart home system (raspberry pi, python, js)<br>' +
+        '- automated human-like rc car <a href="https://github.com/salsayid/Automated-human-like-RC-Car" target="_blank" style="color:#ffd600;">[github]</a>', 'terminal-proj');
+    } else if (c === 'gallery') {
+      print('<span style="color:#b2ff59;">GALLERY</span><br>' +
+        'volleyball, nanolab, nasa glenn, zols-fc, robot dog, artemis<br>' +
+        '<span style="color:#aaa;">(see images in main site gallery)</span>', 'terminal-gallery');
+    } else if (c === 'tetris') {
+      print('<span style="color:#b2ff59;">TETRIS</span><br>' +
+        'fastest 40-line clear: <b>44.68s</b><br>' +
+        '<span style="color:#aaa;">(sprint mode on jstris)</span><br>' +
+        'personal bests: 40-line sprint 44.68s, marathon 1,234,000, highest level 29<br>' +
+        'where i play: <a href="https://jstris.jezevec10.com/" target="_blank" style="color:#ffd600;">jstris</a>, <a href="https://tetr.io/" target="_blank" style="color:#ffd600;">tetr.io</a>', 'terminal-tetris');
+    } else if (c === 'resume') {
+      print('<span style="color:#b2ff59;">RESUME</span><br>' +
+        'download my latest resume <a href="docs/Resume.pdf" style="color:#ffd600;">here</a>.', 'terminal-resume');
+    } else if (c === 'social') {
+      print('<span style="color:#b2ff59;">SOCIAL</span><br>' +
+        'instagram: <a href="https://www.instagram.com/sayidall/" target="_blank" style="color:#ffd600;">@sayidall</a><br>' +
+        'x/twitter: <a href="https://x.com/AlsayidSayid" target="_blank" style="color:#ffd600;">@AlsayidSayid</a><br>' +
+        'letterboxd: <a href="https://letterboxd.com/sayidal/" target="_blank" style="color:#ffd600;">@sayidal</a>', 'terminal-social');
+    } else if (c === 'exit') {
+      overlay.style.display = 'none';
+    } else if (c === 'clear') {
+      output.innerHTML = '';
+    } else {
+      print('<span style="color:#f44336;">Command not found:</span> <span style="color:#ffd600;">'+cmd+'</span>', 'terminal-error');
+    }
+  }
+  form.onsubmit = function(e){
+    e.preventDefault();
+    const cmd = input.value;
+    if (!cmd) return;
+    history.push(cmd); histIdx = history.length;
+    handle(cmd);
+    input.value = '';
+  };
+  input.onkeydown = function(e){
+    if (e.key === 'ArrowUp') {
+      if (histIdx > 0) { histIdx--; input.value = history[histIdx]||''; setTimeout(()=>input.setSelectionRange(input.value.length,input.value.length),0); }
+      e.preventDefault();
+    } else if (e.key === 'ArrowDown') {
+      if (histIdx < history.length-1) { histIdx++; input.value = history[histIdx]||''; } else { input.value = ''; histIdx = history.length; }
+      e.preventDefault();
+    }
+  };
+  toggleBtn.onclick = function(){
+    overlay.style.display = 'block';
+    output.innerHTML = '';
+    print('<span style="color:#ffd600;">Welcome to Sayid\'s Portfolio Terminal!</span> <span style="color:#b3e5fc;">Type <b>help</b> for commands.</span>', 'terminal-welcome');
+    prompt();
+    input.focus();
+  };
+  exitBtn.onclick = function(){ overlay.style.display = 'none'; };
+  overlay.addEventListener('click', function(e){ if(e.target===overlay) overlay.style.display='none'; });
+})();
+</script>
+
+  <!-- RETRO BOOT SEQUENCE OVERLAY -->
+  <div id="boot-sequence-overlay">
+    <div id="boot-sequence-content">
+      <span style="color:#b3e5fc;">[BIOS] Portfolio Boot v1.0</span>\n
+      <span style="color:#ffd600;">Initializing system...</span>\n
+      <span id="boot-sequence-lines"></span>
+    </div>
+  </div>
+  <script>
+  (function(){
+    if (sessionStorage.getItem('booted')) { document.getElementById('boot-sequence-overlay').style.display = 'none'; return; }
+    const overlay = document.getElementById('boot-sequence-overlay');
+    const lines = [
+      '',
+      'Checking RAM .................... <span style="color:#b2ff59;">OK</span>',
+      'Detecting CPU ................... <span style="color:#b2ff59;">OK</span>',
+      'Loading system modules .......... <span style="color:#b2ff59;">OK</span>',
+      'Mounting /portfolio ............. <span style="color:#b2ff59;">OK</span>',
+      'Detecting user ................. <span style="color:#b2ff59;">OK</span>',
+      '',
+      '<span style="color:#ffd600;">Welcome, traveler.</span>',
+      '',
+      '<span style="color:#b3e5fc;">Sayid Alsayid Portfolio</span>',
+      '<span style="color:#ffd600;">Type <b>help</b> in the terminal for commands.</span>',
+      '',
+      '<span style="color:#b2ff59;">Press any key to continue...</span>'
+    ];
+    let idx = 0;
+    const linesDiv = document.getElementById('boot-sequence-lines');
+    function nextLine() {
+      if (idx < lines.length) {
+        linesDiv.innerHTML += lines[idx]+"\n";
+        idx++;
+        setTimeout(nextLine, idx<lines.length-1 ? 320 : 0);
+      } else {
+        document.addEventListener('keydown', finish, {once:true});
+        document.addEventListener('click', finish, {once:true});
+      }
+    }
+    function finish() {
+      overlay.style.opacity = 0;
+      setTimeout(()=>{ overlay.style.display='none'; sessionStorage.setItem('booted','1'); }, 700);
+    }
+    setTimeout(nextLine, 600);
+  })();
+  </script>
+
+  <!-- Matrix Rain Background (toggleable) -->
+  <canvas id="matrix-bg" style="display:none;position:fixed;left:0;top:0;width:100vw;height:100vh;z-index:20000;pointer-events:none;"></canvas>
+  <script>
+  (function(){
+    const canvas = document.getElementById('matrix-bg');
+    let running = false;
+    function startMatrix() {
+      canvas.style.display = 'block';
+      let w = window.innerWidth, h = window.innerHeight;
+      canvas.width = w; canvas.height = h;
+      let cols = Math.floor(w/16);
+      let ypos = Array(cols).fill(0);
+      const ctx = canvas.getContext('2d');
+      function draw() {
+        ctx.fillStyle = 'rgba(0,0,0,0.08)';
+        ctx.fillRect(0,0,w,h);
+        ctx.fillStyle = '#0f0';
+        ctx.font = '16px monospace';
+        ypos.forEach((y,ind)=>{
+          const text = String.fromCharCode(0x30A0+Math.random()*96);
+          ctx.fillText(text,ind*16,y);
+          if(y>100+Math.random()*10000) ypos[ind]=0;
+          else ypos[ind]=y+16;
+        });
+        if(running) requestAnimationFrame(draw);
+      }
+      running = true;
+      draw();
+    }
+    function stopMatrix() {
+      running = false;
+      canvas.style.display = 'none';
+    }
+    window.toggleMatrix = function(on) {
+      if(on) startMatrix(); else stopMatrix();
+    };
+    // Secret key: 'm'
+    document.addEventListener('keydown',function(e){
+      if(e.key==='m' && (e.ctrlKey||e.metaKey)) window.toggleMatrix(canvas.style.display!=='block');
+    });
+  })();
+  </script>
 </body>
 </html>

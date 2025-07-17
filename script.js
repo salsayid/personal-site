@@ -94,7 +94,7 @@
 })();
 
 // --- INNOVATIVE RETRO UPGRADES ---
-// 1. Secret Konami Code: unlocks a retro color theme
+// Secret Konami Code: unlocks a retro color theme
 (function(){
   const code = [38,38,40,40,37,39,37,39,66,65];
   let pos = 0;
@@ -111,52 +111,6 @@
   });
 })();
 
-// 2. Retro screensaver: after 60s idle, bounces your name
-(function(){
-  let timer, screensaver;
-  function showSaver() {
-    if (!screensaver) {
-      screensaver = document.createElement('div');
-      screensaver.id = 'screensaver';
-      screensaver.style.position = 'fixed';
-      screensaver.style.left = 0;
-      screensaver.style.top = 0;
-      screensaver.style.width = '100vw';
-      screensaver.style.height = '100vh';
-      screensaver.style.background = 'rgba(0,0,0,0.97)';
-      screensaver.style.zIndex = 10010;
-      screensaver.style.display = 'flex';
-      screensaver.style.alignItems = 'center';
-      screensaver.style.justifyContent = 'center';
-      screensaver.innerHTML = '<span style="color:#ffb347;font-size:2.2em;font-family:monospace;">SAYID</span>';
-      document.body.appendChild(screensaver);
-      let x=100, y=100, dx=3, dy=2, el=screensaver.firstChild;
-      function bounce() {
-        x+=dx; y+=dy;
-        if(x<0||x>window.innerWidth-320)dx=-dx;
-        if(y<0||y>window.innerHeight-60)dy=-dy;
-        el.style.position='absolute';
-        el.style.left=x+'px';
-        el.style.top=y+'px';
-        if(screensaver.style.display==='flex')requestAnimationFrame(bounce);
-      }
-      bounce();
-    }
-    screensaver.style.display = 'flex';
-  }
-  function hideSaver() {
-    if (screensaver) screensaver.style.display = 'none';
-  }
-  function resetTimer() {
-    hideSaver();
-    clearTimeout(timer);
-    timer = setTimeout(showSaver, 60000);
-  }
-  ['mousemove','keydown','mousedown','touchstart'].forEach(evt=>{
-    document.addEventListener(evt, resetTimer);
-  });
-  resetTimer();
-})();
 
 // --- SAYID'S MOVIE PICKS: Live Letterboxd Feed ---
 window.addEventListener('DOMContentLoaded', function() {
@@ -219,3 +173,35 @@ window.addEventListener('DOMContentLoaded', function() {
       feedContainer.innerHTML = `<div style='color:#f44336;'>Could not load Letterboxd feed.</div>`;
     });
 });
+
+// README MODAL FUNCTIONALITY (robust, supports dynamic buttons)
+(function(){
+  const projectReadmes = {
+    rocket: `# Rocket Propulsion Simulator\n\n**Stack:** Python, MATLAB\n\nA physics-based simulator for rocket propulsion analysis and visualization.\n\n- Simulates thrust, ISP, and burn profiles for custom engines\n- Interactive plots and parameter sweeps\n- Used for research and coursework in astronautics\n`,
+    burnplan: `# Burn Plan Evaluation App\n\n**Stack:** Python, OpenCV, SQL\n\nTool for evaluating and visualizing prescribed burn plans for land management.\n\n- Image analysis of satellite/aerial data\n- Generates reports and risk assessments\n- Used by researchers and land managers\n`,
+    smarthome: `# Smart Home System\n\n**Stack:** Raspberry Pi, Python, JavaScript\n\nIoT system for automating and monitoring home devices.\n\n- Real-time sensor data and device control\n- Custom dashboard and alerting\n- Integrates with voice assistants\n`,
+    rc_car: `# Automated Human-like RC Car\n\n**Stack:** Python, Embedded, Computer Vision\n\nRC car with human-like driving using computer vision and ML.\n\n- Lane detection and obstacle avoidance\n- Trained on real driving data\n- [GitHub](https://github.com/salsayid/Automated-human-like-RC-Car)\n`
+  };
+  const modal = document.getElementById('readme-modal');
+  const modalBody = document.getElementById('readme-modal-body');
+  const closeBtn = document.getElementById('readme-modal-close');
+  // Use event delegation for all current/future .readme-btn
+  document.addEventListener('click', function(e) {
+    if (e.target.classList && e.target.classList.contains('readme-btn')) {
+      e.preventDefault();
+      const key = e.target.getAttribute('data-project');
+      if (!modal || !modalBody) return;
+      modalBody.innerHTML = '<pre style="white-space:pre-wrap;font-size:1.08em;line-height:1.7;">'+(projectReadmes[key]||'README not found.')+'</pre>';
+      modal.style.display = 'flex';
+      setTimeout(()=>{
+        const content = document.getElementById('readme-modal-content');
+        if(content) content.focus();
+      }, 10);
+    }
+  });
+  if (closeBtn) closeBtn.onclick = function(){ modal.style.display = 'none'; };
+  if (modal) modal.onclick = function(e){ if(e.target===modal) modal.style.display='none'; };
+  document.addEventListener('keydown', function(e){
+    if(modal && modal.style.display==='flex' && (e.key==='Escape'||e.key==='Enter')) modal.style.display='none';
+  });
+})();
