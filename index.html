@@ -10,7 +10,7 @@
   <style>
     body { animation: fadein 1.2s; }
     @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
-    .ascii-divider { color: #ffb347; font-family: inherit; letter-spacing: 2px; margin: 18px 0 18px 0; }
+    .ascii-divider { color: #ffb347; font-family: inherit; letter-spacing: 2px; margin: 18px 0 18px 0; font-size: 1.1em; }
     .nav-min { font-size: 1em; margin-bottom: 24px; text-align: left; letter-spacing: 1px; }
     .nav-min a { margin-right: 18px; }
     .gallery-scroll { display: flex; overflow-x: auto; gap: 6px; padding-bottom: 8px; scrollbar-color: #ffb347 #222; }
@@ -58,26 +58,39 @@
   </div>
 
   <!-- RETRO INNOVATION BLAST: Interactive Features -->
-  <div style="margin-bottom: 18px; text-align: right;">
+  <div style="margin-bottom: 18px; text-align: right; position: fixed; top: 24px; right: 32px; z-index: 100;">
     <button id="random-fact-btn" style="background:#181818;color:#ffd600;border:1px solid #ffd600;border-radius:4px;padding:4px 14px;font-family:inherit;font-size:1em;cursor:pointer;">random fact</button>
   </div>
 
-  <main style="max-width: 600px; margin: 0 auto;">
-    <h1 style="margin-bottom: 0.2em;">SAYID ALSAYID</h1>
-    <div class="ascii-divider">-----------------------------</div>
-    <div style="font-size:1.1em; margin-bottom: 18px;">undergraduate @ unl | mechanical engineering + computer science | intern @ nasa & hudl</div>
-    <div style="margin-bottom: 18px;">
-      email: <a href="mailto:alsayidoff@gmail.com">alsayidoff@gmail.com</a><br>
-      linkedin: <a href="https://linkedin.com/in/sayidalsayid">/in/sayidalsayid</a><br>
-      github: <a href="https://github.com/salsayid">github.com/salsayid</a>
+  <!-- HERO SECTION -->
+  <section id="hero" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:90vh;">
+    <img src="images/me.png" alt="Sayid Alsayid" style="width:200px;height:200px;object-fit:cover;border-radius:18px;border:3px solid #ffb347;box-shadow:0 4px 32px #111b;margin-bottom:24px;" />
+    <h1 style="margin-bottom:10px;font-size:2.4em;letter-spacing:2px;">SAYID ALSAYID</h1>
+    <div id="animated-title" style="font-size:1.3em;color:#ffd600;font-style:italic;min-height:1.5em;">aspiring <span id='animated-title-word'></span><span class='typing-cursor' style='display:inline-block;width:1ch;'>|</span></div>
+    <div style="margin:18px 0 0 0; font-size:1.08em; color:#ffb347; text-align:center;">
+      undergraduate @ unl | mechanical engineering + computer science | intern @ nasa & hudl
     </div>
-    <div class="ascii-divider">-----------------------------</div>
+    <div style="margin:18px 0 0 0; text-align:center; font-size:1.08em; color:#ffb347;">
+      <div>email: <a href="mailto:alsayidoff@gmail.com" style="color:#ffd600;">alsayidoff@gmail.com</a></div>
+      <div>linkedin: <a href="https://linkedin.com/in/sayidalsayid" style="color:#ffd600;">/in/sayidalsayid</a></div>
+      <div>github: <a href="https://github.com/salsayid" style="color:#ffd600;">github.com/salsayid</a></div>
+    </div>
+    <a href="#main-content" style="display:inline-block;margin:38px auto 0 auto;color:#ffb347;font-size:2.5em;text-decoration:none;">↓</a>
+  </section>
+  <main id="main-content" style="max-width: 600px; margin: 0 auto;">
+    <div class="ascii-divider">------------------------------------------------------------</div>
     <a name="about"></a>
     <h2>ABOUT</h2>
     <p style="margin-bottom: 18px;">
-      hi! i'm sayid. i like building things that blend hardware and software, especially for science, space, and fun. i love tetris, movies, and traveling. always learning, always exploring.
+      hi everyone! i'm sayid, a dual-degree student in mechanical engineering and computer science at the <a href="https://www.unl.edu/"><Nebraska-Lincon></Nebraska-Lincon>university of nebraska-lincoln</a>.
+         I'm passionate about the intersection of applied physics, astronautics, and computing. 
+         my goal is to work on physical systems powered by smart software. 
+         i love building tools that solve real-world problems—and 
+         i'm always looking to learn more, push boundaries, and explore the world around me.
+         outside of academics, my hobbies include playing <a href='https://jstris.jezevec10.com/u/sayid'>tetris</a>, watching <a href='https://letterboxd.com/sayidal/'>movies</a>, and traveling the world!
+
     </p>
-    <div class="ascii-divider">-----------------------------</div>
+    <div class="ascii-divider">------------------------------------------------------------</div>
     <a name="experience"></a>
     <h2>EXPERIENCE</h2>
     <div class="experience-list">
@@ -100,7 +113,7 @@
         </div>
       </div>
       <div class="experience-item">
-        <img src="images/unl4.png" alt="NanoLab logo" class="company-logo" />
+        <img src="images/unl7.png" alt="NanoLab logo" class="company-logo" />
         <div class="experience-details">
           <div class="experience-role">undergraduate researcher</div>
           <div class="experience-company">nebraska nanoscale energy engineering lab</div>
@@ -111,7 +124,7 @@
         </div>
       </div>
       <div class="experience-item">
-        <img src="images/unl4.png" alt="Nebraska Transportation Center logo" class="company-logo" />
+        <img src="images/midam3.png" alt="Nebraska Transportation Center logo" class="company-logo" />
         <div class="experience-details">
           <div class="experience-role">software engineer intern</div>
           <div class="experience-company">nebraska transportation center</div>
@@ -120,7 +133,7 @@
         </div>
       </div>
     </div>
-    <div class="ascii-divider">-----------------------------</div>
+    <div class="ascii-divider">------------------------------------------------------------</div>
     <a name="projects"></a>
     <h2>PROJECTS</h2>
     <ul style="list-style: disc; margin-left: 18px;">
@@ -129,7 +142,7 @@
       <li>smart home system (raspberry pi, python, js)</li>
       <li>automated human-like rc car <a href="https://github.com/salsayid/Automated-human-like-RC-Car" target="_blank">[github]</a></li>
     </ul>
-    <div class="ascii-divider">-----------------------------</div>
+    <div class="ascii-divider">------------------------------------------------------------</div>
     <a name="gallery"></a>
     <h2>GALLERY</h2>
     <div class="gallery-scroll">
@@ -140,7 +153,7 @@
       <img src="images/robodog.png" alt="robot dog" class="gallery-img"/>
       <img src="images/artemis.png" alt="artemis" class="gallery-img" />
     </div>
-    <div class="ascii-divider">-----------------------------</div>
+    <div class="ascii-divider">------------------------------------------------------------</div>
     <a name="tetris"></a>
     <h2>TETRIS</h2>
     <div class="tetris-preview" style="margin-bottom: 18px;">
@@ -153,11 +166,11 @@
       <div style="margin-top: 10px; font-size:0.98em;">personal bests: 40-line sprint 44.68s, marathon 1,234,000, highest level 29</div>
       <div style="margin-top: 10px; font-size:0.98em;">where i play: <a href="https://jstris.jezevec10.com/" target="_blank">jstris</a>, <a href="https://tetr.io/" target="_blank">tetr.io</a></div>
     </div>
-    <div class="ascii-divider">-----------------------------</div>
+    <div class="ascii-divider">------------------------------------------------------------</div>
     <a name="resume"></a>
     <h2>RESUME</h2>
     <div style="margin-bottom: 18px;">download my latest resume <a href="docs/Resume.pdf">here</a>.</div>
-    <div class="ascii-divider">-----------------------------</div>
+    <div class="ascii-divider">------------------------------------------------------------</div>
     <a name="social"></a>
     <h2>SOCIAL</h2>
 
@@ -167,7 +180,7 @@
       </div>
 
       <div class="social-app" id="x-app" style="margin-top: 12px;">
-        <span class="social-label">x</span>
+        <span class="social-label">x/twitter</span>
         <a href="https://x.com/AlsayidSayid" target="_blank">@AlsayidSayid</a>
       </div>
 
@@ -176,7 +189,7 @@
         <a href="https://letterboxd.com/sayidal/" target="_blank">@sayidal</a>
       </div>
     </div>
-    <div class="ascii-divider">-----------------------------</div>
+    <div class="ascii-divider">------------------------------------------------------------</div>
     <div class="footer-retro">sayid alsayid &copy; 2025</div>
   </main>
   <script>
@@ -274,16 +287,16 @@
   // Random Fact Overlay
   document.getElementById('random-fact-btn').addEventListener('click', function() {
     const facts = [
-      'Honey never spoils. Sealed honey jars found in ancient Egyptian tombs thousands of years old are still safe to eat.',
-      'A day on Venus is longer than a year on Venus. It takes Venus about 243 Earth days to rotate once, but only about 225 Earth days to orbit the Sun.',
-      'Octopuses have three hearts: two pump blood through the gills, and one pumps blood through the rest of the body.',
-      'The shortest war in history lasted just 38-45 minutes! It was fought between the British Empire and the Sultanate of Zanzibar on August 27, 1896.',
-      'Your taste buds have a lifespan of about 10 to 14 days, and new ones are constantly being formed to replace the old ones.',
-      'Bananas are berries, but strawberries aren’t. Botanically speaking, a berry is a fruit produced from the ovary of a single flower with seeds embedded in the flesh.',
-      'Wombat poop is cube-shaped. This unusual shape prevents the poop from rolling away and helps mark the wombat’s territory.',
-      'The Eiffel Tower can be 15 cm taller during the summer due to the expansion of iron in the heat.',
-      'A jiffy is an actual unit of time: 1/100th of a second.',
-      'Scotland’s national animal is the unicorn. It has been a symbol of purity and innocence in Celtic mythology for centuries.'
+      'You can smell rain. It’s caused by a compound called petrichor released from the ground.',
+      'Humans glow — we emit a tiny amount of visible light, but it’s 1,000 times too faint for our eyes to see.',
+      'Bananas are radioactive. They contain potassium-40, a naturally occurring isotope.',
+      'A cockroach can live for weeks without its head. It dies from starvation, not decapitation.',
+      'Sloths can hold their breath longer than dolphins — up to 40 minutes.',
+      'There are more possible iterations of a game of chess than there are atoms in the known universe.',
+      'If the sun were the size of a white blood cell, the Milky Way would be the size of the United States.',
+      'You technically shed your entire outer skin every 2–4 weeks — that’s about 1.5 pounds of skin a year.',
+      'Sharks are older than trees. Sharks have existed for around 400 million years, trees for about 350 million.',
+      'A cloud can weigh over a million pounds — it floats because the air below is even heavier.'
     ];
     const randomFact = facts[Math.floor(Math.random() * facts.length)];
 
@@ -332,53 +345,6 @@
     });
   })();
 
-  // 2. Retro screensaver: after 60s idle, bounces your name
-  (function(){
-    let timer, screensaver;
-    function showSaver() {
-      if (!screensaver) {
-        screensaver = document.createElement('div');
-        screensaver.id = 'screensaver';
-        screensaver.style.position = 'fixed';
-        screensaver.style.left = 0;
-        screensaver.style.top = 0;
-        screensaver.style.width = '100vw';
-        screensaver.style.height = '100vh';
-        screensaver.style.background = 'rgba(0,0,0,0.97)';
-        screensaver.style.zIndex = 10010;
-        screensaver.style.display = 'flex';
-        screensaver.style.alignItems = 'center';
-        screensaver.style.justifyContent = 'center';
-        screensaver.innerHTML = '<span style="color:#ffb347;font-size:2.2em;font-family:monospace;">SAYID ALSAYID</span>';
-        document.body.appendChild(screensaver);
-        let x=100, y=100, dx=3, dy=2, el=screensaver.firstChild;
-        function bounce() {
-          x+=dx; y+=dy;
-          if(x<0||x>window.innerWidth-320)dx=-dx;
-          if(y<0||y>window.innerHeight-60)dy=-dy;
-          el.style.position='absolute';
-          el.style.left=x+'px';
-          el.style.top=y+'px';
-          if(screensaver.style.display==='flex')requestAnimationFrame(bounce);
-        }
-        bounce();
-      }
-      screensaver.style.display = 'flex';
-    }
-    function hideSaver() {
-      if (screensaver) screensaver.style.display = 'none';
-    }
-    function resetTimer() {
-      hideSaver();
-      clearTimeout(timer);
-      timer = setTimeout(showSaver, 60000);
-    }
-    ['mousemove','keydown','mousedown','touchstart'].forEach(function(evt){
-      document.addEventListener(evt, resetTimer);
-    });
-    resetTimer();
-  })();
-
   // 3. Secret: Press 'g' to play a mini Tetris game overlay
   (function(){
     let active = false;
@@ -404,5 +370,42 @@
   })();
   </script>
   <script src="script.js"></script>
+  <script>
+      // Animated hero title cycle
+      (function() {
+        const words = ['engineer', 'computer scientist', 'full-stack developer', 'embedded systems engineer'];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let typing = true;
+        const wordSpan = document.getElementById('animated-title-word');
+        const cursor = document.querySelector('.typing-cursor');
+        function type() {
+          const word = words[wordIndex];
+          if (typing) {
+            if (charIndex < word.length) {
+              wordSpan.textContent += word[charIndex++];
+              setTimeout(type, 120); // slower typing
+            } else {
+              typing = false;
+              setTimeout(type, 1200); // longer pause after typing
+            }
+          } else {
+            if (charIndex > 0) {
+              wordSpan.textContent = word.slice(0, --charIndex);
+              setTimeout(type, 60); // slower deleting
+            } else {
+              typing = true;
+              wordIndex = (wordIndex + 1) % words.length;
+              setTimeout(type, 600); // longer pause before next word
+            }
+          }
+        }
+        // Blinking cursor
+        setInterval(() => {
+          cursor.style.visibility = cursor.style.visibility === 'hidden' ? 'visible' : 'hidden';
+        }, 500);
+        type();
+      })();
+    </script>
 </body>
 </html>

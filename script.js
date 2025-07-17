@@ -51,7 +51,7 @@
 (function(){
   function animateDividers() {
     document.querySelectorAll('.ascii-divider').forEach(div => {
-      let base = '-----------------------------';
+      let base = '----------------------------------------------';
       let t = Date.now()/400;
       let wave = '';
       for (let i=0; i<base.length; ++i) {
@@ -65,32 +65,6 @@
   animateDividers();
 })();
 
-// Animated floating nav (bounces slightly)
-(function(){
-  const nav = document.querySelector('.nav-min');
-  if (!nav) return;
-  let t = 0;
-  function bounce() {
-    t += 0.04;
-    nav.style.transform = `translateY(${Math.sin(t)*2.5}px)`;
-    requestAnimationFrame(bounce);
-  }
-  bounce();
-})();
-
-// Animated Project list (cycle highlight)
-(function(){
-  const items = document.querySelectorAll('a[name="projects"]+h2+ul>li');
-  let idx = 0;
-  setInterval(()=>{
-    items.forEach((li,i)=>{
-      li.style.background = i===idx ? '#222' : 'none';
-      li.style.color = i===idx ? '#ffb347' : '';
-      li.style.transition = 'all 0.3s';
-    });
-    idx = (idx+1)%items.length;
-  }, 1200);
-})();
 
 // Animated Tetris stats (count up)
 (function(){

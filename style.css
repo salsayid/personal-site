@@ -623,10 +623,6 @@ h2, .company-description, ul, .gallery-grid, .tetris-preview, .wip {
   margin: 48px 0 48px 0 !important;
 }
 
-/* Animated nav bounce */
-.nav-min {
-  will-change: transform;
-}
 
 /* Animated project highlight */
 a[name="projects"]+h2+ul>li {
@@ -791,4 +787,20 @@ body.konami .social-label {
   .experience-details {
     width: 100%;
   }
+}
+
+/* Smooth hover effect for header nav options */
+.nav-min a {
+  margin-right: 18px;
+  color: #ffb347;
+  text-decoration: underline;
+  font-size: 100%;
+  transition: color 0.18s, background 0.18s, text-decoration 0.18s;
+}
+.nav-min a:hover {
+  color: #fff;
+  background: #ffb347;
+  text-decoration: none;
+  border-radius: 3px;
+  padding: 2px 6px;
 }
