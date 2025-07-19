@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>A Love Letter to the Command Line | Sayid Alsayid</title>
+  <meta name="description" content="Why the terminal remains my favorite tool">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="../style.css" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <nav>
+      <a href="../index.html" data-translate="nav_home">home</a>
+      <a href="../index.html#about" data-translate="nav_about">about</a>
+      <a href="../index.html#projects" data-translate="nav_projects">projects</a>
+      <a href="../writing.html" data-translate="nav_writing">writing</a>
+    </nav>
+    <button id="lang-toggle-btn">عربي</button>
+  </header>
+
+  <main class="post-content">
+    <article>
+      <header class="post-header">
+        <h1 data-translate="writing_post3_title">A Love Letter to the Command Line</h1>
+        <div class="post-meta">
+          <time data-translate="writing_post3_date">August 14, 2025</time>
+        </div>
+      </header>
+      
+      <div class="post-body" data-translate="writing_post3_content">
+        <p>The terminal isn't just a tool — it's a language, puzzle, and playground all in one. In a world of polished graphical interfaces, the command line remains raw, direct, and powerful. There's no abstraction, just your commands and the machine's response. It forces you to be precise and thoughtful.</p>
+        
+        <p>Piping commands together with `|` feels like composing music. You take the output of one tool and seamlessly orchestrate it into the input of another, creating complex workflows from simple, single-purpose building blocks. It's an elegant expression of the UNIX philosophy, and it's why I'll never stop using it.</p>
+        
+        <pre><code>find . -type f -name "*.py" | xargs cat | wc -l</code></pre>
+        
+        <p>This simple chain of commands counts all lines of Python code in a project. Three basic tools combined to create something useful. The possibilities are endless, limited only by your imagination and understanding of the tools available.</p>
+        
+        <p>Learning the command line is like acquiring a superpower. Once you're comfortable with it, tasks that would take minutes through a GUI can be accomplished in seconds. Plus, there's something deeply satisfying about crafting the perfect command — it's both an art and a science.</p>
+        
+        <p>The terminal teaches you to think in terms of data streams and transformations, a mindset that carries over into all aspects of programming. It's a direct line to the heart of computing, and that's a beautiful thing.</p>
+      </div>
+    </article>
+
+    <nav class="post-nav">
+      <a href="../writing.html" class="back-to-writing">← back to writing</a>
+    </nav>
+  </main>
+
+  <script src="../script.js"></script>
+</body>
+</html>

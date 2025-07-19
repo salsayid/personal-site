@@ -1,588 +1,205 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Sayid Alsayid</title>
   <meta name="description" content="Sayid Alsayid – Portfolio">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="style.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="style.css" rel="stylesheet">
 </head>
 <body>
-  <canvas id="hero-particles-bg" style="position:fixed;left:0;top:0;width:100vw;height:100vh;z-index:0;pointer-events:none;"></canvas>
-  <div class="nav-min">
-    <a href="#about" data-translate="nav_about">about</a>
-    <a href="#experience" data-translate="nav_experience">experience</a>
-    <a href="#projects" data-translate="nav_projects">projects</a>
-    <a href="#gallery" data-translate="nav_gallery">gallery</a>
-    <a href="#tetris" data-translate="nav_tetris">tetris</a>
-    <a href="#resume" data-translate="nav_resume">resume</a>
-    <span class="retro-blink">█</span>
-  </div>
 
-  <div style="margin-bottom: 18px; text-align: right; position: fixed; top: 24px; right: 32px; z-index: 101; display: flex; flex-direction: column; align-items: flex-end; gap: 10px;">
-    <button id="random-fact-btn" data-translate="btn_random_fact" style="background:#181818;color:#ffd600;border:1px solid #ffd600;border-radius:4px;padding:4px 14px;font-family:inherit;font-size:1em;cursor:pointer;">random fact</button>
-    <button id="terminal-toggle-btn" data-translate="btn_terminal" style="background:#181818;color:#ffd600;border:1px solid #ffd600;border-radius:4px;padding:4px 14px;font-family:inherit;font-size:1em;cursor:pointer;">terminal</button>
-    <button id="lang-toggle-btn" style="background:#181818;color:#ffd600;border:1.5px solid #ffd600;border-radius:4px;padding:4px 16px;font-family:inherit;font-size:1em;cursor:pointer;">Arabic/English</button>
-  </div>
+  <header class="site-header">
+    <nav>
+      <a href="#about" data-translate="nav_about">about</a>
+      <a href="#experience" data-translate="nav_experience">experience</a>
+      <a href="#projects" data-translate="nav_projects">projects</a>
+      <a href="writing.html" data-translate="nav_writing">writing</a>
+    </nav>
+    <button id="lang-toggle-btn">عربي</button>
+  </header>
 
-  <section id="hero" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:90vh;">
-    <img src="images/sa2.png" alt="Sayid Alsayid" style="width:250px;height:250px;object-fit:cover;margin-bottom:0;display:block;" />
-    <h1 data-translate="hero_name" style="margin:0 0 10px 0;font-size:2.4em;letter-spacing:2px;background:#ffd600;color:#181818;display:inline-block;padding:0.18em 0.7em 0.18em 0.7em;line-height:1.1;box-shadow:0 2px 8px #1112;">SAYID ALSAYID</h1>
-    <div id="animated-title" data-translate="hero_animated_prefix" style="font-size:1.3em;color:#ffd600;font-style:italic;min-height:1.5em;">aspiring <span id='animated-title-word'></span><span class='typing-cursor' style='display:inline-block;width:1ch;'>|</span></div>
-    <div data-translate="hero_subtitle" style="margin:18px 0 0 0; font-size:1.08em; color:#ffb347; text-align:center;">
-      undergraduate @ unl | mechanical engineering + computer science | intern @ nasa & hudl
-    </div>
-    <div style="margin:18px 0 0 0; text-align:center; font-size:1.08em; color:#ffb347;">
-      <div data-translate="hero_email">email: <a href="mailto:alsayidoff@gmail.com" style="color:#ffd600;">alsayidoff@gmail.com</a></div>
-      <div data-translate="hero_linkedin">linkedin: <a href="https://linkedin.com/in/sayidalsayid" style="color:#ffd600;">/in/sayidalsayid</a></div>
-      <div data-translate="hero_github">github: <a href="https://github.com/salsayid" style="color:#ffd600;">github.com/salsayid</a></div>
-    </div>
-    <a href="#main-content" style="display:inline-block;margin:38px auto 0 auto;color:#ffb347;font-size:2.5em;text-decoration:none;">↓</a>
-  </section>
-  <main id="main-content" style="max-width: 600px; margin: 0 auto;">
-    <div class="ascii-divider">------------------------------------------------------------</div>
-    <a name="about"></a>
-    <h2 data-translate="title_about">ABOUT</h2>
-    <p style="margin-bottom: 18px;" id="about-paragraph" data-translate="p_about">
-      hi everyone! i'm sayid, a dual-degree student in mechanical engineering and computer science at the <a href="https://www.unl.edu/">university of nebraska-lincoln</a>. i'm passionate about the intersection of applied physics, astronautics, and computing. my goal is to work on physical systems powered by smart software. i love building tools that solve real-world problems and i'm always looking to learn more, push boundaries, and explore the world around me. outside of academics, my hobbies include playing <a href='https://jstris.jezevec10.com/u/sayid'>tetris</a>, watching <a href='https://letterboxd.com/sayidal/'>movies</a>, playing <a href='https://www.nitrotype.com/racer/sayidal'>typing games</a> and traveling the world!
-    </p>
-    <div class="ascii-divider">------------------------------------------------------------</div>
-    <a name="experience"></a>
-    <h2 data-translate="title_experience">EXPERIENCE</h2>
-    <div class="experience-list">
-      <div class="experience-item">
-        <img src="images/hudl4.png" alt="Hudl logo" class="company-logo" />
-        <div class="experience-details">
-          <div class="experience-role" data-translate="exp_hudl_role">software qa engineer intern</div>
-          <div class="experience-company">hudl</div>
-          <div class="experience-year">may 2025 - aug 2025</div>
-          <div class="experience-desc" data-translate="exp_hudl_desc">developed Playwright and API test automation for sideline systems in an agile dev environment</div>
+  <main>
+    <section id="hero">
+      <h1 data-translate="hero_name">SAYID ALSAYID</h1>
+      <div id="animated-title" data-translate="hero_animated_prefix">aspiring <span id="animated-title-word"></span><span class="typing-cursor">|</span></div>
+      <p class="hero-subtitle" data-translate="hero_subtitle">
+        undergraduate @ unl | mechanical engineering + computer science
+      </p>
+      <div class="hero-links">
+        <a href="mailto:alsayidoff@gmail.com" data-translate="hero_email_link">email</a>
+        <a href="https://linkedin.com/in/sayidalsayid" target="_blank" data-translate="hero_linkedin_link">linkedin</a>
+        <a href="https://github.com/salsayid" target="_blank" data-translate="hero_github_link">github</a>
+      </div>
+      <a href="#about" class="scroll-down">↓</a>
+    </section>
+
+    <hr class="divider">
+    
+    <section id="about">
+      <h2 data-translate="about_title">ABOUT</h2>
+      <p data-translate="about_p">
+        Hi! I'm Sayid, a dual-degree student in mechanical engineering and computer science at the <a href="https://www.unl.edu/" target="_blank">University of Nebraska-Lincoln</a>. I'm passionate about the intersection of applied physics and computing. I love building tools that solve real-world problems and I'm always looking to learn more and explore the world around me. Outside of academics, my hobbies include playing <a href='https://jstris.jezevec10.com/u/sayid' target="_blank">Tetris</a>, watching <a href='https://letterboxd.com/sayidal/' target="_blank">movies</a>, and playing <a href='https://www.nitrotype.com/racer/sayidal' target="_blank">typing games</a>.
+      </p>
+    </section>
+
+    <hr class="divider">
+
+    <section id="experience">
+      <h2 data-translate="experience_title">EXPERIENCE</h2>
+      <div class="experience-list">
+        
+        <div class="experience-item">
+          <img src="images/hudl4.png" alt="Hudl logo" class="company-logo" />
+          <div class="experience-details">
+            <div class="experience-role" data-translate="exp_hudl_role">Software QA Engineer Intern</div>
+            <div class="experience-company-year">Hudl | May 2025 - Aug 2025</div>
+            <div class="experience-desc" data-translate="exp_hudl_desc">Developed Playwright and API test automation for sideline systems in an agile dev environment.</div>
+          </div>
         </div>
-      </div>
-      <div class="experience-item">
-        <img src="images/nasa4.png" alt="NASA logo" class="company-logo" />
-        <div class="experience-details">
-          <div class="experience-role" data-translate="exp_nasa_role">aeronautical systems engineer intern</div>
-          <div class="experience-company">nasa</div>
-          <div class="experience-year">aug 2024 - dec 2024</div>
-          <div class="experience-desc" data-translate="exp_nasa_desc">flight systems and propulsion simulations. hardware testing for the flow boiling and condensation experiment (FBCE)</div>
+
+        <div class="experience-item">
+          <img src="images/nasa4.png" alt="NASA logo" class="company-logo" />
+          <div class="experience-details">
+            <div class="experience-role" data-translate="exp_nasa_role">Aeronautical Systems Engineer Intern</div>
+            <div class="experience-company-year">NASA | Aug 2024 - Dec 2024</div>
+            <div class="experience-desc" data-translate="exp_nasa_desc">Flight systems and propulsion simulations. Hardware testing for the Flow Boiling and Condensation Experiment (FBCE).</div>
+          </div>
         </div>
-      </div>
-      <div class="experience-item">
-        <img src="images/unl7.png" alt="NanoLab logo" class="company-logo" />
-        <div class="experience-details">
-          <div class="experience-role" data-translate="exp_unl_role">undergraduate researcher</div>
-          <div class="experience-company">nebraska nanoscale energy engineering lab</div>
-          <div class="experience-year">feb 2024 - jul 2024</div>
-          <div class="experience-desc" data-translate="exp_unl_desc">nanoscale heat transfer and thermionic energy conversion. ran experiments, analyzed results, and contributed to next-gen energy systems.</div>
+
+        <div class="experience-item">
+          <img src="images/unl7.png" alt="UNL NanoLab logo" class="company-logo" />
+          <div class="experience-details">
+            <div class="experience-role" data-translate="exp_unl_role">Undergraduate Researcher</div>
+            <div class="experience-company-year">Nebraska Nanoscale Energy Engineering Lab | Feb 2024 - Jul 2024</div>
+            <div class="experience-desc" data-translate="exp_unl_desc">Nanoscale heat transfer and thermionic energy conversion. Ran experiments and analyzed results.</div>
+          </div>
         </div>
-      </div>
-      <div class="experience-item">
-        <img src="images/midam3.png" alt="Nebraska Transportation Center logo" class="company-logo" />
-        <div class="experience-details">
-          <div class="experience-role" data-translate="exp_ntc_role">software engineer intern</div>
-          <div class="experience-company">nebraska transportation center</div>
-          <div class="experience-year">dec 2023 - jul 2024</div>
-          <div class="experience-desc" data-translate="exp_ntc_desc">built models in python to analyze EV charging networks. improved rural transportation planning.</div>
+
+        <div class="experience-item">
+          <img src="images/midam3.png" alt="Nebraska Transportation Center logo" class="company-logo" />
+          <div class="experience-details">
+            <div class="experience-role" data-translate="exp_ntc_role">Data Science Intern</div>
+            <div class="experience-company-year">Nebraska Transportation Center | Dec 2023 - Jul 2024</div>
+            <div class="experience-desc" data-translate="exp_ntc_desc">Built models in Python to analyze EV charging networks and improve rural transportation planning.</div>
+          </div>
         </div>
+
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="projects">
+      <h2 data-translate="projects_title">PROJECTS</h2>
+      <ul class="project-list">
+        <li data-project="stellar">
+          <div class="project-header">
+            <span class="project-title">Rocket Propulsion Simulator</span>
+            <a href="https://github.com/salsayid/stellarlab" target="_blank" class="github-link">[ view on github ]</a>
+          </div>
+        </li>
+        <li data-project="burn">
+          <div class="project-header">
+            <span class="project-title">Prescribed Burn Plan App</span>
+            <a href="https://github.com/salsayid/Prescribed-Burn-App" target="_blank" class="github-link">[ view on github ]</a>
+          </div>
+        </li>
+        <li data-project="airport">
+          <div class="project-header">
+            <span class="project-title">Worldwide Airport Tracker</span>
+            <a href="https://github.com/salsayid/worldwide-airport-tracker" target="_blank" class="github-link">[ view on github ]</a>
+          </div>
+        </li>
+        <li data-project="rccar">
+          <div class="project-header">
+            <span class="project-title">Automated Human-Like RC Car</span>
+            <a href="https://github.com/salsayid/Automated-human-like-RC-Car" target="_blank" class="github-link">[ view on github ]</a>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <div id="project-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div id="modal-content"></div>
       </div>
     </div>
-    <div class="ascii-divider">------------------------------------------------------------</div>
-    <a name="projects"></a>
-    <h2 data-translate="title_projects">PROJECTS</h2>
-    <ul class="project-list">
-      <li>
-        <button class="readme-btn" data-translate="btn_readme" data-project="rocket">README.md</button>
-        <span data-translate="proj_rocket"><a href="https://github.com/salsayid/stellarlab" target="_blank">rocket propulsion simulator (python, numPy)</a></span>
 
-      </li>
-      <li>
-        <button class="readme-btn" data-translate="btn_readme" data-project="burnplan">README.md</button>
-        <span data-translate="proj_burnplan"><a href="https://github.com/salsayid/Prescribed-Burn-App" target="_blank">prescribed burn plan app (java, sql, rest api)</a></span>
+    <hr class="divider">
 
-      </li>
-      <li>
-        <button class="readme-btn" data-translate="btn_readme" data-project="worldwide_airport_tracker">README.md</button>
-        <span data-translate="proj_airport"> <a href="https://github.com/salsayid/worldwide-airport-tracker" target="_blank">worldwide airport tracker (python, sql)</a></span>
-      </li>
-      <li>
-        <button class="readme-btn" data-translate="btn_readme" data-project="rc_car">README.md</button>
-        <span data-translate="proj_rc_car"> <a href="https://github.com/salsayid/Automated-human-like-RC-Car" target="_blank">automated human-like rc car</a></span>
-      </li>
-    </ul>
-    <div id="readme-modal" style="display:none;position:fixed;left:0;top:0;width:100vw;height:100vh;background:rgba(16,16,16,0.98);z-index:20010;align-items:center;justify-content:center;">
-      <div id="readme-modal-content" style="background:#181818;border:2px solid #ffd600;border-radius:8px;max-width:540px;width:90vw;max-height:80vh;overflow-y:auto;padding:32px 28px 24px 28px;box-shadow:0 4px 32px #000b;color:#ffd600;font-family:'IBM Plex Mono',monospace;position:relative;animation:modalPop 0.32s cubic-bezier(.4,2,.6,1);">
-        <button id="readme-modal-close" style="position:absolute;top:12px;right:18px;background:#ffd600;color:#181818;border:none;border-radius:4px;padding:4px 16px;font-size:1.1em;cursor:pointer;font-family:inherit;transition:background 0.15s;">close</button>
-        <div id="readme-modal-body"></div>
+    <section id="writing">
+      <h2 data-translate="writing_title">WRITING</h2>
+      <ul class="writing-list">
+        <li>
+          <div class="writing-header">
+            <span class="writing-title">Launch Day: Watching Europa Clipper Take Off</span>
+            <a href="writing/launch-day.html" class="writing-link">[ read more ]</a>
+          </div>
+        </li>
+        <li>
+          <div class="writing-header">
+            <span class="writing-title">Why I Build Things That Simulate Reality</span>
+            <a href="writing/why-i-build.html" class="writing-link">[ read more ]</a>
+          </div>
+        </li>
+        <li>
+          <div class="writing-header">
+            <span class="writing-title">A Love Letter to the Command Line</span>
+            <a href="writing/terminal-love.html" class="writing-link">[ read more ]</a>
+          </div>
+        </li>
+      </ul>
+      <div class="view-all-posts">
+        <a href="writing.html" class="view-all-link" data-translate="view_all_posts">view all posts →</a>
       </div>
-    </div>
-    <div class="ascii-divider">------------------------------------------------------------</div>
-    <a name="gallery"></a>
-    <h2 data-translate="title_gallery">GALLERY</h2>
-    <div class="gallery-scroll">
-      <img src="images/vball.png" alt="volleyball" class="gallery-img" />
-      <img src="images/nanolab.png" alt="nanolab" class="gallery-img" />
-      <img src="images/grc.png" alt="nasa glenn" class="gallery-img" />
-      <img src="images/zols.png" alt="zols-fc" class="gallery-img" />
-      <img src="images/robodog.png" alt="robot dog" class="gallery-img"/>
-      <img src="images/artemis.png" alt="artemis" class="gallery-img" />
-    </div>
-    <div class="ascii-divider">------------------------------------------------------------</div>
-    <a name="tetris"></a>
-    <h2 data-translate="title_tetris">TETRIS</h2>
-    <div class="tetris-preview" style="margin-bottom: 18px;">
-      <video controls poster="images/tetris-thumb.png" style="width:220px; height:140px;">
-        <source src="videos/tetrisbest.mp4" type="video/mp4">
-        your browser does not support the video tag.
-      </video>
-      <div data-translate="tetris_fastest" style="margin-top: 8px; font-size:1em;">fastest 40-line clear: <b>44.68s</b></div>
-      <div data-translate="tetris_sprint_mode" style="font-size:0.98em; color:#ffb347; margin-top: 4px;">(sprint mode on jstris)</div>
-      <div data-translate="tetris_bests" style="margin-top: 10px; font-size:0.98em;">personal bests: 40-line sprint 44.68s, max APM 26.31</div>
-      <div data-translate="tetris_where_i_play" style="margin-top: 10px; font-size:0.98em;">where i play: <a href="https://jstris.jezevec10.com/u/sayid" target="_blank">jstris</a>, <a href="https://ch.tetr.io/u/sayoodi" target="_blank">tetr.io</a></div>
-    </div>
-    <div class="ascii-divider">------------------------------------------------------------</div>
-    <a name="resume"></a>
-    <h2 data-translate="title_resume">RESUME</h2>
-    <div data-translate="resume_download" style="margin-bottom: 18px;">download my latest resume <a href="still-work-in-progress-gimme-a-min.pdf">here</a>.</div>
-    <div class="ascii-divider">------------------------------------------------------------</div>
-    <a name="social"></a>
-    <h2 data-translate="title_social">SOCIAL</h2>
+    </section>
 
-      <div class="social-app" id="insta-app" style="margin-top: 12px;">
-        <span class="social-label" data-translate="social_insta">instagram</span>
-        <a href="https://www.instagram.com/sayidall/" target="_blank">@sayidall</a>
-      </div>
+    <hr class="divider">
 
-      <div class="social-app" id="x-app" style="margin-top: 12px;">
-        <span class="social-label" data-translate="social_x">x/twitter</span>
-        <a href="https://x.com/AlsayidSayid" target="_blank">@AlsayidSayid</a>
-      </div>
+    <section id="current">
+      <h2 data-translate="current_title">WHAT I'M CURRENTLY UP TO</h2>
+      <ul class="current-list">
+        <li data-translate="current1">Interning at Hudl as a Software QA Engineer (Summer 2025)</li>
+        <li data-translate="current2">Building a retro rocket simulator in Python</li>
+        <li data-translate="current3">Writing about engineering, code, and productivity</li>
+        <li data-translate="current4">Learning advanced C++ and embedded systems</li>
+        <li data-translate="current5">Trying to break my own typing speed record</li>
+      </ul>
+    </section>
+    
 
-      <div class="social-app" id="letterboxd-app" style="margin-top: 12px;">
-        <span class="social-label" data-translate="social_letterboxd">letterboxd</span>
-        <a href="https://letterboxd.com/sayidal/" target="_blank">@sayidal</a>
-      </div>
-    </div>
-    <div class="ascii-divider">------------------------------------------------------------</div>
-    <div class="footer-retro">sayid alsayid &copy; 2025 | click [ctrl/cmnd + M] for a surprise</div>
+    <hr class="divider">
+
+    <section id="fun-facts">
+      <h2 data-translate="funfacts_title">FUN FACTS</h2>
+      <ul class="funfacts-list">
+        <li data-translate="funfact1">I can type over 140 WPM.</li>
+        <li data-translate="funfact2">I once coded a Tetris bot for fun.</li>
+        <li data-translate="funfact3">I love collecting mechanical pencils.</li>
+        <li data-translate="funfact4">I speak English and Arabic.</li>
+        <li data-translate="funfact5">I have watched 400+ movies.</li>
+      </ul>
+    </section>
+
+    <hr class="divider">
+
+    <section id="contact">
+      <h2 data-translate="contact_title">CONTACT</h2>
+      <p data-translate="contact_p">Want to chat or collaborate? Reach out via <a href="mailto:alsayidoff@gmail.com">email</a> or connect on <a href="https://linkedin.com/in/sayidalsayid" target="_blank">LinkedIn</a>.</p>
+    </section>
+
+    <hr class="divider">
+
   </main>
+  
+  <footer>
+    <p data-translate="footer_text">Sayid Alsayid &copy; 2025</p>
+  </footer>
 
   <script src="script.js"></script>
-  
-  <script>
-    // Fun retro animation: blink nav cursor, gallery scroll on arrow keys
-    document.addEventListener('keydown', function(e) {
-      const scrollers = document.querySelectorAll('.gallery-scroll');
-      if (e.key === 'ArrowRight') scrollers.forEach(s => s.scrollBy({left: 120, behavior:'smooth'}));
-      if (e.key === 'ArrowLeft') scrollers.forEach(s => s.scrollBy({left: -120, behavior:'smooth'}));
-    });
-  </script>
-  <script>
-
-  </script>
-  <script>
-
-  </script>
-  <script>
-  // Random Fact Overlay
-  document.getElementById('random-fact-btn').addEventListener('click', function() {
-    const facts = [
-      'You can smell rain. It’s caused by a compound called petrichor released from the ground.',
-      'Humans glow — we emit a tiny amount of visible light, but it’s 1,000 times too faint for our eyes to see.',
-      'Bananas are radioactive. They contain potassium-40, a naturally occurring isotope.',
-      'A cockroach can live for weeks without its head. It dies from starvation, not decapitation.',
-      'Sloths can hold their breath longer than dolphins — up to 40 minutes.',
-      'There are more possible iterations of a game of chess than there are atoms in the known universe.',
-      'If the sun were the size of a white blood cell, the Milky Way would be the size of the United States.',
-      'You technically shed your entire outer skin every 2–4 weeks — that’s about 1.5 pounds of skin a year.',
-      'Sharks are older than trees. Sharks have existed for around 400 million years, trees for about 350 million.',
-      'A cloud can weigh over a million pounds — it floats because the air below is even heavier.'
-    ];
-    const randomFact = facts[Math.floor(Math.random() * facts.length)];
-
-    const overlay = document.createElement('div');
-    overlay.id = 'random-fact-overlay';
-    overlay.style.position = 'fixed';
-    overlay.style.left = 0;
-    overlay.style.top = 0;
-    overlay.style.width = '100vw';
-    overlay.style.height = '100vh';
-    overlay.style.background = 'rgba(0,0,0,0.95)';
-    overlay.style.color = '#ffd600';
-    overlay.style.fontFamily = "'IBM Plex Mono', monospace";
-    overlay.style.fontSize = '1.2em';
-    overlay.style.padding = '20px';
-    overlay.style.boxSizing = 'border-box';
-    overlay.style.zIndex = 10010;
-    overlay.innerHTML = '<div style="margin-bottom: 12px;">random fact (work in progress)</div><div style="line-height: 1.4;">'+
-      randomFact+
-      '</div>';
-    document.body.appendChild(overlay);
-    overlay.addEventListener('click', function() {
-      overlay.remove();
-    });
-  });
-  </script>
-  <script>
-  
-  </script>
-  <script>
-    // Animated hero title cycle
-    let heroAnimationTimeout;
-    window.restartHeroAnimation = function() {
-      clearTimeout(heroAnimationTimeout);
-      const wordSpan = document.getElementById('animated-title-word');
-      if (!wordSpan) return;
-      wordSpan.textContent = '';
-      const words = window.getAnimatedTitleWords ? window.getAnimatedTitleWords() : ['engineer'];
-      let wordIndex = 0;
-      let charIndex = 0;
-      let typing = true;
-      function type() {
-        if (!wordSpan) return;
-        const currentWord = words[wordIndex % words.length];
-        if (typing) {
-          if (charIndex < currentWord.length) {
-            wordSpan.textContent += currentWord[charIndex++];
-            heroAnimationTimeout = setTimeout(type, 120);
-          } else {
-            typing = false;
-            heroAnimationTimeout = setTimeout(type, 1200);
-          }
-        } else {
-          if (charIndex > 0) {
-            wordSpan.textContent = currentWord.slice(0, --charIndex);
-            heroAnimationTimeout = setTimeout(type, 60);
-          } else {
-            typing = true;
-            wordIndex++;
-            heroAnimationTimeout = setTimeout(type, 600);
-          }
-        }
-      }
-      type();
-    };
-    if (!window.cursorInterval) {
-        window.cursorInterval = setInterval(() => {
-            const cursor = document.querySelector('.typing-cursor');
-            if (cursor) cursor.style.visibility = cursor.style.visibility === 'hidden' ? 'visible' : 'hidden';
-        }, 500);
-    }
-    window.restartHeroAnimation();
-  </script>
-  <div id="terminal-overlay">
-  <div style="max-width:700px;margin:48px auto 0 auto;padding:0 18px;">
-    <div class="terminal-header">
-      <span>sayid@portfolio:~$</span>
-      <button id="terminal-exit-btn">exit</button>
-    </div>
-    <div id="terminal-output" style="background:#222222;border-radius:8px;padding:18px 14px;min-height:320px;max-height:48vh;line-height:1.7;white-space:pre-wrap;margin-bottom:12px;font-size:0.98em;box-shadow:0 2px 16px #000a;overflow-y:auto;"></div>
-    <form id="terminal-form" autocomplete="off">
-      <span style="margin-right:6px;color:#ffd600;">$</span>
-      <input id="terminal-input" type="text" style="flex:1;background:#222;color:#ffd600;border:none;padding:6px 8px;font-family:inherit;font-size:1em;outline:none;" autofocus autocomplete="off" />
-    </form>
-  </div>
-</div>
-<script>
-(function(){
-  const overlay = document.getElementById('terminal-overlay');
-  const toggleBtn = document.getElementById('terminal-toggle-btn');
-  const exitBtn = document.getElementById('terminal-exit-btn');
-  const form = document.getElementById('terminal-form');
-  const input = document.getElementById('terminal-input');
-  const output = document.getElementById('terminal-output');
-  let history = [], histIdx = 0;
-  function print(text, styleClass) {
-    const div = document.createElement('div');
-    div.className = styleClass||'';
-    div.innerHTML = text;
-    output.appendChild(div);
-    output.scrollTop = output.scrollHeight;
-  }
-  function prompt() {
-    print('<span style="color:#ffb347;font-weight:bold;">sayid@portfolio</span>:<span style="color:#ffd600;">~$</span>', 'terminal-prompt');
-  }
-  function handle(cmd) {
-    const c = cmd.trim().toLowerCase();
-    if (!c) return;
-    print('<span style="color:#ffd600;font-weight:bold;">$ '+cmd+'</span>', 'terminal-cmd');
-    const fs = {
-      '/': ['about.txt','experience.txt','projects/','gallery/','resume.txt','games/','social.txt'],
-      '/projects': ['rocket.txt','burnplan.txt','worldwide_airport_tracker.txt','rc_car.txt'],
-      '/gallery': ['vball.jpg','nanolab.jpg','grc.jpg','zols.jpg','robodog.jpg','artemis.jpg'],
-      '/games': ['guess','asciiart'],
-    };
-    let cwd = handle.cwd || '/';
-    if (c.startsWith('cd ')) {
-      let arg = c.slice(3).replace(/\/$/,'');
-      if (arg === '..') {
-        if (cwd !== '/') cwd = cwd.replace(/\/?[^/]+$/,'') || '/';
-      } else if (fs[cwd+'/'+arg] || fs['/'+arg]) {
-        cwd = cwd==='/' ? '/'+arg : cwd+'/'+arg;
-      } else {
-        print('<span style="color:#f44336;">No such directory:</span> <span style="color:#ffd600;">'+arg+'</span>','terminal-error');
-        prompt();
-        handle.cwd = cwd;
-        return;
-      }
-      print('Changed directory to <span style="color:#ffd600;">'+cwd+'</span>');
-      handle.cwd = cwd;
-      prompt();
-      return;
-    } else if (c === 'ls') {
-      let list = fs[cwd] || fs['/'+cwd] || [];
-      print(list.map(f=>f.endsWith('/')?'<span style="color:#b2ff59;">'+f+'</span>':f).join('  '));
-      prompt();
-      return;
-    } else if (c.startsWith('cat ')) {
-      let file = c.slice(4);
-      let path = cwd==='/'?'/'+file:cwd+'/'+file;
-      const files = {
-        '/about.txt': 'Sayid Alsayid\nMechanical Engineering + Computer Science @ UNL\nPassionate about applied physics, astronautics, and computing.',
-        '/experience.txt': 'See experience section on main site.',
-        '/resume.txt': 'Download at docs/Resume.pdf',
-        '/projects/rocket.txt': 'Rocket Propulsion Simulator (python, matlab)',
-        '/projects/burnplan.txt': 'Burn Plan Evaluation App (python, opencv, sql)',
-        '/projects/worldwide_airport_tracker.txt': 'Worldwide Airport Tracker (python, kivy, sql, requests)',
-        '/projects/rc_car.txt': 'Automated human-like RC car: github.com/salsayid/Automated-human-like-RC-Car',
-        '/gallery/vball.jpg': '[Image: volleyball]',
-        '/gallery/nanolab.jpg': '[Image: nanolab]',
-        '/gallery/grc.jpg': '[Image: nasa glenn]',
-        '/gallery/zols.jpg': '[Image: zols-fc]',
-        '/gallery/robodog.jpg': '[Image: robot dog]',
-        '/gallery/artemis.jpg': '[Image: artemis]',
-        '/social.txt': 'Instagram: @sayidall\nX/Twitter: @AlsayidSayid\nLetterboxd: @sayidal',
-      };
-      if (files[path]) {
-        print('<pre style="color:#ffd600;">'+files[path]+'</pre>');
-      } else {
-        print('<span style="color:#f44336;">No such file:</span> <span style="color:#ffd600;">'+file+'</span>','terminal-error');
-      }
-      prompt();
-      return;
-    }
-    if (c === 'games' || c === 'ls games' || c === 'cd games') {
-      print('Available games: <span style="color:#ffd600;">guess, asciiart</span>');
-      prompt();
-      return;
-    }
-    if (c === 'guess') {
-      if (!handle.guessNum) {
-        handle.guessNum = Math.floor(Math.random()*100)+1;
-        print('Guess a number between 1 and 100. Type your guess:');
-        handle.guessActive = true;
-      } else {
-        print('Already in a game! Type your guess.');
-      }
-      prompt();
-      return;
-    }
-    if (handle.guessActive && /^\d+$/.test(c)) {
-      let n = parseInt(c);
-      if (n === handle.guessNum) {
-        print('<span style="color:#b2ff59;">Correct! The number was '+n+'.</span>');
-        handle.guessNum = null; handle.guessActive = false;
-      } else if (n < handle.guessNum) {
-        print('Too low!');
-      } else {
-        print('Too high!');
-      }
-      prompt();
-      return;
-    }
-    if (c === 'asciiart') {
-      print('<pre style="color:#ffd600;">'+
-`   /\\_/\\  
-  ( o.o ) 
-   > ^ <  
-`+'</pre>');
-      prompt();
-      return;
-    }
-    if (c.startsWith('readme') || c.startsWith('readme ')) {
-      let arg = c.split(' ')[1] || '';
-      const projectInfo = {
-        'rocket': { name: 'Rocket Propulsion Simulator', stack: 'Python, MATLAB', desc: 'A physics-based simulator for rocket propulsion analysis and visualization.' },
-        'burnplan': { name: 'Burn Plan Evaluation App', stack: 'Python, OpenCV, SQL', desc: 'Tool for evaluating and visualizing prescribed burn plans for land management.'},
-        'worldwide_airport_tracker': { name: 'Worldwide Airport Tracker', stack: 'Python, Kivy, SQLAlchemy, Requests', desc: 'A suite of apps for tracking airports, venues, and planning travel worldwide.' },
-        'rc_car': { name: 'Automated Human-like RC Car', stack: 'Python, Embedded, Computer Vision', desc: 'RC car with human-like driving using computer vision and ML. [GitHub](https://github.com/salsayid/Automated-human-like-RC-Car)' }
-      };
-      if (!arg) {
-        print('Usage: readme [project]');
-        print('Available: rocket, burnplan, worldwide_airport_tracker, rc_car');
-        prompt();
-        return;
-      }
-      const info = projectInfo[arg];
-      if (!info) {
-        print('No such project. Try: rocket, burnplan, worldwide_airport_tracker, rc_car');
-        prompt();
-        return;
-      }
-      let md = `# ${info.name}\n\n**Stack:** ${info.stack}\n\n${info.desc}\n`;
-      print('<pre style="color:#ffd600;">'+md+'</pre>');
-      prompt();
-      return;
-    }
-    if (c === 'help') {
-      print('<span style="color:#b3e5fc;">Available commands:</span> <span style="color:#ffd600;">help, about, experience, projects, gallery, tetris, resume, social, clear, exit, ls, cd, cat, games, guess, asciiart</span>', 'terminal-help');
-    } else if (c === 'about') {
-      print('<span style="color:#fff;">Sayid Alsayid<br>Mechanical Engineering + Computer Science @ UNL<br>Passionate about applied physics, astronautics, and computing.<br>Loves building tools that solve real-world problems.</span>', 'terminal-about');
-    } else if (c === 'experience') {
-      print('<span style="color:#b2ff59;">EXPERIENCE</span><br>' +
-        '<b>software qa engineer intern</b> @ hudl (may 2025 - aug 2025)<br>' +
-        '<span style="color:#aaa;">developed Playwright and API test automation for sideline systems in an agile dev environment</span><br>' +
-        '<b>aeronautical systems engineer intern</b> @ nasa (aug 2024 - dec 2024)<br>' +
-        '<span style="color:#aaa;">flight systems and propulsion simulations. hardware testing for the flow boiling and condensation experiment (FBCE)</span><br>' +
-        '<b>undergraduate researcher</b> @ nebraska nanoscale energy engineering lab (feb 2024 - jul 2024)<br>' +
-        '<span style="color:#aaa;">nanoscale heat transfer and thermionic energy conversion. ran experiments, analyzed results, and contributed to next-gen energy systems.</span><br>' +
-        '<b>software engineer intern</b> @ nebraska transportation center (dec 2023 - jul 2024)<br>' +
-        '<span style="color:#aaa;">built models in python to analyze EV charging networks. improved rural transportation planning.</span>', 'terminal-exp');
-    } else if (c === 'projects') {
-      print('<span style="color:#b2ff59;">PROJECTS</span><br>' +
-        '- rocket propulsion simulator (python, matlab)<br>' +
-        '- burn plan evaluation app (python, opencv, sql)<br>' +
-        '- worldwide airport tracker (python, kivy, sql, requests) <a href="https://github.com/salsayid/worldwide-airport-tracker" target="_blank" style="color:#ffd600;">[github]</a><br>' +
-        '- automated human-like rc car <a href="https://github.com/salsayid/Automated-human-like-RC-Car" target="_blank" style="color:#ffd600;">[github]</a>', 'terminal-proj');
-    } else if (c === 'gallery') {
-      print('<span style="color:#b2ff59;">GALLERY</span><br>' +
-        'volleyball, nanolab, nasa glenn, zols-fc, robot dog, artemis<br>' +
-        '<span style="color:#aaa;">(see images in main site gallery)</span>', 'terminal-gallery');
-    } else if (c === 'tetris') {
-      print('<span style="color:#b2ff59;">TETRIS</span><br>' +
-        'fastest 40-line clear: <b>44.68s</b><br>' +
-        '<span style="color:#aaa;">(sprint mode on jstris)</span><br>' +
-        'personal bests: 40-line sprint 44.68s, marathon 1,234,000, highest level 29<br>' +
-        'where i play: <a href="https://jstris.jezevec10.com/" target="_blank" style="color:#ffd600;">jstris</a>, <a href="https://tetr.io/" target="_blank" style="color:#ffd600;">tetr.io</a>', 'terminal-tetris');
-    } else if (c === 'resume') {
-      print('<span style="color:#b2ff59;">RESUME</span><br>' +
-        'download my latest resume <a href="docs/Resume.pdf" style="color:#ffd600;">here</a>.', 'terminal-resume');
-    } else if (c === 'social') {
-      print('<span style="color:#b2ff59;">SOCIAL</span><br>' +
-        'instagram: <a href="https://www.instagram.com/sayidall/" target="_blank" style="color:#ffd600;">@sayidall</a><br>' +
-        'x/twitter: <a href="https://x.com/AlsayidSayid" target="_blank" style="color:#ffd600;">@AlsayidSayid</a><br>' +
-        'letterboxd: <a href="https://letterboxd.com/sayidal/" target="_blank" style="color:#ffd600;">@sayidal</a>', 'terminal-social');
-    } else if (c === 'exit') {
-      overlay.style.display = 'none';
-    } else if (c === 'clear') {
-      output.innerHTML = '';
-    } else {
-      print('<span style="color:#f44336;">Command not found:</span> <span style="color:#ffd600;">'+cmd+'</span>', 'terminal-error');
-    }
-  }
-  form.onsubmit = function(e){
-    e.preventDefault();
-    const cmd = input.value;
-    if (!cmd) return;
-    history.push(cmd); histIdx = history.length;
-    handle(cmd);
-    input.value = '';
-  };
-  input.onkeydown = function(e){
-    if (e.key === 'ArrowUp') {
-      if (histIdx > 0) { histIdx--; input.value = history[histIdx]||''; setTimeout(()=>input.setSelectionRange(input.value.length,input.value.length),0); }
-      e.preventDefault();
-    } else if (e.key === 'ArrowDown') {
-      if (histIdx < history.length-1) { histIdx++; input.value = history[histIdx]||''; } else { input.value = ''; histIdx = history.length; }
-      e.preventDefault();
-    }
-  };
-  toggleBtn.onclick = function(){
-    overlay.style.display = 'block';
-    output.innerHTML = '';
-    print('<span style="color:#ffd600;">Welcome to Sayid\'s Portfolio Terminal!</span> <span style="color:#b3e5fc;">Type <b>help</b> for commands.</span>', 'terminal-welcome');
-    prompt();
-    input.focus();
-  };
-  exitBtn.onclick = function(){ overlay.style.display = 'none'; };
-  overlay.addEventListener('click', function(e){ if(e.target===overlay) overlay.style.display='none'; });
-})();
-</script>
-  <div id="boot-sequence-overlay">
-    <div id="boot-sequence-content">
-      <span style="color:#b3e5fc;">[BIOS] Portfolio Boot v1.0</span>\n
-      <span style="color:#ffd600;">Initializing system...</span>\n
-      <span id="boot-sequence-lines"></span>
-    </div>
-  </div>
-<script>
-  (function(){
-    if (sessionStorage.getItem('booted')) { document.getElementById('boot-sequence-overlay').style.display = 'none'; return; }
-    const overlay = document.getElementById('boot-sequence-overlay');
-    const lines = [
-      '',
-      'Checking RAM .................... <span style="color:#b2ff59;">OK</span>',
-      'Detecting CPU ................... <span style="color:#b2ff59;">OK</span>',
-      'Loading system modules .......... <span style="color:#b2ff59;">OK</span>',
-      'Mounting /portfolio ............. <span style="color:#b2ff59;">OK</span>',
-      'Detecting user ................. <span style="color:#b2ff59;">OK</span>',
-      '',
-      '<span style="color:#ffd600;">Welcome, traveler.</span>',
-      '',
-      '<span style="color:#b3e5fc;">This is Sayid Alsayid&#39;s Portfolio</span>',
-      '<span style="color:#ffd600;">Type <b>help</b> in the terminal for commands.</span>',
-      '',
-      '<span style="color:#b2ff59;">Press any key to continue...</span>'
-    ];
-    let idx = 0;
-    const linesDiv = document.getElementById('boot-sequence-lines');
-    function nextLine() {
-      if (idx < lines.length) {
-        linesDiv.innerHTML += lines[idx]+"\n";
-        idx++;
-        setTimeout(nextLine, idx<lines.length-1 ? 320 : 0);
-      } else {
-        document.addEventListener('keydown', finish, {once:true});
-        document.addEventListener('click', finish, {once:true});
-      }
-    }
-    function finish() {
-      overlay.style.opacity = 0;
-      setTimeout(()=>{ overlay.style.display='none'; sessionStorage.setItem('booted','1'); }, 700);
-    }
-    setTimeout(nextLine, 600);
-  })();
-  </script>
-  <canvas id="matrix-bg" style="display:none;position:fixed;left:0;top:0;width:100vw;height:100vh;z-index:20000;pointer-events:none;"></canvas>
-<script>
-  (function(){
-    const canvas = document.getElementById('matrix-bg');
-    let running = false;
-    function startMatrix() {
-      canvas.style.display = 'block';
-      let w = window.innerWidth, h = window.innerHeight;
-      canvas.width = w; canvas.height = h;
-      let cols = Math.floor(w/16);
-      let ypos = Array(cols).fill(0);
-      const ctx = canvas.getContext('2d');
-      function draw() {
-        ctx.fillStyle = 'rgba(0,0,0,0.08)';
-        ctx.fillRect(0,0,w,h);
-        ctx.fillStyle = '#0f0';
-        ctx.font = '16px monospace';
-        ypos.forEach((y,ind)=>{
-          const text = String.fromCharCode(0x30A0+Math.random()*96);
-          ctx.fillText(text,ind*16,y);
-          if(y>100+Math.random()*10000) ypos[ind]=0;
-          else ypos[ind]=y+16;
-        });
-        if(running) requestAnimationFrame(draw);
-      }
-      running = true;
-      draw();
-    }
-    function stopMatrix() {
-      running = false;
-      canvas.style.display = 'none';
-    }
-    window.toggleMatrix = function(on) {
-      if(on) startMatrix(); else stopMatrix();
-    };
-    document.addEventListener('keydown',function(e){
-      if(e.key==='m' && (e.ctrlKey||e.metaKey)) window.toggleMatrix(canvas.style.display!=='block');
-    });
-  })();
-  </script>
 </body>
 </html>

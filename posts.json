@@ -1,0 +1,37 @@
+{
+  "posts": [
+    {
+      "id": "launch-day",
+      "title": "Launch Day: Watching Europa Clipper Take Off",
+      "date": "2025-10-08",
+      "displayDate": "Oct 2025",
+      "excerpt": "Witnessing a historic NASA launch and what it means for science and exploration.",
+      "content": {
+        "en": "I woke up at 5 AM, adrenaline preceding the sunrise. It was time — Europa Clipper would lift off today. Years of design, simulation, and testing culminating in a few minutes of controlled violence...",
+        "ar": "استيقظت في الخامسة صباحًا، والأدرينالين يسبق شروق الشمس. لقد حان الوقت — سيصعد مسبار أوروبا كليبر اليوم..."
+      }
+    },
+    {
+      "id": "why-i-build",
+      "title": "Why I Build Things That Simulate Reality",
+      "date": "2025-09-20",
+      "displayDate": "Sep 2025",
+      "excerpt": "On the joy and challenge of making code that mimics the real world.",
+      "content": {
+        "en": "From orbital simulations to RC car experiments, I've always been obsessed with making virtual things behave like their real-world counterparts...",
+        "ar": "من المحاكاة المدارية إلى تجارب سيارات التحكم عن بعد، كنت دائمًا مهووسًا بجعل الأشياء الافتراضية تتصرف مثل نظيراتها في العالم الحقيقي..."
+      }
+    },
+    {
+      "id": "terminal-love",
+      "title": "A Love Letter to the Command Line",
+      "date": "2025-08-14",
+      "displayDate": "Aug 2025",
+      "excerpt": "Why the terminal remains my favorite tool.",
+      "content": {
+        "en": "The terminal isn't just a tool — it's a language, puzzle, and playground all at once. In a world of polished GUIs, the command line remains raw, direct, and powerful...",
+        "ar": "الطرفية ليست مجرد أداة - إنها لغة ولغز وملعب في آن واحد. في عالم الواجهات الرسومية المصقولة..."
+      }
+    }
+  ]
+}
