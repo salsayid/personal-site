@@ -156,6 +156,16 @@ document.addEventListener('DOMContentLoaded', () => {
    * Project modal functionality
    */
   const projectDetails = {
+
+    gym: {
+      title: 'GymSync Planning Application',
+      stack: 'React, Firebase, JavaScript, Vite',
+      description: `Gym Sync is a real-time coordination tool built for a small lifting group struggling to stay in sync. As someone who prefers working out with friends, I found it increasingly difficult to lock in sessions due to split mismatches (push/pull/legs), misaligned availability, and general flakiness. So I built a solution — lightweight, frictionless, and mobile-first.
+
+The app allows each member to input their preferred workout focus, availability window, and intent to lift that day. It then computes overlap across the group to highlight optimal meet-up times. There’s no authentication; identities are selected locally for a seamless experience. It uses Firebase Firestore for instant updates, React with Vite for a snappy frontend, and plain CSS for fast loading and smooth responsiveness.`,
+      images: ['gym1.png', 'gym2.png'],
+      repo: 'gym-planning-app'
+    },
     stellar: {
       title: 'StellarLab Propulsion Simulator',
       stack: 'Python, Streamlit, SciPy, NumPy, Plotly',
@@ -171,7 +181,7 @@ Under the hood, it runs a physics-based RK4 integrator to simulate trajectories 
       description: `This application supports land managers and fire control teams in making safe, data-informed decisions about prescribed burns. By combining user-entered details — such as location, fuel type, acreage, fire pattern, and available supplies — with real-time weather data from OpenWeather, the system classifies the burn plan as desired, acceptable, not recommended (with category-specific reasons), or completely prohibited.
 
 The algorithm prioritizes certain conditions like wind speed and temperature thresholds and even factors in local burn bans or incomplete data scenarios. It's a rare blend of environmental science, risk modeling, and command-line interactivity.`,
-      images: ['grc.png'],
+      images: [],
       repo: 'Prescribed-Burn-App'
     },
     airport: {

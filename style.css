@@ -525,6 +525,18 @@ a:hover {
   background: none;
 }
 
+.back-to-home {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.back-to-home:hover {
+  color: var(--link-color);
+  background: none;
+}
+
+
 /* Responsive Adjustments */
 @media (max-width: 600px) {
   .posts-grid {
@@ -566,4 +578,37 @@ body[dir="rtl"] .link-list li a::before {
 body[dir="rtl"] .link-list li a:hover::before {
   right: -5px;
   left: auto;
+}
+
+
+.socials {
+  margin-top: 4rem;
+  padding: 2rem 1rem;
+  text-align: center;
+  border-top: 1px solid #333;
+}
+.socials h2 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+.social-links {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+}
+.social-links a {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+.social-links a:hover {
+  color: #00f2ff;
 }
