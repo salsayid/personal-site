@@ -13,8 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Nav
         'nav_about': 'عني', 'nav_experience': 'الخبرات', 'nav_projects': 'المشاريع', 'nav_writing': 'كتابات', 'nav_home': 'الرئيسية',
         // Hero
-        'hero_name': 'سيد السيد', 'hero_animated_prefix': 'أطمح أن أكون <span id="animated-title-word"></span><span class="typing-cursor">|</span>', 'hero_subtitle': 'طالب جامعي | هندسة ميكانيكية + علوم حاسب',
+        'hero_name': 'سيد السيد', 'hero_animated_prefix': 'نفسي أبقى <span id="animated-title-word"></span><span class="typing-cursor">|</span>', 'hero_subtitle': 'طالب جامعي | هندسة ميكانيكية + علوم حاسب',
         'hero_email_link': 'الايميل', 'hero_linkedin_link': 'لينكدإن', 'hero_github_link': 'جيت هب',
+        'hero_email': 'الايميل', 'hero_linkedin': 'لينكدإن', 'hero_github': 'جيت هب',
         // Section Titles
         'about_title': 'عني', 'experience_title': 'الخبرات', 'projects_title': 'المشاريع', 'writing_title': 'كتابات',
         // About
