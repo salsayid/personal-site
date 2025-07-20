@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Writing - Sayid Alsayid</title>
+  <meta name="description" content="Writing by Sayid Alsayid">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <nav>
+      <a href="index.html" data-translate="nav_home">home</a>
+    </nav>
+    <button id="lang-toggle-btn">عربي</button>
+  </header>
+
+  <main>
+    <section id="writing">
+      <h1 class="writing-header-large centered english" data-translate="writing_title">WRITING</h1>
+      <h1 class="writing-header-large centered arabic" lang="ar" style="display: none;">كتابات</h1>
+      <p class="writing-subtext centered english">Collection of thoughts on pretty much anything.</p>
+      <p class="writing-subtext centered arabic" lang="ar" style="display: none;">مجموعة من الأفكار حول أي شيء تقريبًا.</p>
+      <ul class="writing-list">
+        <li class="writing-item">
+          • <span class="writing-title english">Extended thoughts on "Tron: Legacy", and the film community</span>
+          • <span class="writing-title arabic" lang="ar" style="display: none;">أفكار موسعة حول "ترون: الإرث" ومجتمع الأفلام</span>
+          <a href="writing/tron-writing.html" class="writing-link english">[ read more ]</a>
+          <a href="writing/tron-writing.html" class="writing-link arabic" lang="ar" style="display: none;">[ اقرأ المزيد ]</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+  
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('lang-toggle-btn').addEventListener('click', function() {
+      const englishElements = document.querySelectorAll('.english');
+      const arabicElements = document.querySelectorAll('.arabic');
+
+      englishElements.forEach(element => {
+        element.style.display = element.style.display === 'none' ? 'block' : 'none';
+      });
+
+      arabicElements.forEach(element => {
+        element.style.display = element.style.display === 'none' ? 'block' : 'none';
+      });
+
+      // Update page direction
+      document.body.dir = document.body.dir === 'rtl' ? 'ltr' : 'rtl';
+
+      // Update button text
+      const langBtn = document.getElementById('lang-toggle-btn');
+      langBtn.textContent = langBtn.textContent === 'عربي' ? 'English' : 'عربي';
+    });
+  </script>
+</body>
+</html>

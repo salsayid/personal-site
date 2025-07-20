@@ -1,179 +1,254 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <link href="style.css" rel="stylesheet" type="text/css">
+  <meta charset="UTF-8">
   <title>Sayid Alsayid</title>
-  <meta name="description" content="Mechanical & Computer Engineer | NASA Intern | Software Engineer at Hudl">
-  <meta name="keywords" content="Sayid Alsayid, NASA, Software Engineer, Mechanical Engineering, QA, Python, Research, Hudl">
+  <meta name="description" content="Sayid Alsayid – Portfolio">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="style.css" rel="stylesheet">
 </head>
 <body>
 
-<table width="728" align="center"><tr height="120"></tr></table>
+  <header class="site-header">
+    <nav>
+      <a href="#about" data-translate="nav_about">about</a>
+      <a href="#experience" data-translate="nav_experience">experience</a>
+      <a href="#projects" data-translate="nav_projects">projects</a>
+      <a href="writing.html" data-translate="nav_writing">writing</a>
+    </nav>
+    <button id="lang-toggle-btn">Arabic</button>
+  </header>
 
-<table width="700" align="center">
-  <tr>
-    <td>
-      <div align="center">
-        <a href="#about"><r>[ About ]</r></a>&nbsp;&nbsp;
-        <a href="#experience"><r>[ Experience ]</r></a>&nbsp;&nbsp;
-        <a href="#projects"><r>[ Projects ]</r></a>&nbsp;&nbsp;
-        <a href="gallery.html"><r>[ Gallery ]</r></a>&nbsp;&nbsp;
-        <a href="travel.html"><r>[ Travel ]</r></a>&nbsp;&nbsp;
-        <a href="tetris.html"><r>[ Tetris ]</r></a>&nbsp;&nbsp;
-        <a href="#resume"><r>[ Resume ]</r></a>&nbsp;&nbsp;
-        <a href="#contact"><r>[ Contact ]</r></a>
+  <main>
+    <section id="hero" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh;margin-top:-40px;">
+      <img src="images/sa2.png" alt="Sayid Alsayid" style="width:250px;height:250px;object-fit:cover;margin-bottom:0;display:block;" />
+      <h1 data-translate="hero_name" style="margin:0 0 10px 0;font-size:2.6em;letter-spacing:2px;background:#ffd600;color:#181818;display:inline-block;padding:0.18em 0.7em 0.18em 0.7em;line-height:1.1;box-shadow:0 2px 8px #1112;font-weight:bold;">SAYID ALSAYID</h1>
+      <div id="animated-title" data-translate="hero_animated_prefix" style="font-size:1.3em;color:#ffd600;font-style:italic;min-height:1.5em;">aspiring <span id='animated-title-word'></span><span class='typing-cursor' style='display:inline-block;width:1ch;'>|</span></div>
+      <div data-translate="hero_subtitle" style="margin:18px 0 0 0; font-size:1.08em; color:#ffb347; text-align:center; white-space:nowrap;">
+        undergraduate @ unl | mechanical engineering + computer science
       </div>
+    </section>
 
+    <div style="text-align:center;margin-top:20px;">
+      <a href="#about" style="text-decoration:none;color:#ffd600;font-size:2em;">
+        ↓
+      </a>
+    </div>
 
-      <div class="header-flex">
-        <div class="profile-info">
-          <h2>Sayid Alsayid</h2>
-          <pp>
-          Undergraduate @ UNL<br>
-          Mechanical Engineering + Computer Science<br>
-          Intern @ NASA & Hudl<br><br>
-          Email: <a href="mailto:alsayidoff@gmail.com">alsayidoff@gmail.com</a><br>
-          LinkedIn: <a href="https://linkedin.com/in/sayidalsayid">/in/sayidalsayid</a><br>
-          <br/>
-          UNL MME: <a href="https://engineering.unl.edu">Department of Mechanical & Materials Engineering</a><br>
-          UNL SOC: <a href="https://computing.unl.edu/">School of Computing</a><br>
-          </pp>
-        </div>
-        <div class="profile-pic">
-          <img src="images/me.png" alt="Sayid Alsayid" />
-        </div>
-      </div>
-      <a name="about"></a><h2>About</h2>
-      <hr>
-      <p align="justify">
-        Hi everyone! I'm Sayid, a dual-degree student in Mechanical Engineering and Computer Science at the <a href="https://www.unl.edu/"><Nebraska-Lincon></Nebraska-Lincon>University of Nebraska-Lincoln</a>.
-         I'm passionate about the intersection of applied physics, aerospace, and computing. 
-         My goal is to work on physical systems powered by smart software. 
-         I love building tools that solve real-world problems—and 
-         I'm always looking to learn more, push boundaries, and explore the world around me.
-         Outside of academics, my hobbies include playing <a href='https://jstris.jezevec10.com/u/sayid'>tetris</a>, watching <a href='https://letterboxd.com/sayidal/'>movies</a>, and traveling the <a href=travel.html>world</a>!
+    <hr class="divider">
+    
+    <section id="about">
+      <h2 data-translate="about_title">ABOUT</h2>
+      <p data-translate="about_p">
+        Hi! I'm Sayid, a dual-degree student in mechanical engineering and computer science at the <a href="https://www.unl.edu/" target="_blank">University of Nebraska-Lincoln</a>. I'm passionate about the intersection of applied physics and computing. I love building tools that solve real-world problems and I'm always looking to learn more and explore the world around me. Outside of academics, my hobbies include playing <a href='https://jstris.jezevec10.com/u/sayid' target="_blank">Tetris</a>, watching <a href='https://letterboxd.com/sayidal/' target="_blank">movies</a>, and playing <a href='https://www.nitrotype.com/racer/sayidal' target="_blank">typing games</a>.
       </p>
+    </section>
 
-      <a name="experience"></a><h2>Experience</h2>
-      <hr>
+    <hr class="divider">
 
-      <!-- Hudl -->
-      <div class="row">
-        <div class="column">
-          <img src="images/hudl.png" alt="Hudl" width="150">
-        </div>
-        <div class="company-description">
-          <h3>Software QA Engineer Intern – Hudl</h3>
-          <p>May 2025 – Present</p>
-          <p>Built test automation pipelines for live video features on Hudl Sideline. Improved backend API test coverage using Python and Postman, and solved latency issues in edge streaming environments. Collaborated cross-functionally with QA, DevOps, and Product teams for continuous improvements.</p>
-        </div>
-      </div>
-      <br>
-
-      <!-- NASA -->
-      <div class="row">
-        <div class="column">
-          <img src="images/nasa.png" alt="NASA" width="210">
-        </div>
-        <div class="company-description">
-          <h3>Aeronautical Systems Engineer Intern – NASA Glenn Research Center</h3>
-          <p>Aug 2024 – Dec 2024</p>
-          <p>Worked on the Flow Boiling and Condensation Experiment (FBCE) aboard the ISS. Conducted thermal analysis, redesigned circuit logic, and migrated outdated Java simulations into interactive JavaScript educational modules for NASA’s Beginner’s Guide to Aeronautics.</p>
-        </div>
-      </div>
-      <br>
-
-      <!-- Nanoscale -->
-      <div class="row">
-        <div class="column">
-          <img src="images/lab.png" alt="Nanoscale Lab" width="150">
-        </div>
-        <div class="company-description">
-          <h3>Undergraduate Researcher – Nebraska Nanoscale Energy Engineering Lab</h3>
-          <p>Feb 2024 – July 2024</p>
-          <p>Used LabVIEW to monitor laser system stability and Python-based analytics to model optical path behavior. Developed automation for real-time energy drift visualization and supported hardware validation experiments.</p>
-        </div>
-      </div>
-      <br>
-
-      <!-- EV Charging -->
-      <div class="row">
-        <div class="column">
-          <img src="images/ev.png" alt="EV Research" width="150">
-        </div>
-        <div class="company-description">
-          <h3>Software Engineer Intern – Nebraska Transportation Center</h3>
-          <p>Dec 2023 – June 2024</p>
-          <p>Processed over 2TB of EV charging data to map demand hotspots. Designed interactive dashboards in Python with Plotly and SQL for state planners, optimizing rural supercharger network expansion.</p>
-        </div>
-      </div>
-      <br>
-
-      <a name="projects"></a><h2>Projects</h2>
-      <hr>
-      <ul>
-        <li><b>Rocket Propulsion Simulator</b> – Designed and tested fuel/oxidizer injector models in Python & MATLAB for Aerospace Club propulsion tests.</li>
-        <li><b>Burn Plan Evaluation App</b> – Python app with OpenCV + SQL that evaluates fire safety plans using rule logic and risk visualization.</li>
-        <li><b>Smart Home System</b> – Raspberry Pi system using Python + JS to control temperature, lights, and security with a dashboard UI.</li>
-        <li><b>Automated Human-like RC Car</b> – Developed a mobile target system by mounting a football dummy on an RC car platform for realistic motion testing. Integrated Pixhawk 6C autopilot, GPS, and Wimu wearable for data logging. Designed custom 3D-printed mounts and jersey stabilization for field durability. Used for performance evaluation of HUDL cameras and wearable tracking devices. <a href="https://github.com/salsayid/Automated-human-like-RC-Car" target="_blank">[GitHub Repo]</a></li>
-      </ul>
-
-      <a name="gallery"></a><h2>Gallery</h2>
-      <hr>
-      <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px 20px; justify-items: center;">
-        <img src="images/vball.png" alt="Cracked serve at Hudl Intern Sand Volleyball Day" class="gallery-img" />
-        <img src="images/nanolab.png" alt="Inside the clean room at the Nanoscale Energy Engineering Lab!" class="gallery-img" />
-        <img src="images/grc.png" alt="Space Experiments Laboratory at NASA Glenn!" class="gallery-img" />
-        <img src="images/zols.png" alt="Zols-FC Intramural Soccer Team at UNL" class="gallery-img" />
-        <img src="images/robodog.png" alt="Got to checkout and play with <a href='https://bostondynamics.com/products/spot/'>Boston Dynamic's robot dog 'Spot'</a> in Cleveland, Ohio." class="gallery-img"/>
-        <img src="images/artemis.png" alt="I got to meet <a href='https://www.nasa.gov/people/howard-hu/'>Howard Hu</a>, and the <a href=' https://www.nasa.gov/mission/artemis-ii/'>Artemis II</a> crew at NASA Glenn!" class="gallery-img" />
-      </div>
-      <div id="modal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="modal-img">
-        <div id="caption"></div>
-      </div>
-      <div align="center" style="margin-top: 16px;">
-        <a href="gallery.html"><r>[ View Full Gallery ]</r></a>
-      </div>
-
-      <div class="wip">
-        <h3 style="margin-bottom: 8px;">Travel Highlights</h3>
-        <div style="display: flex; gap: 12px; align-items: center;">
-          <img src="images/outdoor.png" alt="WIP" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
-          <span>See photos from my adventures around the world!</span>
-          <a href="travel.html" style="margin-left: 12px;"><r>[ View Travel Gallery ]</r></a>
-        </div>
-      </div>
-
-      <div class="tetris-preview">
-        <h3 style="margin-bottom: 8px;">Tetris Highlights</h3>
-        <div class="tetris-preview-flex">
-          <video controls poster="images/tetris-thumb.png">
-            <source src="videos/tetrisbest.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div class="tetris-preview-info">
-            <div>My fastest 40-line clear: <b>44.68s</b></div>
-            <a href="tetris.html"><r>[ See More Tetris ]</r></a>
+    <section id="experience">
+      <h2 data-translate="experience_title">EXPERIENCE</h2>
+      <div class="experience-list">
+        
+        <div class="experience-item">
+          <img src="images/hudl4.png" alt="Hudl logo" class="company-logo" />
+          <div class="experience-details">
+            <div class="experience-role" data-translate="exp_hudl_role">Software QA Engineer Intern</div>
+            <div class="experience-company-year">Hudl | May 2025 - Aug 2025</div>
+            <div class="experience-desc" data-translate="exp_hudl_desc">Developed Playwright and API test automation for sideline systems in an agile dev environment.</div>
           </div>
         </div>
+
+        <div class="experience-item">
+          <img src="images/nasa4.png" alt="NASA logo" class="company-logo" />
+          <div class="experience-details">
+            <div class="experience-role" data-translate="exp_nasa_role">Aeronautical Systems Engineer Intern</div>
+            <div class="experience-company-year">NASA | Aug 2024 - Dec 2024</div>
+            <div class="experience-desc" data-translate="exp_nasa_desc">Flight systems and propulsion simulations. Hardware testing for the Flow Boiling and Condensation Experiment (FBCE).</div>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <img src="images/unl7.png" alt="UNL NanoLab logo" class="company-logo" />
+          <div class="experience-details">
+            <div class="experience-role" data-translate="exp_unl_role">Undergraduate Researcher</div>
+            <div class="experience-company-year">Nebraska Nanoscale Energy Engineering Lab | Feb 2024 - Jul 2024</div>
+            <div class="experience-desc" data-translate="exp_unl_desc">Nanoscale heat transfer and thermionic energy conversion. Ran experiments and analyzed results.</div>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <img src="images/midam3.png" alt="Nebraska Transportation Center logo" class="company-logo" />
+          <div class="experience-details">
+            <div class="experience-role" data-translate="exp_ntc_role">Data Science Intern</div>
+            <div class="experience-company-year">Nebraska Transportation Center | Dec 2023 - Jul 2024</div>
+            <div class="experience-desc" data-translate="exp_ntc_desc">Built models in Python to analyze EV charging networks and improve rural transportation planning.</div>
+          </div>
+        </div>
+
       </div>
-      <a name="resume"></a><h2>Resume</h2>
-      <hr>
-      <p>Download my latest resume <a href="docs/Resume.pdf">here</a>.</p>
+    </section>
 
-      <a name="contact"></a><h2>Contact</h2>
-      <hr>
-      <p>Email: <a href="mailto:alsayidoff@gmail.com">alsayidoff@gmail.com</a><br>
-      LinkedIn: <a href="https://linkedin.com/in/sayidalsayid">linkedin.com/in/sayidalsayid</a><br>
-      </p>
+    <hr class="divider">
 
-      <br><div align="center"><a href="#top">&uarr; Back to top</a></div>
-    </td>
-  </tr>
-</table>
+    <section id="projects">
+      <h2 data-translate="projects_title">PROJECTS</h2>
+      <ul class="project-list">
+        <li data-project="gym">
+          <div class="project-header">
+            <span class="project-title english">Gym Planning App</span>
+            <span class="project-title arabic" lang="ar" style="display: none;">تطبيق تخطيط الصالة الرياضية</span>
+            <a href="https://github.com/salsayid/gym-planning-app" target="_blank" class="github-link english">[ view on github ]</a>
+            <a href="https://github.com/salsayid/gym-planning-app" target="_blank" class="github-link arabic" lang="ar" style="display: none;">[ عرض على جيتهاب ]</a>
+            </div>
+        </li>
+        <li data-project="stellar">
+          <div class="project-header">
+            <span class="project-title english">Rocket Propulsion Simulator</span>
+            <span class="project-title arabic" lang="ar" style="display: none;">محاكي دفع الصواريخ</span>
+            <a href="https://github.com/salsayid/stellarlab" target="_blank" class="github-link english">[ view on github ]</a>
+            <a href="https://github.com/salsayid/stellarlab" target="_blank" class="github-link arabic" lang="ar" style="display: none;">[ عرض على جيتهاب ]</a>
+          </div>
+        </li>
+        <li data-project="burn">
+          <div class="project-header">
+            <span class="project-title english">Prescribed Burn Plan App</span>
+            <span class="project-title arabic" lang="ar" style="display: none;">تطبيق خطة الحرق الموصوف</span>
+            <a href="https://github.com/salsayid/Prescribed-Burn-App" target="_blank" class="github-link english">[ view on github ]</a>
+            <a href="https://github.com/salsayid/Prescribed-Burn-App" target="_blank" class="github-link arabic" lang="ar" style="display: none;">[ عرض على جيتهاب ]</a>
+          </div>
+        </li>
+        <li data-project="airport">
+          <div class="project-header">
+            <span class="project-title english">Worldwide Airport Tracker</span>
+            <span class="project-title arabic" lang="ar" style="display: none;">متتبع المطارات العالمية</span>
+            <a href="https://github.com/salsayid/worldwide-airport-tracker" target="_blank" class="github-link english">[ view on github ]</a>
+            <a href="https://github.com/salsayid/worldwide-airport-tracker" target="_blank" class="github-link arabic" lang="ar" style="display: none;">[ عرض على جيتهاب ]</a>
+          </div>
+        </li>
+        <li data-project="rccar">
+          <div class="project-header">
+            <span class="project-title english">Automated Human-Like RC Car</span>
+            <span class="project-title arabic" lang="ar" style="display: none;">سيارة تحكم عن بعد آلية تشبه الإنسان</span>
+            <a href="https://github.com/salsayid/Automated-human-like-RC-Car" target="_blank" class="github-link english">[ view on github ]</a>
+            <a href="https://github.com/salsayid/Automated-human-like-RC-Car" target="_blank" class="github-link arabic" lang="ar" style="display: none;">[ عرض على جيتهاب ]</a>
+          </div>
+        </li>
+      </ul>
+    </section>
 
-<script src="script.js"></script>
+    <div id="project-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div id="modal-content"></div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <section id="writing">
+      <h2 data-translate="writing_title">WRITING</h2>
+      <ul class="writing-list">
+        <li>
+          <div class="writing-header">
+            <span class="writing-title english">Extended thoughts on "Tron: Legacy" and the film community</span>
+            <span class="writing-title arabic" lang="ar" style="display: none;">أفكار موسعة حول "ترون: الإرث" ومجتمع الأفلام</span>
+            <a href="writing/tron-writing.html" class="writing-link english">[ read more ]</a>
+            <a href="writing/tron-writing.html" class="writing-link arabic" lang="ar" style="display: none;">[ اقرأ المزيد ]</a>
+          </div>
+        </li>
+      <div class="view-all-posts">
+        <a href="writing.html" class="view-all-link english" data-translate="view_all_posts">view all posts →</a>
+        <a href="writing.html" class="view-all-link arabic" lang="ar" style="display: none;">عرض جميع المنشورات →</a>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="current">
+      <h2 class="english">WHAT I'M CURRENTLY UP TO</h2>
+      <h2 class="arabic" lang="ar" style="display: none;">ما الذي أفعله حاليًا</h2>
+      <ul class="current-list">
+        <li class="english">Interning at <a href="https://www.hudl.com/" target="_blank">Hudl</a> as a Software QA Engineer (Summer 2025)</li>
+        <li class="arabic" lang="ar" style="display: none;">التدريب في <a href="https://www.hudl.com/" target="_blank">Hudl</a> كمهندس ضمان جودة البرمجيات (صيف 2025)</li>
+        <li class="english">Working on chess bot, essentially a chess board controlled by an XYZ gantry system, powered by the <a href="https://stockfishchess.org/" target="_blank">Stockfish</a> engine</li>
+        <li class="arabic" lang="ar" style="display: none;">العمل على روبوت الشطرنج، وهو لوحة شطرنج يتم التحكم فيها بواسطة نظام XYZ، مدعوم بمحرك <a href="https://stockfishchess.org/" target="_blank">Stockfish</a></li>
+      </ul>
+    </section>
+    
+
+  
+    <hr class="divider">
+
+    <section id="socials">
+      <h2 class="english">Find me on these</h2>
+      <h2 class="arabic" lang="ar" style="display: none;">تجدني على هذه</h2>
+      <ul class="social-links">
+        <li class="social-item">
+          <a href="https://x.com/AlsayidSayid" target="_blank" class="english">X (Twitter)</a>
+          <a href="https://x.com/AlsayidSayid" target="_blank" class="arabic" lang="ar" style="display: none;">إكس (تويتر)</a>
+        </li>
+        <li class="social-item">
+          <a href="https://instagram.com/sayidall" target="_blank" class="english">Instagram</a>
+          <a href="https://instagram.com/sayidall" target="_blank" class="arabic" lang="ar" style="display: none;">إنستغرام</a>
+        </li>
+        <li class="social-item">
+          <a href="https://github.com/salsayid" target="_blank" class="english">GitHub</a>
+          <a href="https://github.com/salsayid" target="_blank" class="arabic" lang="ar" style="display: none;">جيت هب</a>
+        </li>
+        <li class="social-item">
+          <a href="https://linkedin.com/in/sayidalsayid" target="_blank" class="english">LinkedIn</a>
+          <a href="https://linkedin.com/in/sayidalsayid" target="_blank" class="arabic" lang="ar" style="display: none;">لينكدإن</a>
+        </li>
+        <li class="social-item">
+          <a href="https://letterboxd.com/sayidal" target="_blank" class="english">Letterboxd</a>
+          <a href="https://letterboxd.com/sayidal" target="_blank" class="arabic" lang="ar" style="display: none;">ليتربوكسد</a>
+        </li>
+        <li class="social-item">
+          <a href="https://monkeytype.com/profile/sayid" target="_blank" class="english">Monkeytype</a>
+          <a href="https://monkeytype.com/profile/sayid" target="_blank" class="arabic" lang="ar" style="display: none;">مونكيتايب</a>
+        </li>
+        <li class="social-item">
+          <a href="https://www.nitrotype.com/racer/sayidal" target="_blank" class="english">Nitrotype</a>
+          <a href="https://www.nitrotype.com/racer/sayidal" target="_blank" class="arabic" lang="ar" style="display: none;">نيتروتايب</a>
+        </li>
+        <li class="social-item">
+          <a href="https://ch.tetr.io/u/sayoodi" target="_blank" class="english">TETR.IO</a>
+          <a href="https://ch.tetr.io/u/sayoodi" target="_blank" class="arabic" lang="ar" style="display: none;">تيتر.آي أو</a>
+        </li>
+        <li class="social-item">
+          <a href="https://jstris.jezevec10.com/u/sayid" target="_blank" class="english">Jstris</a>
+          <a href="https://jstris.jezevec10.com/u/sayid" target="_blank" class="arabic" lang="ar" style="display: none;">جستريس</a>
+        </li>
+      </ul>
+    </section>
+
+
+    <hr class="divider">
+
+
+  </main>
+  
+  <footer>
+    <p data-translate="footer_text">Sayid Alsayid &copy; est. 2005</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+  document.getElementById('lang-toggle-btn').addEventListener('click', function() {
+    const englishElements = document.querySelectorAll('.english');
+    const arabicElements = document.querySelectorAll('.arabic');
+
+    englishElements.forEach(element => {
+      element.style.display = element.style.display === 'none' ? 'block' : 'none';
+    });
+
+    arabicElements.forEach(element => {
+      element.style.display = element.style.display === 'none' ? 'block' : 'none';
+    });
+  });
+</script>
 </body>
 </html>
