@@ -316,6 +316,13 @@ a:hover {
   border-radius: 4px;
   border: 1px solid var(--border-color);
 }
+
+/* Added a yellow/orange border to all images */
+.post-image {
+  border: 5px solid #FFA500; /* Orange color */
+  border-radius: 0; /* Removed rounded corners */
+}
+
 .modal-github-link {
   display: inline-flex;
   align-items: center;
@@ -399,6 +406,13 @@ a:hover {
 .writing-page-header p {
   font-size: 1rem;
   color: #888;
+}
+
+/* Centered the writing header and subtext */
+.writing-header-large.centered,
+.writing-subtext.centered {
+  text-align: center;
+  margin: 0 auto;
 }
 
 /* Writing Grid Layout */
@@ -506,6 +520,8 @@ a:hover {
   height: auto;
   border-radius: 4px;
   margin: 2rem 0;
+  border: 5px solid #FFA500; /* Orange color */
+  border-radius: 0; /* Removed rounded corners */
 }
 
 .post-nav {
