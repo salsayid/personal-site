@@ -96,13 +96,16 @@ a:hover {
 
 /* --- Hero Section --- */
 #hero {
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem 1rem;
+  background: none;
+  height: auto;
+  display: block;
+  text-align: left;
+  color: inherit;
+  position: static;
+  z-index: auto;
+}
+#hero::before {
+  content: none;
 }
 #animated-title {
   font-size: 1.25rem;
@@ -166,12 +169,11 @@ a:hover {
   background-color: #202020;
 }
 .company-logo {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   object-fit: contain;
   margin-top: 2px;
   flex-shrink: 0;
-  filter: grayscale(1);
   opacity: 0.6;
   transition: filter 0.3s ease, opacity 0.3s ease;
 }
@@ -186,12 +188,22 @@ a:hover {
   font-size: 1rem;
 }
 .experience-company-year {
+  display: flex;
+  align-items: flex-start;
+  border-radius: 4px;
+  color: #ffd600;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.experience-desc {
+  font-size: 0.95rem;
+}
+
+.experience-extra{
   color: #888;
   font-size: 0.85rem;
   margin-bottom: 0.5rem;
-}
-.experience-desc {
-  font-size: 0.95rem;
 }
 
 /* --- Projects & Writing Lists --- */
@@ -550,6 +562,48 @@ a:hover {
 .back-to-home:hover {
   color: var(--link-color);
   background: none;
+}
+
+
+/* Contact Section Styles */
+.contact-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.contact-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.profile-picture {
+  width: 250px;
+  height: 250px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-item {
+  margin: 0.5rem 0;
+}
+
+.contact-item a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: #0073e6;
 }
 
 
