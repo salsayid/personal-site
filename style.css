@@ -145,6 +145,10 @@ a:hover {
   font-weight: bold;
 }
 
+.current-title.arabic {
+  text-align: right; /* Align Arabic title to the right */
+}
+
 .current-list {
   list-style: disc; /* Added bullet points */
   padding-left: 1.5rem; /* Adjusted padding for bullets */
