@@ -8,11 +8,6 @@
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="style.css" rel="stylesheet">
-  <style>
-    a:hover {
-      color: #333; 
-    }
-  </style>
 </head>
 <body>
 
@@ -27,24 +22,28 @@
   </header>
 
   <main>
-    <section id="hero" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh;margin-top:-40px;">
-      <h1 data-translate="hero_name" style="margin:0 0 10px 0;font-size:2.6em;letter-spacing:2px;background:#ffd600;color:#181818;display:inline-block;padding:0.18em 0.7em 0.18em 0.7em;line-height:1.1;box-shadow:0 2px 8px #1112;font-weight:bold;">SAYID ALSAYID</h1>
-      <div data-translate="hero_subtitle" style="margin:18px 0 0 0; font-size:1.08em; color:#ffb347; text-align:center; white-space:nowrap;">
+    <section id="hero">
+      <h1 data-translate="hero_name">SAYID ALSAYID</h1>
+      <div data-translate="hero_subtitle" class="hero-subtitle">
         undergraduate @ unl | mechanical engineering + computer science
       </div>
-      <div style="margin-top: 20px; display: flex; gap: 35px; justify-content: center; align-items: center; direction: ltr;">
-        <a href="mailto:alsayidoff@gmail.com" style="text-decoration:none;color:#ccc;font-size:1em;text-transform:lowercase;" data-translate="hero_email">gmail</a>
-        <a href="https://linkedin.com/in/sayidalsayid" target="_blank" style="text-decoration:none;color:#ccc;font-size:1em;text-transform:lowercase;" data-translate="hero_linkedin">linkedin</a>
-        <a href="https://github.com/salsayid" target="_blank" style="text-decoration:none;color:#ccc;font-size:1em;text-transform:lowercase;" data-translate="hero_github">github</a>
+      <div class="hero-links">
+        <a href="mailto:alsayidoff@gmail.com" data-translate="hero_email">gmail</a>
+        <a href="https://linkedin.com/in/sayidalsayid" target="_blank" data-translate="hero_linkedin">linkedin</a>
+        <a href="https://github.com/salsayid" target="_blank" data-translate="hero_github">github</a>
       </div>
-
-
+      <section id="currently-up-to">
+        <p class="current-title english">Currently:</p>
+        <p class="current-title arabic" lang="ar" style="display: none;">حالياً:</p>
+        <ul class="current-list">
+          <li>Interning at <a href="https://www.hudl.com/" target="_blank">Hudl</a> doing software QA work (Summer 2025)</li>
+          <li>Working on a <a href="https://www.youtube.com/watch?v=BuV_ikbM1Vc" target="_blank">XYZ gantry</a> controlled chess bot powered by <a href="https://stockfishchess.org/" target="_blank">Stockfish</a></li>
+        </ul>
+      </section>
     </section>
 
-    <div style="text-align:center;margin-top:20px;">
-      <a href="#about" style="text-decoration:none;color:#ffd600;font-size:2em;">
-        ↓
-      </a>
+    <div class="scroll-down-wrapper">
+      <a href="#about" class="scroll-down">↓</a>
     </div>
 
     <hr class="divider">
@@ -61,20 +60,17 @@
     <section id="experience">
       <h2 data-translate="experience_title">EXPERIENCE</h2>
       <div class="experience-list">
-
-
-        <div class="experience-item" style="display: flex; align-items: center;">
-          <img src="images/nasa4.png" alt="NASA logo" class="company-logo" style="margin-right: 20px;" />
+        <div class="experience-item">
+          <img src="images/nasa4.png" alt="NASA logo" class="company-logo" />
           <div class="experience-details">
             <div class="experience-role" data-translate="exp_hudl_role">Software Engineer Intern</div>
             <div class="experience-company-year">NASA Glenn Research Center</div>
             <div class="experience-extra">Aug 2025 - Dec 2025 | Cleveland, OH, USA</div>
-            <div class="experience-desc" data-translate="exp_hudl_desc">(INCOMING FALL '25) - Reprising my role and continuing my work on aeronautical and hypersonic sims.</div>
+            <div class="experience-desc" data-translate="exp_hudl_desc">INCOMING FALL '25 - Reprising my role</div>
           </div>
         </div>
-        
-        <div class="experience-item" style="display: flex; align-items: center;">
-          <img src="images/hudl4.png" alt="Hudl logo" class="company-logo" style="margin-right: 20px;" />
+        <div class="experience-item">
+          <img src="images/hudl4.png" alt="Hudl logo" class="company-logo" />
           <div class="experience-details">
             <div class="experience-role" data-translate="exp_hudl_role">Software QA Engineer Intern</div>
             <div class="experience-company-year">Hudl</div>
@@ -82,9 +78,8 @@
             <div class="experience-desc" data-translate="exp_hudl_desc">Developed Playwright and API test automation for Hudl Sideline systems in an agile dev environment.</div>
           </div>
         </div>
-
-        <div class="experience-item" style="display: flex; align-items: center;">
-          <img src="images/nasa4.png" alt="NASA logo" class="company-logo" style="margin-right: 20px;" />
+        <div class="experience-item">
+          <img src="images/nasa4.png" alt="NASA logo" class="company-logo" />
           <div class="experience-details">
             <div class="experience-role" data-translate="exp_nasa_role">Aeronautical Systems Engineer Intern</div>
             <div class="experience-company-year">NASA Glenn Research Center</div>
@@ -92,9 +87,8 @@
             <div class="experience-desc" data-translate="exp_nasa_desc">Flight systems and propulsion simulations. Hardware testing for the Flow Boiling and Condensation Experiment (FBCE).</div>
           </div>
         </div>
-
-        <div class="experience-item" style="display: flex; align-items: center;">
-          <img src="images/unl7.png" alt="UNL NanoLab logo" class="company-logo" style="margin-right: 20px;" />
+        <div class="experience-item">
+          <img src="images/unl7.png" alt="UNL NanoLab logo" class="company-logo" />
           <div class="experience-details">
             <div class="experience-role" data-translate="exp_unl_role">Undergraduate Researcher</div>
             <div class="experience-company-year">Nebraska Nanoscale Energy Engineering Lab</div>
@@ -102,9 +96,8 @@
             <div class="experience-desc" data-translate="exp_unl_desc">Nanoscale heat transfer and thermionic energy conversion. Ran experiments and analyzed results.</div>
           </div>
         </div>
-
-        <div class="experience-item" style="display: flex; align-items: center;">
-          <img src="images/midam3.png" alt="Nebraska Transportation Center logo" class="company-logo" style="margin-right: 20px;" />
+        <div class="experience-item">
+          <img src="images/midam3.png" alt="Nebraska Transportation Center logo" class="company-logo" />
           <div class="experience-details">
             <div class="experience-role" data-translate="exp_ntc_role">Data Science Intern</div>
             <div class="experience-company-year">Nebraska Transportation Center</div>
@@ -112,7 +105,6 @@
             <div class="experience-desc" data-translate="exp_ntc_desc">Built models in Python to analyze EV charging networks and improve rural transportation planning.</div>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -127,7 +119,7 @@
             <span class="project-title arabic" lang="ar" style="display: none;">تطبيق تخطيط الصالة الرياضية</span>
             <a href="https://github.com/salsayid/gym-planning-app" target="_blank" class="github-link english">[ view on github ]</a>
             <a href="https://github.com/salsayid/gym-planning-app" target="_blank" class="github-link arabic" lang="ar" style="display: none;">[ عرض على جيتهاب ]</a>
-            </div>
+          </div>
         </li>
         <li data-project="stellar">
           <div class="project-header">
@@ -165,9 +157,9 @@
     </section>
 
     <div id="project-modal" class="modal">
-      <div class="modal-content">
+      <div class="modal-content-wrapper">
         <span class="close-modal">&times;</span>
-        <div id="modal-content"></div>
+        <div id="modal-content-body"></div>
       </div>
     </div>
 
@@ -197,84 +189,26 @@
 
     <hr class="divider">
 
-    <section id="current">
-      <h2 class="english">WHAT I'M CURRENTLY UP TO</h2>
-      <h2 class="arabic" lang="ar" style="display: none;">ما الذي أفعله حاليًا</h2>
-      <ul class="current-list">
-        <li class="english">Interning at <a href="https://www.hudl.com/" target="_blank">Hudl</a> as a Software QA Engineer (Summer 2025)</li>
-        <li class="arabic" lang="ar" style="display: none;">التدريب في <a href="https://www.hudl.com/" target="_blank">Hudl</a> كمهندس ضمان جودة البرمجيات (صيف 2025)</li>
-        <li class="english">Working on chess bot, basically a chess board controlled by a custom built <a href="https://www.youtube.com/watch?v=BuV_ikbM1Vc" target="_blank">XYZ gantry system</a>, powered by the <a href="https://stockfishchess.org/" target="_blank">Stockfish</a> engine</li>
-        <li class="arabic" lang="ar" style="display: none;">العمل على روبوت الشطرنج، وهو لوحة شطرنج يتم التحكم فيها بواسطة نظام XYZ، مدعوم بمحرك <a href="https://stockfishchess.org/" target="_blank">Stockfish</a></li>
-      </ul>
-    </section>
-    
-
-  
-    <hr class="divider">
-
     <section id="socials">
       <h2 class="english">places you can find me </h2>
       <h2 class="arabic" lang="ar" style="display: none;">تجدني على هذه</h2>
       <ul class="social-links">
-        <li class="social-item">
-          <a href="https://x.com/AlsayidSayid" target="_blank" class="english">X (Twitter)</a>
-          <a href="https://x.com/AlsayidSayid" target="_blank" class="arabic" lang="ar" style="display: none;">إكس (تويتر)</a>
-        </li>
-        <li class="social-item">
-          <a href="https://instagram.com/sayidall" target="_blank" class="english">Instagram</a>
-          <a href="https://instagram.com/sayidall" target="_blank" class="arabic" lang="ar" style="display: none;">إنستغرام</a>
-        </li>
-        <li class="social-item">
-          <a href="https://github.com/salsayid" target="_blank" class="english">GitHub</a>
-          <a href="https://github.com/salsayid" target="_blank" class="arabic" lang="ar" style="display: none;">جيت هب</a>
-        </li>
-        <li class="social-item">
-          <a href="https://linkedin.com/in/sayidalsayid" target="_blank" class="english">LinkedIn</a>
-          <a href="https://linkedin.com/in/sayidalsayid" target="_blank" class="arabic" lang="ar" style="display: none;">لينكدإن</a>
-        </li>
-        <li class="social-item">
-          <a href="https://letterboxd.com/sayidal" target="_blank" class="english">Letterboxd</a>
-          <a href="https://letterboxd.com/sayidal" target="_blank" class="arabic" lang="ar" style="display: none;">ليتربوكسد</a>
-        </li>
-        <li class="social-item">
-          <a href="https://monkeytype.com/profile/sayid" target="_blank" class="english">Monkeytype</a>
-          <a href="https://monkeytype.com/profile/sayid" target="_blank" class="arabic" lang="ar" style="display: none;">مونكيتايب</a>
-        </li>
-        <li class="social-item">
-          <a href="https://www.nitrotype.com/racer/sayidal" target="_blank" class="english">Nitrotype</a>
-          <a href="https://www.nitrotype.com/racer/sayidal" target="_blank" class="arabic" lang="ar" style="display: none;">نيتروتايب</a>
-        </li>
-        <li class="social-item">
-          <a href="https://ch.tetr.io/u/sayoodi" target="_blank" class="english">TETR.IO</a>
-          <a href="https://ch.tetr.io/u/sayoodi" target="_blank" class="arabic" lang="ar" style="display: none;">تيتر.آي أو</a>
-        </li>
-        <li class="social-item">
-          <a href="https://jstris.jezevec10.com/u/sayid" target="_blank" class="english">Jstris</a>
-          <a href="https://jstris.jezevec10.com/u/sayid" target="_blank" class="arabic" lang="ar" style="display: none;">جستريس</a>
-        </li>
+        <li class="social-item"><a href="https://x.com/AlsayidSayid" target="_blank" class="english">X (Twitter)</a><a href="https://x.com/AlsayidSayid" target="_blank" class="arabic" lang="ar" style="display: none;">إكس (تويتر)</a></li>
+        <li class="social-item"><a href="https://instagram.com/sayidall" target="_blank" class="english">Instagram</a><a href="https://instagram.com/sayidall" target="_blank" class="arabic" lang="ar" style="display: none;">إنستغرام</a></li>
+        <li class="social-item"><a href="https://github.com/salsayid" target="_blank" class="english">GitHub</a><a href="https://github.com/salsayid" target="_blank" class="arabic" lang="ar" style="display: none;">جيت هب</a></li>
+        <li class="social-item"><a href="https://linkedin.com/in/sayidalsayid" target="_blank" class="english">LinkedIn</a><a href="https://linkedin.com/in/sayidalsayid" target="_blank" class="arabic" lang="ar" style="display: none;">لينكدإن</a></li>
+        <li class="social-item"><a href="https://letterboxd.com/sayidal" target="_blank" class="english">Letterboxd</a><a href="https://letterboxd.com/sayidal" target="_blank" class="arabic" lang="ar" style="display: none;">ليتربوكسد</a></li>
+        <li class="social-item"><a href="https://monkeytype.com/profile/sayid" target="_blank" class="english">Monkeytype</a><a href="https://monkeytype.com/profile/sayid" target="_blank" class="arabic" lang="ar" style="display: none;">مونكيتايب</a></li>
+        <li class="social-item"><a href="https://www.nitrotype.com/racer/sayidal" target="_blank" class="english">Nitrotype</a><a href="https://www.nitrotype.com/racer/sayidal" target="_blank" class="arabic" lang="ar" style="display: none;">نيتروتايب</a></li>
+        <li class="social-item"><a href="https://ch.tetr.io/u/sayoodi" target="_blank" class="english">TETR.IO</a><a href="https://ch.tetr.io/u/sayoodi" target="_blank" class="arabic" lang="ar" style="display: none;">تيتر.آي أو</a></li>
+        <li class="social-item"><a href="https://jstris.jezevec10.com/u/sayid" target="_blank" class="english">Jstris</a><a href="https://jstris.jezevec10.com/u/sayid" target="_blank" class="arabic" lang="ar" style="display: none;">جستريس</a></li>
       </ul>
     </section>
 
-
     <hr class="divider">
-
-
+    
   </main>
   
   <script src="script.js"></script>
-  <script>
-  document.getElementById('lang-toggle-btn').addEventListener('click', function() {
-    const englishElements = document.querySelectorAll('.english');
-    const arabicElements = document.querySelectorAll('.arabic');
-
-    englishElements.forEach(element => {
-      element.style.display = element.style.display === 'none' ? 'block' : 'none';
-    });
-
-    arabicElements.forEach(element => {
-      element.style.display = element.style.display === 'none' ? 'block' : 'none';
-    });
-  });
-</script>
 </body>
 </html>

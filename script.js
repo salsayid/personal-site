@@ -1,161 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  /**
-   * Initializes the language toggle functionality.
-   */
-  function initLanguageToggle() {
-    const langBtn = document.getElementById('lang-toggle-btn');
-    if (!langBtn) return;
-
-    let isArabic = false;
-
-    const translations = {
-        // Nav
-        'nav_about': 'عني', 'nav_experience': 'الخبرات', 'nav_projects': 'المشاريع', 'nav_writing': 'كتابات', 'nav_home': 'الرئيسية',
-        // Hero
-        'hero_name': 'سيد السيد', 'hero_animated_prefix': 'نفسي أبقى <span id="animated-title-word"></span><span class="typing-cursor">|</span>', 'hero_subtitle': 'طالب جامعي | هندسة ميكانيكية + علوم حاسب',
-        'hero_email_link': 'الايميل', 'hero_linkedin_link': 'لينكدإن', 'hero_github_link': 'جيت هب',
-        'hero_email': 'الايميل', 'hero_linkedin': 'لينكدإن', 'hero_github': 'جيت هب',
-        // Section Titles
-        'about_title': 'عني', 'experience_title': 'الخبرات', 'projects_title': 'المشاريع', 'writing_title': 'كتابات',
-        // About
-        'about_p': 'أهلاً! أنا سيد، طالب تخصص مزدوج في الهندسة الميكانيكية وعلوم الحاسوب بجامعة نبراسكا لينكولن. شغوف بتقاطع الفيزياء التطبيقية والحوسبة. أحب بناء أدوات تحل مشاكل واقعية وأسعى دائمًا لتعلم المزيد واستكشاف العالم من حولي. هواياتي تشمل لعب التتريس ومشاهدة الأفلام وألعاب الكتابة.',
-        // Experience
-        'exp_hudl_role': 'متدرب مهندس ضمان جودة البرمجيات', 'exp_hudl_desc': 'طورت اختبارات آلية لواجهات برمجة التطبيقات و Playwright لأنظمة خط التماس في بيئة تطوير سريعة.',
-        'exp_nasa_role': 'متدرب مهندس نظم طيران', 'exp_nasa_desc': 'محاكاة أنظمة الطيران والدفع. اختبار أجهزة لتجربة الغليان والتكثيف الانسيابي (FBCE).',
-        'exp_unl_role': 'باحث جامعي', 'exp_unl_desc': 'نقل الحرارة النانوي وتحويل الطاقة الثرموأيونية. أجريت تجارب وحللت النتائج.',
-        // Add these key-value pairs inside the `translations` object in script.js
-        'exp_ntc_role': 'متدرب علم بيانات',
-        'exp_ntc_desc': 'بنيت نماذج باستخدام بايثون لتحليل شبكات شحن السيارات الكهربائية وتحسين تخطيط النقل في المناطق الريفية.',
-        // Writing
-        'writing_post1': 'يوم الإطلاق: مشاهدة انطلاق أوروبا كليبر (أكتوبر ٢٠٢٥)', 'writing_post2': 'لماذا أبني أشياء تحاكي الواقع (سبتمبر ٢٠٢٥)', 'writing_post3': 'رسالة حب إلى سطر الأوامر (أغسطس ٢٠٢٥)',
-        // Writing Page
-        'writing_header': 'كتابات', 'writing_subheader': 'مجموعة أفكار حول التكنولوجيا والهندسة والفضاء.',
-        'writing_post1_title': 'يوم الإطلاق: مشاهدة انطلاق أوروبا كليبر', 'writing_post1_date': '٨ أكتوبر ٢٠٢٥', 'writing_post1_p1': 'استيقظت في الخامسة صباحًا، والأدرينالين يسبق شروق الشمس. لقد حان الوقت — سيصعد مسبار أوروبا كليبر اليوم. سنوات من التصميم والمحاكاة والاختبار تتوج في دقائق قليلة من الصعود العنيف والمتحكم فيه.', 'writing_post1_p2': 'لحظة الاشتعال دائمًا سريالية. زهرة صامتة من النار، ثم هدير منخفض يهتز عبر شاشتك وفي عظامك. إنها شهادة على براعة الإنسان - قدرتنا على توجيه قوة هائلة بهذه الدقة.',
-        'writing_post2_title': 'لماذا أبني أشياء تحاكي الواقع', 'writing_post2_date': '٢٠ سبتمبر ٢٠٢٥', 'writing_post2_p1': 'من المحاكاة المدارية إلى تجارب سيارات التحكم عن بعد، كنت دائمًا مهووسًا بجعل الأشياء الافتراضية تتصرف مثل نظيراتها في العالم الحقيقي. هناك سحر معين في التقاط فيزياء الكون في سطور من التعليمات البرمجية.', 'writing_post2_p2': 'المحاكاة الجيدة ليست مجرد أداة تنبؤية؛ إنها ملعب للفهم. يمكنك أن تسأل "ماذا لو؟" مليون مرة دون عواقب. كل تشغيل هو تجربة، وكل نتيجة تعمق من حدسك حول كيفية عمل العالم.',
-        'writing_post3_title': 'رسالة حب إلى سطر الأوامر', 'writing_post3_date': '١٤ أغسطس ٢٠٢٥', 'writing_post3_p1': 'الطرفية ليست مجرد أداة - إنها لغة ولغز وملعب في آن واحد. في عالم الواجهات الرسومية المصقولة، يكون سطر الأوامر خامًا ومباشرًا وقويًا. لا يوجد تجريد، فقط أوامرك واستجابة الآلة.', 'writing_post3_p2': 'ربط الأوامر معًا باستخدام `|` يبدو وكأنه تأليف موسيقى. تأخذ إخراج أداة وتنسقه بسلاسة في إدخال أداة أخرى، مما يخلق تدفقات عمل معقدة من كتل بناء بسيطة. إنه تعبير أنيق عن فلسفة يونكس.',
-        // Footer
-        'footer_text': 'سيد السيد © ٢٠٢٥'
-        
-    };
-    
-    // Store original English text
-    document.querySelectorAll('[data-translate]').forEach(el => {
-      el.dataset.langEn = el.innerHTML;
-    });
-
-    // Load Arabic font
-    const loadArabicFont = () => {
-      if (!document.getElementById('arabic-font-link')) {
-        const fontLink = document.createElement('link');
-        fontLink.id = 'arabic-font-link';
-        fontLink.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&display=swap';
-        fontLink.rel = 'stylesheet';
-        document.head.appendChild(fontLink);
-      }
-    };
-    
-    const updateLanguage = () => {
-      isArabic = !isArabic;
-      if (isArabic) {
-        loadArabicFont();
-        document.body.dir = 'rtl';
-        langBtn.textContent = 'English';
-      } else {
-        document.body.dir = 'ltr';
-        langBtn.textContent = 'Arabic';
-      }
-
-      document.querySelectorAll('[data-translate]').forEach(el => {
-        const key = el.dataset.translate;
-        el.innerHTML = isArabic ? (translations[key] || el.dataset.langEn) : el.dataset.langEn;
-      });
-      
-      // Restart hero animation with new words
-      initHeroAnimation(isArabic);
-    };
-
-    langBtn.addEventListener('click', updateLanguage);
-  }
-
-  /**
-   * Initializes the animated hero title.
-   * @param {boolean} isArabic - Determines which set of words to use.
-   */
-  function initHeroAnimation(isArabic = false) {
-    const element = document.getElementById('animated-title-word');
-    if (!element) return;
-    
-    // Clear any existing animation timeout
-    if (window.heroAnimationTimeout) clearTimeout(window.heroAnimationTimeout);
-
-    const wordsEn = ['engineer', 'computer scientist', 'embedded systems engineer', 'full-stack developer'];
-    const wordsAr = ['مِهندس', 'عالِم كُمبيوتَر', 'مِهندس نُظُم مُدمَّجة', 'مطور متكامل'];
-    const words = isArabic ? wordsAr : wordsEn;
-    
-    let wordIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function type() {
-      const currentWord = words[wordIndex];
-      let typeSpeed = isDeleting ? 60 : 120;
-      
-      if (isDeleting) {
-        charIndex--;
-      } else {
-        charIndex++;
-      }
-      element.textContent = currentWord.substring(0, charIndex);
-
-      if (!isDeleting && charIndex === currentWord.length) {
-        typeSpeed = 1500; // Pause after typing
-        isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-        typeSpeed = 500; // Pause before new word
-      }
-
-      window.heroAnimationTimeout = setTimeout(type, typeSpeed);
-    }
-    type();
-  }
-
-  /**
-   * Animates ASCII art dividers with a wave effect.
-   */
-  function initDividerAnimation() {
-    const dividers = document.querySelectorAll('.divider');
-    if (dividers.length === 0) return;
-
-    function animate() {
-      dividers.forEach(div => {
-        const width = 60;
-        let t = Date.now() / 1000;
-        let wave = '';
-        for (let i = 0; i < width; i++) {
-          // Create two overlapping sine waves
-          let y1 = Math.sin(t * 2 + i / 5) * 0.5;
-          let y2 = Math.sin(t * 1.5 + i / 3) * 0.5;
-          let y = y1 + y2;
-          // Map the combined wave to characters
-          if (y > 0.7) wave += '▲';
-          else if (y > 0.2) wave += '▴';
-          else if (y > -0.2) wave += '·';
-          else if (y > -0.7) wave += '▾';
-          else wave += '▼';
-        }
-        div.textContent = wave;
-      });
-      requestAnimationFrame(animate);
-    }
-    animate();
-  }
-
-  /**
-   * Project modal functionality
-   */
   const projectDetails = {
     gym: {
       title: 'GymSync Planning Application',
@@ -230,95 +74,169 @@ The system supports both manual control and preloaded autonomous missions using 
   };
 
   /**
-   * Loads and displays recent blog posts
+   * Initializes the language toggle functionality.
    */
-  async function initRecentPosts() {
-    try {
-      const response = await fetch('posts.json');
-      const data = await response.json();
-      const recentPostsContainer = document.getElementById('recent-posts');
-      
-      if (!recentPostsContainer) return;
+  function initLanguageToggle() {
+    const langBtn = document.getElementById('lang-toggle-btn');
+    if (!langBtn) return;
 
-      // Get the 3 most recent posts
-      const recentPosts = data.posts.slice(0, 3);
-      
-      const postsHTML = recentPosts.map(post => `
-        <a href="writing.html#${post.id}" class="post-item">
-          <div class="post-title">${post.title}</div>
-          <div class="post-meta">
-            <span class="post-date">${post.displayDate}</span>
-            <span class="read-more">read more →</span>
-          </div>
-          <div class="post-excerpt">${post.excerpt}</div>
-        </a>
-      `).join('');
-      
-      recentPostsContainer.innerHTML = postsHTML;
-    } catch (error) {
-      console.error('Error loading recent posts:', error);
-    }
-  }
+    let isArabic = false;
 
-  // Initialize project click handlers
-  document.querySelectorAll('.project-list li').forEach(project => {
-    project.addEventListener('click', (e) => {
-      // Don't trigger if clicking the GitHub link
-      if (e.target.classList.contains('github-link') || e.target.closest('.github-link')) {
-        return;
+    const translations = {
+        'nav_about': 'عني', 'nav_experience': 'الخبرات', 'nav_projects': 'المشاريع', 'nav_writing': 'كتابات', 'nav_home': 'الرئيسية',
+        'hero_name': 'سيد السيد', 'hero_subtitle': 'طالب جامعي | هندسة ميكانيكية + علوم حاسب',
+        'hero_email': 'الايميل', 'hero_linkedin': 'لينكدإن', 'hero_github': 'جيت هب',
+        'about_title': 'عني', 'experience_title': 'الخبرات', 'projects_title': 'المشاريع', 
+        'writing_title': 'كتابات', 'writing_subheader': 'مجموعة من الأفكار حول أي شيء تقريبًا.',
+        'about_p': 'أهلاً! أنا سيد، طالب تخصص مزدوج في الهندسة الميكانيكية وعلوم الحاسوب بجامعة نبراسكا لينكولن. شغوف بتقاطع الفيزياء التطبيقية والحوسبة. أحب بناء أدوات تحل مشاكل واقعية وأسعى دائمًا لتعلم المزيد واستكشاف العالم من حولي. هواياتي تشمل لعب التتريس ومشاهدة الأفلام وألعاب الكتابة.',
+        'exp_hudl_role': 'متدرب مهندس ضمان جودة البرمجيات', 'exp_hudl_desc': 'طورت اختبارات آلية لواجهات برمجة التطبيقات و Playwright لأنظمة خط التماس في بيئة تطوير سريعة.',
+        'exp_nasa_role': 'متدرب مهندس نظم طيران', 'exp_nasa_desc': 'محاكاة أنظمة الطيران والدفع. اختبار أجهزة لتجربة الغليان والتكثيف الانسيابي (FBCE).',
+        'exp_unl_role': 'باحث جامعي', 'exp_unl_desc': 'نقل الحرارة النانوي وتحويل الطاقة الثرموأيونية. أجريت تجارب وحللت النتائج.',
+        'exp_ntc_role': 'متدرب علم بيانات', 'exp_ntc_desc': 'بنيت نماذج باستخدام بايثون لتحليل شبكات شحن السيارات الكهربائية وتحسين تخطيط النقل في المناطق الريفية.'
+    };
+    
+    document.querySelectorAll('[data-translate]').forEach(el => {
+      el.dataset.langEn = el.innerHTML.trim();
+    });
+
+    const loadArabicFont = () => {
+      if (!document.getElementById('arabic-font-link')) {
+        const fontLink = document.createElement('link');
+        fontLink.id = 'arabic-font-link';
+        fontLink.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&display=swap';
+        fontLink.rel = 'stylesheet';
+        document.head.appendChild(fontLink);
+      }
+    };
+    
+    langBtn.addEventListener('click', () => {
+      isArabic = !isArabic;
+      
+      if (isArabic) {
+        loadArabicFont();
+        document.body.dir = 'rtl';
+        langBtn.textContent = 'English';
+      } else {
+        document.body.dir = 'ltr';
+        langBtn.textContent = 'Arabic';
       }
 
-      const projectId = project.dataset.project;
-      const projectData = projectDetails[projectId];
-      const modal = document.getElementById('project-modal');
-      const content = document.getElementById('modal-content');
+      document.querySelectorAll('[data-translate]').forEach(el => {
+        const key = el.dataset.translate;
+        if (isArabic) {
+          el.innerHTML = translations[key] || el.dataset.langEn;
+        } else {
+          el.innerHTML = el.dataset.langEn;
+        }
+      });
 
-      const isArabic = document.body.dir === 'rtl';
-
-      content.innerHTML = `
-        <h3>${isArabic ? projectData.titleArabic : projectData.title}</h3>
-        <div class="project-stack">${isArabic ? projectData.stackArabic : projectData.stack}</div>
-        <div class="project-description">${isArabic ? projectData.descriptionArabic : projectData.description}</div>
-        <div class="project-images">
-          ${projectData.images.map(img => `<img src="images/${img}" alt="${isArabic ? projectData.titleArabic : projectData.title}" class="project-image">`).join('')}
-        </div>
-        <a href="https://github.com/salsayid/${projectData.repo}" target="_blank" class="modal-github-link">
-          <img src="images/github-mark.png" alt="GitHub" class="github-icon">
-          ${isArabic ? 'عرض المشروع على جيتهاب' : 'View project on GitHub'}
-        </a>
-      `;
-
-      modal.classList.add('show');
-      document.body.style.overflow = 'hidden';
+      document.querySelectorAll('.english, .arabic').forEach(el => {
+        if (isArabic) {
+          el.style.display = el.classList.contains('arabic') ? '' : 'none';
+        } else {
+          el.style.display = el.classList.contains('english') ? '' : 'none';
+        }
+      });
     });
-  });
+  }
 
-  // Setup modal close functionality
-  document.querySelector('.close-modal')?.addEventListener('click', () => {
-    document.getElementById('project-modal').classList.remove('show');
-    document.body.style.overflow = '';
-  });
+  /**
+   * Animates ASCII art dividers with a wave effect.
+   */
+  function initDividerAnimation() {
+    const dividers = document.querySelectorAll('.divider');
+    if (dividers.length === 0) return;
 
-  // Close modal on click outside
-  document.getElementById('project-modal')?.addEventListener('click', (e) => {
-    if (e.target.id === 'project-modal') {
-      document.getElementById('project-modal').classList.remove('show');
+    let animationFrameId;
+
+    const animate = () => {
+      const t = Date.now() / 1000;
+      dividers.forEach(div => {
+        const width = 60;
+        let wave = '';
+        for (let i = 0; i < width; i++) {
+          const y1 = Math.sin(t * 2 + i / 5) * 0.5;
+          const y2 = Math.sin(t * 1.5 + i / 3) * 0.5;
+          const y = y1 + y2;
+          if (y > 0.7) wave += '▲';
+          else if (y > 0.2) wave += '▴';
+          else if (y > -0.2) wave += '·';
+          else if (y > -0.7) wave += '▾';
+          else wave += '▼';
+        }
+        div.textContent = wave;
+      });
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (!animationFrameId) animate();
+        } else {
+          cancelAnimationFrame(animationFrameId);
+          animationFrameId = null;
+        }
+      });
+    });
+    
+    dividers.forEach(d => observer.observe(d));
+  }
+
+  /**
+   * Sets up the project modal functionality.
+   */
+  function initProjectModal() {
+    const modal = document.getElementById('project-modal');
+    const modalContentBody = document.getElementById('modal-content-body');
+    const closeModalBtn = document.querySelector('.close-modal');
+
+    if (!modal || !modalContentBody || !closeModalBtn) return;
+    
+    document.querySelectorAll('.project-list li').forEach(project => {
+      project.addEventListener('click', (e) => {
+        if (e.target.closest('.github-link')) return;
+
+        const projectId = project.dataset.project;
+        const data = projectDetails[projectId];
+        const isArabic = document.body.dir === 'rtl';
+
+        modalContentBody.innerHTML = `
+          <h3>${isArabic ? data.titleArabic : data.title}</h3>
+          <div class="project-stack">${isArabic ? data.stackArabic : data.stack}</div>
+          <div class="project-description">${isArabic ? data.descriptionArabic : data.description}</div>
+          <div class="project-images">
+            ${data.images.map(img => `<img src="images/${img}" alt="${isArabic ? data.titleArabic : data.title}" class="project-image">`).join('')}
+          </div>
+          <a href="https://github.com/salsayid/${data.repo}" target="_blank" class="modal-github-link">
+            <img src="images/github-mark.png" alt="GitHub" class="github-icon">
+            ${isArabic ? 'عرض المشروع على جيتهاب' : 'View project on GitHub'}
+          </a>
+        `;
+        
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    const closeModal = () => {
+      modal.classList.remove('show');
       document.body.style.overflow = '';
-    }
-  });
+    };
 
-  // Close modal on escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && document.getElementById('project-modal').classList.contains('show')) {
-      document.getElementById('project-modal').classList.remove('show');
-      document.body.style.overflow = '';
-    }
-  });
+    closeModalBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('show')) {
+        closeModal();
+      }
+    });
+  }
 
-  // Run initializations
+  // Run all initializations
   initLanguageToggle();
-  initHeroAnimation();
   initDividerAnimation();
-  initRecentPosts();
-
+  initProjectModal();
 });
