@@ -464,3 +464,13 @@ body[dir="rtl"] .writing-list li {
   margin: 2rem 0;
   border: 1px solid var(--border-color);
 }
+
+.code-block {
+  background-color: #bababa;
+  color: rgb(26, 43, 66);
+  padding: 1rem;
+  border-radius: 5px;
+  overflow-x: auto;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+}
