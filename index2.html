@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>sayid alsayid</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- single, crisp monospace font -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --accent: #4b5cff;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "IBM Plex Mono", monospace;
+        background: #fff;
+        color: #111;
+        line-height: 1.7;
+        padding-bottom: 6rem;
+      }
+
+      /* header */
+      header {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem 1rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1.2rem;
+      }
+
+      h1 {
+        font-weight: 700;
+        font-size: 2rem;
+        letter-spacing: 0.03em;
+        color: var(--accent);
+      }
+
+      a.contact {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        border: 1px solid #c7c7c7;
+        padding: 0.3rem 0.7rem;
+        text-decoration: none;
+        color: #111;
+      }
+
+      a.contact:hover {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      /* social links */
+      nav.socials {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      nav.socials a {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        border: 1px solid #c7c7c7;
+        padding: 0.3rem 0.7rem;
+        text-decoration: none;
+        color: #111;
+        display: inline-block;
+      }
+
+      nav.socials a:hover {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      /* layout */
+      main {
+        max-width: 650px;
+        margin: 4rem auto 0;
+        padding: 0 1rem;
+      }
+
+      section {
+        margin-bottom: 3.5rem;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: #444;
+        margin-bottom: 1rem;
+      }
+
+      ul {
+        padding-left: 1.2rem;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      blockquote {
+        border-left: 3px solid var(--accent);
+        padding-left: 0.8rem;
+        margin-top: 1rem;
+        color: #444;
+        font-style: italic;
+      }
+
+      .mono-bold { font-weight: 700; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>sayid alsayid</h1>
+      <nav class="socials">
+        <a href="https://linkedin.com/in/sayidalsayid" target="_blank">linkedin</a>
+        <a href="https://github.com/salsayid" target="_blank">github</a>
+        <a href="https://x.com/AlsayidSayid" target="_blank">twitter</a>
+      </nav>
+      <a href="mailto:alsayidoff@gmail.com" class="contact">contact</a>
+    </header>
+
+    <main>
+      <section id="about">
+        <h2>about</h2>
+        <p>
+          my name is sayid. i'm a 20‑year‑old student from lincoln studying mechanical engineering and computer
+          science at the university of nebraska. i'm really into
+          physics, computing, and <a href="https://jstris.jezevec10.com/u/sayid" target="_blank">tetris</a>.
+        </p>
+        <blockquote>
+          thinking for <span id="days"></span> days (and counting)
+
+        </blockquote>
+      </section>
+
+      <section id="experience">
+        <h2>experience</h2>
+        <ul>
+          <li>Software Engineer Intern – NASA Glenn (Fall 2025)</li>
+          <li>Software QA Engineer Intern – Hudl (Summer 2025)</li>
+          <li>Aeronautical Systems Intern – NASA Glenn (Fall 2024)</li>
+          <li>Undergrad Researcher – NE Nanoscale Energy Lab (Spring 2024)</li>
+          <li>Data Science Intern – Nebraska Transportation Center (’23‑’24)</li>
+
+        </ul>
+      </section>
+
+      <section id="projects">
+        <h2>projects</h2>
+        <ul>
+          <li><a href="https://prepspective.com" target="_blank">PrepSpective.com</a>, an ai interview grader</li>
+          <li><a href="https://github.com/salsayid/stellarlab" target="_blank">StellarLab</a> – rocket propulsion simulator</li>
+          <li><a href="https://github.com/salsayid/gym-planning-app" target="_blank">GymSync</a> – real‑time gym scheduler</li>
+          <li>XY‑gantry chess robot (WIP)</li>
+          <li>this retro site rebuild</li>
+        </ul>
+      </section>
+
+      <section id="goal">
+        <h2>current goal</h2>
+        <p>
+          working towards a <a href="https://www.trueup.io/faang-plus/companies" target="_blank">big</a> summer 2026 (inshallah)
+        </p>
+      </section>
+
+      </section>
+          <section id="find-me">
+        <h2 class="english">find me on these</h2>
+        <ul class="social-links">
+          <li class="social-item"><a href="https://instagram.com/sayidall" target="_blank">instagram</a></li>
+          <li class="social-item"><a href="https://letterboxd.com/sayidal" target="_blank">letterboxd</a></li>
+          <li class="social-item"><a href="https://monkeytype.com/profile/sayid" target="_blank">monkeytype</a></li>
+          <li class="social-item"><a href="https://www.nitrotype.com/racer/sayidal" target="_blank">nitrotype</a></li>
+          <li class="social-item"><a href="https://ch.tetr.io/u/sayoodi" target="_blank">tetr.io</a></li>
+          <li class="social-item"><a href="https://jstris.jezevec10.com/u/sayid" target="_blank">jstris</a></li>
+        </ul>
+      </section>
+
+
+    </main>
+
+    <script>
+      // day counter – since Jan 21 2005
+      const daysEl = document.getElementById("days");
+      if (daysEl) {
+        const birth = new Date("2005-01-21T00:00:00-05:00");
+        const diff = Math.floor((Date.now() - birth.getTime()) / 86_400_000);
+        daysEl.textContent = diff.toLocaleString();
+      }
+    </script>
+  </body>
+</html>
