@@ -153,7 +153,7 @@ The system supports both manual control and preloaded autonomous missions using 
     let isArabic = false;
 
     const translations = {
-        'nav_about': 'عني', 'nav_experience': 'الخبرات', 'nav_projects': 'المشاريع', 'nav_writing': 'كتابات', 'nav_home': 'الرئيسية',
+        'nav_about': 'عني', 'nav_experience': 'الخبرات', 'nav_projects': 'المشاريع', 'nav_writing': 'كتابات', 'nav_home': 'الرئيسية', 'nav_socials': 'حساباتي',
         'hero_name': 'سيد السيد', 'hero_subtitle': 'طالب جامعي | هندسة ميكانيكية + علوم حاسب',
         'hero_email': 'الايميل', 'hero_linkedin': 'لينكدإن', 'hero_github': 'جيت هب',
         'about_title': 'عني', 'experience_title': 'الخبرات', 'projects_title': 'المشاريع', 
