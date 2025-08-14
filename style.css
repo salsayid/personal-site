@@ -15,7 +15,7 @@ html {
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'IBM Plex Mono', 'Noto Sans Arabic', monospace;
   font-size: 15px;
   line-height: 1.7;
   margin: 0;
