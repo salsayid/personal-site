@@ -1,6 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   const projectDetails = {
+
+    prepspective: {
+      title: 'PrepSpective – AI Interview Practice',
+      titleArabic: 'PrepSpective – تدريب مقابلات الذكاء الاصطناعي',
+      stack: 'React, Node.js, Express, WebSockets, OpenAI API',
+      stackArabic: 'React، Node.js، Express، WebSockets، OpenAI API',
+      description: `PrepSpective is a real-time, AI-powered interview practice platform that simulates technical and behavioral interview sessions. Users can select job roles, difficulty levels, and interview styles, then receive tailored questions in a live chat interface. The AI evaluates responses for clarity, technical accuracy, and communication skills, providing instant feedback and follow-up questions. It supports multiple modes: timed challenges, mock panel interviews, and skill-specific drills, making it a versatile tool for job seekers and students alike.`,
+      descriptionArabic: `PrepSpective هو منصة تدريب مقابلات تعتمد على الذكاء الاصطناعي في الوقت الفعلي، 
+    وتحاكي جلسات المقابلات التقنية والسلوكية. يمكن للمستخدمين اختيار الأدوار الوظيفية، مستويات الصعوبة، وأنماط المقابلات، 
+    ثم يتلقون أسئلة مخصصة في واجهة دردشة مباشرة. يقوم الذكاء الاصطناعي بتقييم الإجابات من حيث الوضوح، الدقة التقنية، ومهارات التواصل، 
+    مع تقديم ملاحظات فورية وأسئلة متابعة. يدعم أوضاع متعددة: تحديات زمنية، مقابلات جماعية تجريبية، وتمارين خاصة بالمهارات، 
+    مما يجعله أداة متعددة الاستخدام للباحثين عن عمل والطلاب.`,
+      images: ['prepspective1.png'],
+      repo: 'prepspective'
+    },    
     gym: {
       title: 'GymSync Planning Application',
       titleArabic: 'تطبيق تخطيط الصالة الرياضية',
