@@ -85,8 +85,63 @@ The system supports both manual control and preloaded autonomous missions using 
 يدعم النظام التحكم اليدوي والمهام الذاتية المحملة مسبقًا باستخدام وحدة التحكم في الطيران Pixhawk 6C. أظهرت الاختبارات الواقعية أنه يمكنه محاكاة التسارع الواقعي، المنعطفات، وأنماط التوقف - مثالي لمعايرة الكاميرا الجانبية، تقييم تتبع الحركة، أو جمع البيانات المكانية.`,
       images: ['rccar1.png', 'rccar2.png'],
       repo: 'Automated-human-like-RC-Car'
+    },
+
+    psite: {
+      title: "Sayids Personal Site",
+      titleArabic: "موقع سيد الشخصي",
+      stack: "HTML, CSS, JavaScript",
+      stackArabic: "HTML، CSS، JavaScript",
+      description: `ngl i just vibe coded this entire thing.`,
+      descriptionArabic: `بصراحة، برمجت هذا الموقع كله على المزاج — تصميم بسيط وخفيف مع HTML وCSS وJavaScript.`,
+      images: [],
+      repo: "personal-site"
     }
+    
   };
+
+  /**
+   * Theme toggle (dark/light) with persistence and language-aware labels.
+   */
+  function initThemeToggle() {
+    const btn = document.getElementById('theme-toggle-btn');
+    if (!btn) return;
+
+    const getIsArabic = () => document.body.dir === 'rtl';
+
+    const label = (mode /* 'dark'|'light' */, isArabic) => {
+      if (isArabic) {
+        // Button shows the *next* state
+        return mode === 'dark' ? 'فاتح' : 'داكن';
+      }
+      return mode === 'dark' ? 'Light' : 'Dark';
+    };
+
+    const apply = (mode) => {
+      document.documentElement.setAttribute('data-theme', mode);
+      btn.setAttribute('aria-pressed', String(mode === 'dark'));
+      btn.textContent = label(mode, getIsArabic());
+    };
+
+    const stored = localStorage.getItem('theme');
+    const mql = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+    const start = stored || (mql && mql.matches ? 'dark' : 'light');
+    apply(start);
+
+    btn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme', next);
+      apply(next);
+    });
+
+    // If user hasn't chosen a theme, follow OS changes live
+    if (mql && mql.addEventListener) {
+      mql.addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) apply(e.matches ? 'dark' : 'light');
+      });
+    }
+  }
 
   /**
    * Initializes the language toggle functionality.
@@ -154,6 +209,13 @@ The system supports both manual control and preloaded autonomous missions using 
           el.style.display = el.classList.contains('english') ? '' : 'none';
         }
       });
+
+      // Update theme button label to match current language
+      const themeBtn = document.getElementById('theme-toggle-btn');
+      if (themeBtn) {
+        const mode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        themeBtn.textContent = isArabic ? (mode === 'dark' ? 'فاتح' : 'داكن') : (mode === 'dark' ? 'Light' : 'Dark');
+      }
     });
   }
 
@@ -199,6 +261,7 @@ The system supports both manual control and preloaded autonomous missions using 
     
     dividers.forEach(d => observer.observe(d));
   }
+  
 
   /**
    * Sets up the project modal functionality.
@@ -253,6 +316,7 @@ The system supports both manual control and preloaded autonomous missions using 
   }
 
   // Run all initializations
+  initThemeToggle();
   initLanguageToggle();
   initDividerAnimation();
   initProjectModal();
