@@ -14,54 +14,39 @@
     <nav>
       <a href="index.html" data-translate="nav_home">home</a>
     </nav>
-    <button id="lang-toggle-btn">عربي</button>
+    <button id="lang-toggle-btn">Arabic</button>
   </header>
 
   <main>
-    <section id="writing">
-      <h1 class="writing-header-large centered english" data-translate="writing_title">WRITING</h1>
-      <h1 class="writing-header-large centered arabic" lang="ar" style="display: none;">كتابات</h1>
-      <p class="writing-subtext centered english">Collection of thoughts on pretty much anything.</p>
-      <p class="writing-subtext centered arabic" lang="ar" style="display: none;">مجموعة من الأفكار حول أي شيء تقريبًا.</p>
+    <section id="writing-page">
+      <h1 class="writing-header-large" data-translate="writing_title">WRITING</h1>
+      <p class="writing-subtext" data-translate="writing_subheader">Collection of my thoughts on pretty much anything.</p>
+      
       <hr class="divider">
+      
       <ul class="writing-list">
-        <li class="writing-item">
+        <li>
           <span class="writing-title english">Extended thoughts on "Tron: Legacy", and the film community</span>
           <span class="writing-title arabic" lang="ar" style="display: none;">أفكار موسعة حول "ترون: الإرث" ومجتمع الأفلام</span>
           <a href="writing/tron-writing.html" class="writing-link english">[ read more ]</a>
           <a href="writing/tron-writing.html" class="writing-link arabic" lang="ar" style="display: none;">[ اقرأ المزيد ]</a>
-        <li class="writing-item">
+        </li>
+        <li>
           <span class="writing-title english">The Irony of the Admirals in One Piece</span>
           <span class="writing-title arabic" lang="ar" style="display: none;">العواقب في المستقيمين من One Piece</span>
           <a href="writing/admirals-writing.html" class="writing-link english">[ read more ]</a>
           <a href="writing/admirals-writing.html" class="writing-link arabic" lang="ar" style="display: none;">[ اقرأ المزيد ]</a>
         </li>
+        <li>
+          <span class="writing-title english">Frontend vs Backend Development</span>
+          <span class="writing-title arabic" lang="ar" style="display: none;">تطوير الواجهة ضد تطوير الخلفية</span>
+          <a href="writing/frontend-writing.html" class="writing-link english">[ read more ]</a>
+          <a href="writing/frontend-writing.html" class="writing-link arabic" lang="ar" style="display: none;">[ اقرأ المزيد ]</a>
+        </li>
       </ul>
     </section>
   </main>
   
-
   <script src="script.js"></script>
-  <script>
-    document.getElementById('lang-toggle-btn').addEventListener('click', function() {
-      const englishElements = document.querySelectorAll('.english');
-      const arabicElements = document.querySelectorAll('.arabic');
-
-      englishElements.forEach(element => {
-        element.style.display = element.style.display === 'none' ? 'block' : 'none';
-      });
-
-      arabicElements.forEach(element => {
-        element.style.display = element.style.display === 'none' ? 'block' : 'none';
-      });
-
-      // Update page direction
-      document.body.dir = document.body.dir === 'rtl' ? 'ltr' : 'rtl';
-
-      // Update button text
-      const langBtn = document.getElementById('lang-toggle-btn');
-      langBtn.textContent = langBtn.textContent === 'عربي' ? 'English' : 'عربي';
-    });
-  </script>
 </body>
 </html>

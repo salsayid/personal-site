@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Frontend vs Backend Development</title>
+  <meta name="description" content="Frontend vs Backend Development">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="../style.css" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <nav>
+      <a href="../index.html" data-translate="nav_home">home</a>
+      <a href="../index.html#about" data-translate="nav_about">about</a>
+      <a href="../index.html#projects" data-translate="nav_projects">projects</a>
+      <a href="../writing.html" data-translate="nav_writing">writing</a>
+    </nav>
+    <button id="lang-toggle-btn">Arabic</button>
+  </header>
+
+  <main class="post-content">
+    <article>
+      <header class="post-header">
+        <h1 class="english-title">Frontend vs Backend Development</h1>
+        <h1 class="arabic-title" lang="ar" style="display: none;">  تطوير الواجهة ضد تطوير الخلفية </h1>
+        <div class="post-meta">
+          <time class="english-date">July 31, 2025</time>
+          <time class="arabic-date" lang="ar" style="display: none;">٣١ يوليو ٢٠٢٥</time>
+        </div>
+      </header>
+      
+      <div class="post-body">
+        <div class="english-content">
+          <p>Alright, after some industry experience, working with software, programming, reviewing, and learning more and more everyday, I might have come to the conclusion that <a href="https://www.w3schools.com/whatis/whatis_frontenddev.asp" target="_blank">frontend development</a> might be harder than the <a href="https://www.geeksforgeeks.org/blogs/backend-development/" target="_blank">backend</a>. Not always, but in more cases than people would like to admit.</p>
+
+          <p>Okay, just to preface, OBVIOUSLY if you're doing backend for something intense, like a <a href="https://en.wikipedia.org/wiki/Financial_technology" target="_blank">fintech</a> trading platform or some huge-scale system that handles insane amounts of data, yeah bro, that's gonna be pretty tough and it'll come with its own set of problems and issues. So, I'm not at all saying frontend is harder than all backend work. But, I have noticed this pattern where people like to act like front end is just the entry-level stuff, reserved for boot-camp certifications and web designers. Like backend is where the "real" developers and engineers are, and frontend is just where you go to resize buttons and make them colorful. And that's just not how it feels when you're actually in it.</p>
+
+          <p>It's just frontend is messy in a way backend rarely is. There's this illusion of structure because you've got frameworks like <a href="https://react.dev/" target="_blank">React</a> or <a href="vuejs.org" target="_blank">Vue</a>, but underneath its all nonsense. You're constantly fighting with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">CSS</a> issues, browser inconsistencies, layout bugs, accessibility requirements, and infinite edge cases. The code might run fine, but that doesn't mean the page looks right. Or feels right. Or works on Safari, because of course it doesn’t.</p>
+
+          <p>Most backend jobs I've seen (and done) boil down to reading some data, doing some logic, and returning a response. I'm not saying it's mindless or anything, but the general structure is pretty stable. Throw in endless documentation and systemic frameworks to follow, it's hard to get something truly wrong. You don't really have to care how thing look. You can just write clean and simple code, then be done.</p>
+            <p>Like here's an actual example I ran into fairly recently: </p>
+<pre class="code-block"><code>
+1   &lt;button onClick={() =&gt; setOpen(true)}&gt;Open Modal&lt;/button&gt;
+2      {open &amp;&amp; (
+3        &lt;div&gt;
+4          &lt;h1&gt;Hello&lt;/h1&gt;
+5          &lt;button onClick={() =&gt; setOpen(false)}&gt;Close&lt;/button&gt;
+6        &lt;/div&gt;
+7      )}
+</code></pre>
+
+
+          <p>It seems fine, right? Nah man. Suddenly you have to handle the background scroll locking, keyboard escape closing, animation timing ,and transitions that look weird. Also, cant forget to optimize for iOS, Safari, dark mode, and every other possible environment.</p>
+
+          <p>Meanwhile on the backend side, for the same feature, it'll probably look something like: </p>
+ <pre class="code-block"><code>
+1    app.get('/api/message', (req, res) => {
+2        res.json({ message: 'Hello' })
+3    })
+          </code></pre>
+          <p>And thats it, thats the entire thing. You don't have to worry about what the font looks like or if the modal has the right amount of snap to it.</p>
+
+          <p>So what I think the main thing is, it's that frontend isn’t just writing code. It’s design, psychology, timing, UX, accessibility, performance. You’re literally building something that real people can see and feel. And it's not enough to work. It has to feel right. You actually have to build with people in mind who don’t care about the tech stack, who will just say “the site feels off” or “why doesn’t this button work” even if it’s working exactly as you coded it.</p>
+
+          <p>And man, I'm not even getting into CSS. It's a completely separate beast. One small change in the padding or a SINGLE rouge `position:absolute` could collapse the entire layout.</p>
+
+          <p>Another quick one from an actual project:</p>
+<pre class="code-block"><code>
+1    .card {
+2       display: flex;
+3       flex-direction: column;
+4       align-items: center;
+5    }
+</code></pre>
+
+          <p>It's cool! It works great. Usually. Until one card is like 0.000001 px taller than the others because for some reason, a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/children" target="_blank">child element</a> has an unexpected line-height and now the entire thing looks sloppy, once again. But you expected this, right?</p>
+
+          <p>And honestly, I can see the other side for this argument. But, it’s not just the tech that I'm talking about. The culture around frontend is so weird. A lot of people still treat it like a junior skill. Like, “Oh you’re doing frontend? You must be new.” But in reality, the deeper you go, the harder and harder it gets.</p>
+
+          <p>So yeah, I’m not trying to say frontend is better or more important or anything like that. Backend is cool. Infrastructure is cool. <a href="https://en.wikipedia.org/wiki/DevOps" target="_blank">DevOps</a> is really cool. But I do think frontend deserves more respect. Because it’s hard. Not in the traditional like “I solved this math problem” kind of hard, but in the “something isn't working and I don’t know why” kind of hard.</p>
+
+          <p>Anyway. That’s all. If you’ve ever spent an hour wondering why a div won’t center when it absolutely should be centered, just know you’re not crazy. Just ask <a href="https://gemini.google.com/app" target="_blank">Gemini</a> bro.</p>
+        </div>
+
+        <div class="arabic-content" lang="ar" style="display: none;">
+          <p>طيب، بعد حوالي عشرة أسابيع من الشغل في السوفتوير، والبرمجة، والمراجعة، والتعلم كل يوم، يمكن وصلت لقناعة إنو الفرونت إند مرات بيكون أصعب من الباك إند. ما دايمًا، لكن في حالات أكتر مما الناس بتتوقع.</p>
+
+          <p>أها، خليني أوضح، طبعًا لو إنت شغال باك إند في حاجة معقدة زي منصات الفينتك أو نظام ضخم بتعامل مع كميات مجنونة من البيانات، أكيد الموضوع حيكون صعب وعندو مشاكلو وتحدياتو. فـ ما بقول إنو الفرونت إند أصعب من كل أنواع الباك إند. لكن لاحظت إنو في ناس كتار بشوفو الفرونت إند شغل بسيط، زي مرحلة دخول في المجال، مخصص لخريجين الكورسات السريعة والمصممين. وكأنو الباك إند هو الشغل الحقيقي، والفرونت بس مكان تكبر الأزرار وتلونها. وده ما الإحساس البتحسو لما تكون جوة الموضوع فعليًا.</p>
+
+          <p>الفرونت إند فوضوي بطريقة نادرًا ما تحصل في الباك إند. شكله مرتب عشان في فريموركات زي React أو Vue، لكن تحت السطح في فوضى. كل يوم بتقاتل مع مشاكل CSS، وتباين المتصفحات، وأخطاء الترتيب، ومتطلبات الوصول، وحالات غريبة مالها نهاية. الكود ممكن يشتغل تمام، بس ده ما معناهو الصفحة شكلها صاح. أو حاسيه صح. أو شغالة في Safari، لأنو طبعًا ما شغالة.</p>
+
+          <p>أغلب شغل الباك إند اللي شفتو (وكمان اشتغلتو) هو تقرأ بيانات، تعمل منطق بسيط، وترد برد. ما بقول إنو سهل ولا تافه، بس الهيكل العام ثابت وواضح. مع كمية الدوكيومنتيشن الكتيرة والقواعد اللي تمشي عليها، صعب تغلط غلطة كبيرة. وما محتاج تهتم بشكل الحاجة. تكتب كود نظيف بسيط، وتكون خلصت.</p>
+
+<pre class="code-block"><code>
+1   &lt;button onClick={() =&gt; setOpen(true)}&gt;Open Modal&lt;/button&gt;
+2      {open &amp;&amp; (
+3        &lt;div&gt;
+4          &lt;h1&gt;Hello&lt;/h1&gt;
+5          &lt;button onClick={() =&gt; setOpen(false)}&gt;Close&lt;/button&gt;
+6        &lt;/div&gt;
+7      )}
+</code></pre>
+
+          <p>الظاهر كل شي تمام، صح؟ لكن لا. فجأة لازم تقفل السكرول في الخلفية، تضبط زر الإسك من الكيبورد، توقيت الأنيميشن، والانتقالات اللي شكلها غريب. وكمان ما تنسى تحسن الأداء لـ iOS، و Safari، والوضع الداكن، وكل البيئات الممكنة.</p>
+
+ <pre class="code-block"><code>
+1    app.get('/api/message', (req, res) => {
+2        res.json({ message: 'Hello' })
+3    })
+          </code></pre>
+          <p>وخلاص، كده خلصت. ما عليك من شكل الخط، ولا إذا المودال فيهو إحساس ناعم ولا لا.</p>
+
+          <p>المشكلة الأساسية في رأيي، إنو الفرونت إند ما بس كتابة كود. هو تصميم، نفسية، توقيت، تجربة مستخدم، وصول، أداء. إنت حرفيًا بتبني حاجة الناس بتشوفها وتحس بيها. وما كفاية تشتغل. لازم تكون حاسيه صح. وبتبني لناس ما بهمهم الكود، بس حيقولوا "الموقع فيهو شي غلط" أو "الزر دا ما شغال" مع إنو شغال زي ما إنت كتبته بالضبط.</p>
+
+          <p>ووالله، لسة ما دخلت في موضوع الـ CSS. ده عالم براهو. تغيير صغير في البادينق أو position: absolute واحد ممكن يخرب كل الحاجة.</p>
+
+<pre class="code-block"><code>
+1    .card {
+2       display: flex;
+3       flex-direction: column;
+4       align-items: center;
+5    }
+</code></pre>
+
+          <p>شكله جميل! شغال تمام. عادةً. إلا لما كارد واحد يكون أطول بمليمتر واحد عشان طفل جواهو عندو line-height غريب، وكل الترتيب يخرب تاني. لكن إنت متوقع ده، صح؟</p>
+
+          <p>وبصراحة، أنا فاهم الطرف التاني في النقاش ده. لكن ما بس التكنيك، الثقافة حولين الفرونت إند غريبة. في ناس لسة شايفاه شغل للمبتدئين. زي "إنت بتشتغل فرونت؟ أكيد جديد." لكن الحقيقة، كل ما تعمق، كل ما بقى أصعب وأصعب.</p>
+
+          <p>فـ أيوة، ما بقول الفرونت إند أحسن أو أهم من أي حاجة. الباك إند كويس. البنية التحتية ممتازة. الـ DevOps رهيب. لكن الفرونت إند بستحق احترام أكتر. عشان هو صعب. ما صعب زي "حليت مسألة رياضيات"، لكن زي "في شي ما شغال وما عارف السبب" الصعوبة ديك.</p>
+
+          <p>المهم. ده كل شي. لو ضيعت ساعة تحاول تخلي div يتوسطن في النص وهو المفروض يتوسطن وما داير، بس اعرف إنك ما مجنون. أسأل Gemini.</p>
+        </div>
+      </div>
+    </article>
+
+    <nav class="post-nav">
+      <a href="../writing.html" class="back-to-writing english-button">← back to writing</a>
+      <a href="../writing.html" class="back-to-writing arabic-button" lang="ar" style="display: none;">← العودة إلى الكتابة</a>
+      <br>
+      <a href="../index.html" class="back-to-home english-button">← back to home</a>
+      <a href="../index.html" class="back-to-home arabic-button" lang="ar" style="display: none;">← العودة إلى الصفحة الرئيسية</a>
+    </nav>
+  </main>
+
+  <script src="../script.js"></script>
+  <script>
+    document.getElementById('lang-toggle-btn').addEventListener('click', function() {
+      const englishTitle = document.querySelector('.english-title');
+      const arabicTitle = document.querySelector('.arabic-title');
+      const englishContent = document.querySelector('.english-content');
+      const arabicContent = document.querySelector('.arabic-content');
+      const englishDate = document.querySelector('.english-date');
+      const arabicDate = document.querySelector('.arabic-date');
+      const englishButtons = document.querySelectorAll('.english-button');
+      const arabicButtons = document.querySelectorAll('.arabic-button');
+
+      if (englishTitle.style.display === 'none') {
+        englishTitle.style.display = 'block';
+        arabicTitle.style.display = 'none';
+        englishContent.style.display = 'block';
+        arabicContent.style.display = 'none';
+        englishDate.style.display = 'block';
+        arabicDate.style.display = 'none';
+        englishButtons.forEach(button => button.style.display = 'block');
+        arabicButtons.forEach(button => button.style.display = 'none');
+      } else {
+        englishTitle.style.display = 'none';
+        arabicTitle.style.display = 'block';
+        englishContent.style.display = 'none';
+        arabicContent.style.display = 'block';
+        englishDate.style.display = 'none';
+        arabicDate.style.display = 'block';
+        englishButtons.forEach(button => button.style.display = 'none');
+        arabicButtons.forEach(button => button.style.display = 'block');
+      }
+    });
+  </script>
+</body>
+</html>
